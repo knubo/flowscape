@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		8EEF077B1FF2F74B0032CDAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF077A1FF2F74B0032CDAE /* AppDelegate.swift */; };
-		8EEF077D1FF2F74B0032CDAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF077C1FF2F74B0032CDAE /* ViewController.swift */; };
+		8EEF077D1FF2F74B0032CDAE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF077C1FF2F74B0032CDAE /* GameViewController.swift */; };
 		8EEF07801FF2F74B0032CDAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EEF077E1FF2F74B0032CDAE /* Main.storyboard */; };
 		8EEF07821FF2F74B0032CDAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EEF07811FF2F74B0032CDAE /* Assets.xcassets */; };
 		8EEF07851FF2F74B0032CDAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EEF07831FF2F74B0032CDAE /* LaunchScreen.storyboard */; };
+		8EEF078D1FF2F7690032CDAE /* Labyrinth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF078C1FF2F7690032CDAE /* Labyrinth.swift */; };
+		8EFFF5801FF51C12007947D6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFFF57F1FF51C12007947D6 /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8EEF07771FF2F74B0032CDAE /* Flowmaze2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowmaze2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EEF077A1FF2F74B0032CDAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8EEF077C1FF2F74B0032CDAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8EEF077C1FF2F74B0032CDAE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8EEF077F1FF2F74B0032CDAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8EEF07811FF2F74B0032CDAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EEF07841FF2F74B0032CDAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8EEF07861FF2F74B0032CDAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EEF078C1FF2F7690032CDAE /* Labyrinth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labyrinth.swift; sourceTree = "<group>"; };
+		8EFFF57F1FF51C12007947D6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +58,14 @@
 		8EEF07791FF2F74B0032CDAE /* Flowmaze2 */ = {
 			isa = PBXGroup;
 			children = (
+				8EFFF57F1FF51C12007947D6 /* MenuViewController.swift */,
 				8EEF077A1FF2F74B0032CDAE /* AppDelegate.swift */,
-				8EEF077C1FF2F74B0032CDAE /* ViewController.swift */,
+				8EEF077C1FF2F74B0032CDAE /* GameViewController.swift */,
 				8EEF077E1FF2F74B0032CDAE /* Main.storyboard */,
 				8EEF07811FF2F74B0032CDAE /* Assets.xcassets */,
 				8EEF07831FF2F74B0032CDAE /* LaunchScreen.storyboard */,
 				8EEF07861FF2F74B0032CDAE /* Info.plist */,
+				8EEF078C1FF2F7690032CDAE /* Labyrinth.swift */,
 			);
 			path = Flowmaze2;
 			sourceTree = "<group>";
@@ -136,8 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EEF077D1FF2F74B0032CDAE /* ViewController.swift in Sources */,
+				8EEF077D1FF2F74B0032CDAE /* GameViewController.swift in Sources */,
+				8EEF078D1FF2F7690032CDAE /* Labyrinth.swift in Sources */,
 				8EEF077B1FF2F74B0032CDAE /* AppDelegate.swift in Sources */,
+				8EFFF5801FF51C12007947D6 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +285,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S5FN3MKRTG;
 				INFOPLIST_FILE = Flowmaze2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = no.knubo.Flowmaze2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S5FN3MKRTG;
 				INFOPLIST_FILE = Flowmaze2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = no.knubo.Flowmaze2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
