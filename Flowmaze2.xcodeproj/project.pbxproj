@@ -14,6 +14,7 @@
 		8EEF07851FF2F74B0032CDAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EEF07831FF2F74B0032CDAE /* LaunchScreen.storyboard */; };
 		8EEF078D1FF2F7690032CDAE /* Labyrinth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF078C1FF2F7690032CDAE /* Labyrinth.swift */; };
 		8EFFF5801FF51C12007947D6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFFF57F1FF51C12007947D6 /* MenuViewController.swift */; };
+		8EFFF5821FF80373007947D6 /* HighScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFFF5811FF80373007947D6 /* HighScores.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		8EEF07861FF2F74B0032CDAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EEF078C1FF2F7690032CDAE /* Labyrinth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labyrinth.swift; sourceTree = "<group>"; };
 		8EFFF57F1FF51C12007947D6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		8EFFF5811FF80373007947D6 /* HighScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScores.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				8EEF07831FF2F74B0032CDAE /* LaunchScreen.storyboard */,
 				8EEF07861FF2F74B0032CDAE /* Info.plist */,
 				8EEF078C1FF2F7690032CDAE /* Labyrinth.swift */,
+				8EFFF5811FF80373007947D6 /* HighScores.swift */,
 			);
 			path = Flowmaze2;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			files = (
 				8EEF077D1FF2F74B0032CDAE /* GameViewController.swift in Sources */,
 				8EEF078D1FF2F7690032CDAE /* Labyrinth.swift in Sources */,
+				8EFFF5821FF80373007947D6 /* HighScores.swift in Sources */,
 				8EEF077B1FF2F74B0032CDAE /* AppDelegate.swift in Sources */,
 				8EFFF5801FF51C12007947D6 /* MenuViewController.swift in Sources */,
 			);

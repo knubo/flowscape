@@ -22,6 +22,7 @@ class Labyrinth: UIImageView {
     var flowing = true
     
     var drawPoints:Set = Set<CGPoint>()
+    var gameActions:[GameAction] = []
     
     let timeBetweenDraw:CFTimeInterval = 0.01
     
@@ -113,7 +114,8 @@ class Labyrinth: UIImageView {
         let cellY = (Int(point.y) - marginTop) / boxSize
         
         board[cellY][cellX] = !board[cellY][cellX]
-        
+    
+    gameActions.append(GameAction(x:cellX, y:cellY, tick:tick, cellValue:board[cellY][cellX] ))
         
         UIGraphicsBeginImageContext(imageView.bounds.size)
         let context = UIGraphicsGetCurrentContext()
@@ -207,7 +209,6 @@ class Labyrinth: UIImageView {
     }
     
     fileprivate func makeMaze() {
-        
   	
         createMaze()
         
@@ -303,6 +304,7 @@ class Labyrinth: UIImageView {
                /* let c2 = colorOfPoint(y: y + p1, x: x + p2) */
                 
                 if(colorIsYellow(c)) {
+                    HighScores.sharedInstance.postScore(score:GameScore(actions:gameActions, endTick:tick, level:level))
                     flowing = false;
                     return
                 }
@@ -317,6 +319,7 @@ class Labyrinth: UIImageView {
         level = level + 1
         drawPoints.removeAll()
         tick = 0
+        gameActions.removeAll()
         makeMaze()
         flowing = true
     }
@@ -363,6 +366,8 @@ struct NextCell {
         return [(0,2), (-1,1), (1,1)]
     }
 }
+
+
 
 extension UIImage {
     func getPixelColor(y:Int, x:Int) -> [CUnsignedChar] {
