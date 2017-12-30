@@ -14,7 +14,12 @@ class Labyrinth: UIImageView {
     let imageView:UIImageView = UIImageView();
     
     var board: [[Bool]] = []
-    var mazeRowSize = 0, mazeColSize = 0, level = 4
+    
+    let boxSize = 25
+    var marginTop = 0, marginLeft = 0
+    var mazeRowSize = 0, mazeColSize = 0, level = 1
+    
+    var flowing = true
     
     var drawPoints:Set = Set<CGPoint>()
     
@@ -41,17 +46,61 @@ class Labyrinth: UIImageView {
         self.imageView.isUserInteractionEnabled = true
         self.imageView.addGestureRecognizer(tapGestureRecognizer)
         
+        let bounds = imageView.bounds
+        var height:CGFloat = CGFloat(0), width:CGFloat = CGFloat(0)
+        
+        if #available(iOS 11.0, *) {
+            height = bounds.size.height - safeAreaInsets.bottom - safeAreaInsets.top
+        } else {
+            height = bounds.size.height
+        }
+        if #available(iOS 11.0, *) {
+            width = bounds.size.width - safeAreaInsets.left - safeAreaInsets.right
+        } else {
+            width = bounds.size.width
+        }
+        
+        mazeColSize = Int(floor(width / 25)) - 1
+        mazeRowSize = Int(floor(height / 25)) - 1
+        
+        if #available(iOS 11.0, *) {
+            marginLeft =  Int(safeAreaInsets.left)
+        } else {
+            marginLeft = 0
+        }
+        
+        if #available(iOS 11.0, *) {
+            marginTop = (Int(height) - mazeRowSize * boxSize) / 2 + Int(safeAreaInsets.top)
+        } else {
+            marginTop = (Int(height) - mazeRowSize * boxSize) / 2
+        }
+        
         makeMaze()
     }
     
   @objc func tapAction(_ sender: UITapGestureRecognizer) {
 
-        let touchPoint = sender.location(in: self.imageView) // Change to whatever view you want the point for
-   
-        NSLog("Tap found %f %f", touchPoint.x, touchPoint.y)
+        let point = sender.location(in: self.imageView)
     
+        let cellX = (Int(point.x) - marginLeft) / boxSize
+        let cellY = (Int(point.y) - marginTop) / boxSize
+        
+        board[cellY][cellX] = !board[cellY][cellX]
+        
+        
+        UIGraphicsBeginImageContext(imageView.bounds.size)
+        let context = UIGraphicsGetCurrentContext()
+        imageView.image?.draw(in:imageView.bounds)
+        
+        context?.setFillColor(board[cellY][cellX] ? UIColor.white.cgColor : UIColor.green.cgColor)
+        context?.fill(CGRect(x: (cellX * boxSize) + marginLeft, y: (cellY * boxSize) + marginTop, width: boxSize, height: boxSize ))
+        context?.strokePath()
+        
+        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
     }
-
+    
     
     func fillMaze(rs:GKMersenneTwisterRandomSource, row:Int, col:Int) {
         
@@ -96,13 +145,13 @@ class Labyrinth: UIImageView {
     func addEntryAndExitToMaze() {
         var row:Int = 0;
         
-        while(!board[row][mazeColSize / 2]) {
+        while(row < mazeRowSize && !board[row][mazeColSize / 2]) {
             board[row][mazeColSize / 2] = true
             row = row + 1
         }
         
         row = mazeRowSize - 1;
-        while(!board[row][mazeColSize / 2]) {
+        while(row > 0 && !board[row][mazeColSize / 2]) {
             board[row][mazeColSize / 2] = true
             row = row - 1
         }
@@ -112,6 +161,8 @@ class Labyrinth: UIImageView {
         
         let rs = GKMersenneTwisterRandomSource()
         rs.seed = UInt64(level)
+        board = []
+        
         
         for _ in 0..<mazeRowSize {
             var row: [Bool] = []
@@ -130,43 +181,15 @@ class Labyrinth: UIImageView {
     
     fileprivate func makeMaze() {
         
-        let bounds = imageView.bounds
-        var height:CGFloat = CGFloat(0), width:CGFloat = CGFloat(0)
-        
-        if #available(iOS 11.0, *) {
-            height = bounds.size.height - safeAreaInsets.bottom - safeAreaInsets.top
-        } else {
-            height = bounds.size.height
-        }
-        if #available(iOS 11.0, *) {
-            width = bounds.size.width - safeAreaInsets.left - safeAreaInsets.right
-        } else {
-            width = bounds.size.width
-        }
-        
-        mazeColSize = Int(floor(width / 25)) - 1
-        mazeRowSize = Int(floor(height / 25)) - 1
-        
-        let boxSize = 25
-        var marginTop = 0
-        var marginLeft = 0
-        if #available(iOS 11.0, *) {
-            marginLeft =  Int(safeAreaInsets.left)
-        } else {
-            marginLeft = 0
-        }
-        
-        if #available(iOS 11.0, *) {
-            marginTop = (Int(height) - mazeRowSize * boxSize) / 2 + Int(safeAreaInsets.top)
-        } else {
-            marginTop = (Int(height) - mazeRowSize * boxSize) / 2
-        }
-        
+  	
         createMaze()
         
         UIGraphicsBeginImageContext(imageView.bounds.size)
         let context = UIGraphicsGetCurrentContext()
         imageView.image?.draw(in:imageView.bounds)
+        
+        context?.setFillColor(UIColor.white.cgColor)
+        context?.fill(CGRect(x: marginLeft, y: marginTop, width: mazeColSize*boxSize, height: mazeRowSize * boxSize ))
         
         for x in 0..<mazeColSize {
             for y in 0..<mazeRowSize {
@@ -186,6 +209,13 @@ class Labyrinth: UIImageView {
         
         context?.strokePath()
         
+        /* End point */
+        context?.setFillColor(UIColor.yellow.cgColor)
+        context?.fill(CGRect(x: marginLeft + boxSize*(mazeColSize) / 2 + (boxSize / 2) - 2,
+                             y: marginTop + boxSize * mazeRowSize - 4,
+                             width: 4,
+                             height: 4))
+        
         imageView.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -197,6 +227,7 @@ class Labyrinth: UIImageView {
     }
     
     
+   
     fileprivate func fillMaze() {
         let checkCoords = [(1,0),(0,1),(-1,0),(0,-1)]
         
@@ -208,20 +239,7 @@ class Labyrinth: UIImageView {
         
         context?.setFillColor(UIColor.blue.cgColor)
         
-        for point in drawPoints {
-            let x = Int(point.x)
-            let y = Int(point.y)
-            
-            context?.fill(CGRect(x: x, y: y, width: 1, height: 1 ))
-            
-            for (p1,p2) in checkCoords {
-                let c = colorOfPoint(y: y + p1, x: x + p2)
-                
-                if(c[0] == 255 && c[1] == 255 && c[2] == 255) {
-                    newPoints.insert ( CGPoint(x:x+p2, y:y+p1) )
-                }
-            }
-        }
+        findNewPoints(context, checkCoords, &newPoints)
         
         context?.strokePath()
         
@@ -231,20 +249,69 @@ class Labyrinth: UIImageView {
         drawPoints = newPoints
     }
     
+    fileprivate func colorIsWhite(_ c: [CUnsignedChar]) -> Bool {
+        return c[0] == 255 && c[1] == 255 && c[2] == 255
+    }
+    
+    fileprivate func colorIsYellow(_ c: [CUnsignedChar]) -> Bool {
+        return c[0] == 255 && c[1] == 255 && c[2] == 0
+    }
+    
+    fileprivate func colorIsGreen(_ c: [CUnsignedChar]) -> Bool {
+        return c[0] == 0 && c[1] == 255 && c[2] == 0
+    }
+    fileprivate func colorIsBlue(_ c: [CUnsignedChar]) -> Bool {
+        return c[0] == 0 && c[1] == 0 && c[2] == 255
+    }
+    
+    fileprivate func findNewPoints(_ context: CGContext?, _ checkCoords: [(Int, Int)], _ newPoints: inout Set<CGPoint>) {
+        for point in drawPoints {
+            let x = Int(point.x)
+            let y = Int(point.y)
+            
+            context?.fill(CGRect(x: x, y: y, width: 1, height: 1 ))
+            
+            for (p1,p2) in checkCoords {
+                let c = self.imageView.image!.getPixelColor(y: y + p1, x: x + p2)
+               /* let c2 = colorOfPoint(y: y + p1, x: x + p2) */
+                
+                if(colorIsYellow(c)) {
+                    flowing = false;
+                    return
+                }
+
+                if(colorIsWhite(c)) {
+                    newPoints.insert ( CGPoint(x:x+p2, y:y+p1) )
+                }
+            }
+        }
+    }
+    func newLevel() {
+        level = level + 1
+        drawPoints.removeAll()
+        tick = 0
+        makeMaze()
+        flowing = true
+    }
+    
     func gameLoop() {
+        if !flowing {
+            newLevel()
+            return
+        }
+        
         fillMaze()
         
         if(drawPoints.count < 50) {
             fillMaze()
             fillMaze()
-            fillMaze()
+            
         }
         if(drawPoints.count < 100) {
             fillMaze()
-            fillMaze()
+           
         }
        
-        
         
         NSLog("%d %d", tick, drawPoints.count)
     }
@@ -267,6 +334,20 @@ struct NextCell {
             return [(0,-2), (-1,-1), (1,-1)]
         }
         return [(0,2), (-1,1), (1,1)]
+    }
+}
+
+extension UIImage {
+    func getPixelColor(y:Int, x:Int) -> [CUnsignedChar] {
+        
+        guard let cgImage = cgImage, let pixelData = cgImage.dataProvider?.data else { return [] }
+        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+        let bytesPerPixel = cgImage.bitsPerPixel / 8
+        
+        let pixelInfo: Int = ((cgImage.bytesPerRow * y) + (x * bytesPerPixel))
+
+        
+        return [data[pixelInfo+2], data[pixelInfo+1], data[pixelInfo], data[pixelInfo+3]]
     }
 }
 
