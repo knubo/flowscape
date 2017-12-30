@@ -27,6 +27,8 @@ class Labyrinth: UIImageView {
     
     var tick:Int = 0
     
+    var timer:Timer? = nil
+    
     @objc func updateTimer() {
         tick = tick + 1
         
@@ -34,13 +36,25 @@ class Labyrinth: UIImageView {
         setNeedsDisplay()
     }
     
+    func stopTimer() {
+        timer?.invalidate()
+    }
+    
+    func activateTimer() {
+        if(timer != nil && (timer?.isValid)!) {
+            return
+        }
+        timer = Timer.scheduledTimer(timeInterval: timeBetweenDraw, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-         Timer.scheduledTimer(timeInterval: timeBetweenDraw, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+        activateTimer()
         
         imageView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
         self.addSubview(imageView)
+        
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
         self.imageView.isUserInteractionEnabled = true
@@ -76,6 +90,19 @@ class Labyrinth: UIImageView {
         }
         
         makeMaze()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.pauseGame(notification:)), name: Notification.Name("pauseGame"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.restartGame(notification:)), name: Notification.Name("restartGame"), object: nil)
+    }
+    
+    @objc func pauseGame(notification: Notification) {
+        stopTimer()
+        
+    }
+    
+    @objc func restartGame(notification: Notification) {
+        activateTimer()
     }
     
   @objc func tapAction(_ sender: UITapGestureRecognizer) {
@@ -351,24 +378,6 @@ extension UIImage {
     }
 }
 
-extension UIView {
-    
-    func colorOfPoint(y:Int, x:Int) -> [CUnsignedChar] {
-        
-        var pixel: [CUnsignedChar] = [0, 0, 0, 0]
-        
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
-        
-        let context = CGContext(data: &pixel, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
-        
-        context!.translateBy(x: -CGFloat(x), y: -CGFloat(y))
-        
-        self.layer.render(in: context!)
-        
-        return pixel;
-    }
-}
 
 extension MutableCollection {
     mutating func shuffle(rs:GKMersenneTwisterRandomSource) {
