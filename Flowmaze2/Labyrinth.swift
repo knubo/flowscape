@@ -37,10 +37,21 @@ class Labyrinth: UIImageView {
         imageView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
         self.addSubview(imageView)
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
+        self.imageView.isUserInteractionEnabled = true
+        self.imageView.addGestureRecognizer(tapGestureRecognizer)
+        
         makeMaze()
     }
     
-  
+  @objc func tapAction(_ sender: UITapGestureRecognizer) {
+
+        let touchPoint = sender.location(in: self.imageView) // Change to whatever view you want the point for
+   
+        NSLog("Tap found %f %f", touchPoint.x, touchPoint.y)
+    
+    }
+
     
     func fillMaze(rs:GKMersenneTwisterRandomSource, row:Int, col:Int) {
         
