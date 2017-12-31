@@ -13,6 +13,13 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goToMenu(notification:)), name: Notification.Name("goToMenu"), object: nil)
+        
+    }
+    
+    @objc func goToMenu(notification: Notification) {
+        
+        performSegue(withIdentifier: "backToMenu", sender:self)
     }
 
     override func didReceiveMemoryWarning() {

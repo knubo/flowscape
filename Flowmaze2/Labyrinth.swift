@@ -19,7 +19,7 @@ class Labyrinth: UIImageView {
     var marginTop = 0, marginLeft = 0
     var mazeRowSize = 0, mazeColSize = 0, level = 1
     
-    var flowing = true
+    var mode = GameMode.PLAYING
     
     var drawPoints:Set = Set<CGPoint>()
     var gameActions:[GameAction] = []
@@ -29,6 +29,9 @@ class Labyrinth: UIImageView {
     var tick:Int = 0
     
     var timer:Timer? = nil
+    
+    var menuScaledHeight:Int?
+    var menuDrawPoint:CGRect?
     
     @objc func updateTimer() {
         tick = tick + 1
@@ -106,16 +109,21 @@ class Labyrinth: UIImageView {
         activateTimer()
     }
     
-  @objc func tapAction(_ sender: UITapGestureRecognizer) {
-
+    @objc func tapAction(_ sender: UITapGestureRecognizer) {
+        
         let point = sender.location(in: self.imageView)
-    
+        
+        if(mode != GameMode.PLAYING) {
+            menuClick(point:point);
+            return
+        }
+        
         let cellX = (Int(point.x) - marginLeft) / boxSize
         let cellY = (Int(point.y) - marginTop) / boxSize
         
         board[cellY][cellX] = !board[cellY][cellX]
-    
-    gameActions.append(GameAction(x:cellX, y:cellY, tick:tick, cellValue:board[cellY][cellX] ))
+        
+        gameActions.append(GameAction(x:cellX, y:cellY, tick:tick, cellValue:board[cellY][cellX] ))
         
         UIGraphicsBeginImageContext(imageView.bounds.size)
         let context = UIGraphicsGetCurrentContext()
@@ -130,6 +138,26 @@ class Labyrinth: UIImageView {
         
     }
     
+    func menuClick(point:CGPoint) {
+        let scale = 363.0 / Double(menuScaledHeight!) 
+        
+        let relativeY = Int(Double(point.y - menuDrawPoint!.origin.y) * scale)
+
+        if(relativeY > 226 && relativeY < 292) {
+            NotificationCenter.default.post(name: Notification.Name("goToMenu"), object: nil)
+        }
+        
+        if( relativeY > 138 && relativeY < 191) {
+            if(mode == GameMode.HIGHSCORE || mode == GameMode.SUCCESS) {
+                level = level + 1
+            }
+            
+            startGame()
+        }
+        
+        NSLog("relativeY %d", relativeY)
+        
+    }
     
     func fillMaze(rs:GKMersenneTwisterRandomSource, row:Int, col:Int) {
         
@@ -209,7 +237,7 @@ class Labyrinth: UIImageView {
     }
     
     fileprivate func makeMaze() {
-  	
+        
         createMaze()
         
         UIGraphicsBeginImageContext(imageView.bounds.size)
@@ -230,7 +258,7 @@ class Labyrinth: UIImageView {
                 
             }
         }
-
+        
         context?.setFillColor(UIColor.clear.cgColor)
         context?.setStrokeColor(UIColor.black.cgColor)
         context?.addRect(CGRect(x: marginLeft, y: marginTop, width: boxSize*mazeColSize, height: (boxSize*mazeRowSize) - 1 ))
@@ -255,7 +283,7 @@ class Labyrinth: UIImageView {
     }
     
     
-   
+    
     fileprivate func fillMaze() {
         let checkCoords = [(1,0),(0,1),(-1,0),(0,-1)]
         
@@ -293,6 +321,13 @@ class Labyrinth: UIImageView {
     }
     
     fileprivate func findNewPoints(_ context: CGContext?, _ checkCoords: [(Int, Int)], _ newPoints: inout Set<CGPoint>) {
+        
+        if(drawPoints.count == 0) {
+            mode = GameMode.GAME_OVER
+            showMenu()
+            return
+        }
+        
         for point in drawPoints {
             let x = Int(point.x)
             let y = Int(point.y)
@@ -301,32 +336,32 @@ class Labyrinth: UIImageView {
             
             for (p1,p2) in checkCoords {
                 let c = self.imageView.image!.getPixelColor(y: y + p1, x: x + p2)
-               /* let c2 = colorOfPoint(y: y + p1, x: x + p2) */
+                /* let c2 = colorOfPoint(y: y + p1, x: x + p2) */
                 
                 if(colorIsYellow(c)) {
-                    HighScores.sharedInstance.postScore(score:GameScore(actions:gameActions, endTick:tick, level:level))
-                    flowing = false;
+                    let highScore = HighScores.sharedInstance.postScore(score:GameScore(actions:gameActions, endTick:tick, level:level))
+                    mode = highScore ? GameMode.HIGHSCORE : GameMode.SUCCESS
+                    showMenu()
                     return
                 }
-
+                
                 if(colorIsWhite(c)) {
                     newPoints.insert ( CGPoint(x:x+p2, y:y+p1) )
                 }
             }
         }
     }
-    func newLevel() {
-        level = level + 1
+    func startGame() {
+      
         drawPoints.removeAll()
         tick = 0
         gameActions.removeAll()
         makeMaze()
-        flowing = true
+        mode = GameMode.PLAYING
     }
     
     func gameLoop() {
-        if !flowing {
-            newLevel()
+        if mode != GameMode.PLAYING {
             return
         }
         
@@ -339,14 +374,46 @@ class Labyrinth: UIImageView {
         }
         if(drawPoints.count < 100) {
             fillMaze()
-           
+            
         }
-       
+        
         
         NSLog("%d %d", tick, drawPoints.count)
     }
+    
+    func showMenu() {
+        
+        var topImage: UIImage?
+        
+        switch(mode) {
+        case .GAME_OVER:
+            topImage = UIImage(named: "GameOver.png")!
+            break
+        case .SUCCESS:
+            topImage = UIImage(named: "Success.png")!
+            break
+        case .HIGHSCORE:
+            topImage = UIImage(named: "Highscore.png")!
+            break
+        default:
+            break
+        }
+        
+        if(topImage != nil) {
+            
+            topImage = topImage!.resized(toWidth: imageView.bounds.width)!
 
+            menuScaledHeight = Int(topImage!.size.height)
+            menuDrawPoint = CGRect(origin: CGPoint(x:0, y:imageView.bounds.height / 2 - topImage!.size.height / 2), size: topImage!.size)
+            
+            topImage?.draw(in: menuDrawPoint!)
+        }
+    }
+
+  
+    
 }
+
 
 
 struct NextCell {
@@ -367,7 +434,10 @@ struct NextCell {
     }
 }
 
-
+enum GameMode {
+    case GAME_OVER, PLAYING, HIGHSCORE, SUCCESS
+    
+}
 
 extension UIImage {
     func getPixelColor(y:Int, x:Int) -> [CUnsignedChar] {
@@ -377,9 +447,17 @@ extension UIImage {
         let bytesPerPixel = cgImage.bitsPerPixel / 8
         
         let pixelInfo: Int = ((cgImage.bytesPerRow * y) + (x * bytesPerPixel))
-
+        
         
         return [data[pixelInfo+2], data[pixelInfo+1], data[pixelInfo], data[pixelInfo+3]]
+    }
+    
+    func resized(toWidth width: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
 }
 

@@ -18,8 +18,13 @@ import Foundation
 class HighScores {
     static let sharedInstance = HighScores()
     
-    func postScore(score:GameScore) {
+    func postScore(score:GameScore) -> Bool {
         let defaults = UserDefaults.standard
+        
+        let maxLevel =  defaults.integer(forKey:"max_successful_level")
+        if(score.level > maxLevel) {
+            defaults.set(score.level, forKey:"last_successsful_level")
+        }
         
         var levels = defaults.stringArray(forKey:"levels") ?? [String]()
         
@@ -34,19 +39,25 @@ class HighScores {
             defaults.set(who, forKey:String(score.level))
         }
         
-    
-        
         let tick = defaults.integer(forKey: String(score.level) + "_tick_me")
         
         if(tick != 0 && tick < score.endTick) {
-            return
+            return false
         }
         
         defaults.set(score.endTick, forKey: String(score.level) + "_tick_me")
         defaults.set(Date(), forKey:String(score.level)+"_when_me")
         defaults.set(score.describeActions(), forKey:String(score.level)+"moves_me")
+
         
-        
+      
+        return true
+    }
+    
+    func getLastCompletedLevel() -> Int {
+        let defaults = UserDefaults.standard
+
+        return defaults.integer(forKey:"max_successful_level")
     }
     
 }

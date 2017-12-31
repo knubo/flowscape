@@ -13,7 +13,7 @@
         <!--View Controllers-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="View Controllers" customClass="ViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="View Controllers" customClass="SceneViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <containerView key="view" opaque="NO" contentMode="scaleToFill" id="jZX-tb-vaL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
@@ -23,9 +23,6 @@
                     </containerView>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <segue destination="0jo-J5-qeD" kind="show" identifier="game" id="Ak4-rg-xDH"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,7 +41,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
-                                    <segue destination="0jo-J5-qeD" kind="show" id="fRp-pd-S08"/>
+                                    <segue destination="0jo-J5-qeD" kind="showDetail" action="showViewController:sender:" id="fRp-pd-S08"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -54,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6v-u5-hhK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-157" y="717"/>
+            <point key="canvasLocation" x="-217" y="732"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="UOJ-lc-NPd">
@@ -81,13 +78,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mkE-T4-qZr"/>
                     </view>
+                    <connections>
+                        <segue destination="Q4Z-nN-6iT" kind="showDetail" identifier="backToMenu" action="showViewController:sender:" id="Ns5-4T-hgz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gg2-x0-FSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100.00000000000001" y="-86.413043478260875"/>
+            <point key="canvasLocation" x="622" y="8"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fRp-pd-S08"/>
+        <segue reference="Ns5-4T-hgz"/>
     </inferredMetricsTieBreakers>
 </document>
