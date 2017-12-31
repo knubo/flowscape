@@ -242,10 +242,9 @@ class Labyrinth: UIImageView {
         
         UIGraphicsBeginImageContext(imageView.bounds.size)
         let context = UIGraphicsGetCurrentContext()
-        imageView.image?.draw(in:imageView.bounds)
         
         context?.setFillColor(UIColor.white.cgColor)
-        context?.fill(CGRect(x: marginLeft, y: marginTop, width: mazeColSize*boxSize, height: mazeRowSize * boxSize ))
+        context?.fill(imageView.bounds)
         
         for x in 0..<mazeColSize {
             for y in 0..<mazeRowSize {
