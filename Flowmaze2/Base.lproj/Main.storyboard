@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" userLabel="View Controllers" customClass="SceneViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <containerView key="view" opaque="NO" contentMode="scaleToFill" id="jZX-tb-vaL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                         <connections>
                             <segue destination="Q4Z-nN-6iT" kind="embed" identifier="menu" id="PyX-bw-gKT"/>
@@ -28,20 +28,53 @@
             </objects>
             <point key="canvasLocation" x="-905" y="-10"/>
         </scene>
+        <!--High Score View Controller-->
+        <scene sceneID="jbI-rD-5Tb">
+            <objects>
+                <viewController id="fEF-x2-iiV" customClass="HighScoreViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aj8-U7-fa2">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAF-Yp-BtE">
+                                <rect key="frame" x="325" y="20" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="Q4Z-nN-6iT" kind="show" identifier="backToMenu" id="lT4-hS-41f"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ncj-vR-3Y0"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dgu-7a-uQN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="732"/>
+        </scene>
         <!--Menu View Controller-->
         <scene sceneID="ew1-YI-PFa">
             <objects>
                 <viewController id="Q4Z-nN-6iT" customClass="MenuViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BAk-PX-2o2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM4-SH-MV8">
-                                <rect key="frame" x="184" y="250" width="46" height="198"/>
+                                <rect key="frame" x="164" y="345" width="46" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <segue destination="0jo-J5-qeD" kind="showDetail" action="showViewController:sender:" id="fRp-pd-S08"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mA-Ei-J13">
+                                <rect key="frame" x="164" y="391" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Scores"/>
+                                <connections>
+                                    <segue destination="fEF-x2-iiV" kind="show" id="xAu-0j-2UE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -51,18 +84,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6v-u5-hhK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-217" y="732"/>
+            <point key="canvasLocation" x="-218.40000000000001" y="731.5270935960591"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="UOJ-lc-NPd">
             <objects>
                 <viewController id="0jo-J5-qeD" customClass="GameViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="iWK-X8-tgP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbx-S4-fk4" customClass="Labyrinth" customModule="Flowmaze2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24" width="375" height="754"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" updatesFrequently="YES"/>
@@ -88,6 +121,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ns5-4T-hgz"/>
+        <segue reference="lT4-hS-41f"/>
     </inferredMetricsTieBreakers>
 </document>

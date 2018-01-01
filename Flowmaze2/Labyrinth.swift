@@ -13,6 +13,7 @@ class Labyrinth: UIImageView {
     let colorWall = UIColor(red:0.25, green:0.25, blue:0.26, alpha:1.0).cgColor
     let colorFill = UIColor(red:0.53, green:0.75, blue:0.92, alpha:1.0).cgColor
     // UIColor(red:0.28, green:0.55, blue:0.78, alpha:1.0).cgColor (darker blue)
+    let colorBackground = UIColor.white.cgColor
     
     let imageView:UIImageView = UIImageView();
     
@@ -241,7 +242,13 @@ class Labyrinth: UIImageView {
         addEntryAndExitToMaze()
         
         badThings.removeAll()
-       // badThings.append(EnemySnake(parent:self, rs:rs))
+    //    badThings.append(EnemyFlow(parent:self, rs:rs))
+  //      badThings.append(EnemyFlow(parent:self, rs:rs))
+   //     badThings.append(EnemySnake(parent:self, rs:rs))
+    //    badThings.append(EnemySnake(parent:self, rs:rs))
+
+    //    badThings.append(EnemyBurn(parent:self, rs:rs))
+    //    badThings.append(EnemyFill(parent:self, rs:rs))
     }
     
     func boxAt(p:Point) -> CGRect {
@@ -316,20 +323,14 @@ class Labyrinth: UIImageView {
         drawPoints = newPoints
     }
     
-    fileprivate func colorIsWhite(_ c: [CUnsignedChar]) -> Bool {
+    func colorIsWhite(_ c: [CUnsignedChar]) -> Bool {
         return c[0] == 255 && c[1] == 255 && c[2] == 255
     }
     
-    fileprivate func colorIsYellow(_ c: [CUnsignedChar]) -> Bool {
+    func colorIsYellow(_ c: [CUnsignedChar]) -> Bool {
         return c[0] == 255 && c[1] == 255 && c[2] == 0
     }
     
-    fileprivate func colorIsGreen(_ c: [CUnsignedChar]) -> Bool {
-        return c[0] == 0 && c[1] == 255 && c[2] == 0
-    }
-    fileprivate func colorIsBlue(_ c: [CUnsignedChar]) -> Bool {
-        return c[0] == 0 && c[1] == 0 && c[2] == 255
-    }
     
     fileprivate func findNewPoints(_ context: CGContext?, _ checkCoords: [(Int, Int)], _ newPoints: inout Set<CGPoint>) {
         
@@ -346,8 +347,10 @@ class Labyrinth: UIImageView {
             context?.fill(CGRect(x: x, y: y, width: 1, height: 1 ))
             
             for (p1,p2) in checkCoords {
+                if(outOfBounds(y: y+p1, x: x+p2)) {
+                    continue
+                }
                 let c = self.imageView.image!.getPixelColor(y: y + p1, x: x + p2)
-                /* let c2 = colorOfPoint(y: y + p1, x: x + p2) */
                 
                 if(colorIsYellow(c)) {
                     let highScore = HighScores.sharedInstance.postScore(score:GameScore(actions:gameActions, endTick:tick, level:level))
@@ -362,6 +365,16 @@ class Labyrinth: UIImageView {
             }
         }
     }
+    
+    func outOfBounds(y:Int, x:Int) -> Bool {
+        return y <= marginTop || y >= marginTop + mazeRowSize * boxSize
+            || x <= marginLeft || x >= marginLeft + mazeColSize * boxSize
+    }
+    
+    func outOfBoundsCells(y:Int, x:Int) -> Bool {
+        return (x < 0) || (y < 0) || (x >= mazeColSize) || (y >= mazeRowSize)
+    }
+    
     func startGame() {
       
         drawPoints.removeAll()
@@ -379,6 +392,10 @@ class Labyrinth: UIImageView {
         let context = UIGraphicsGetCurrentContext()!
         imageView.image?.draw(in:imageView.bounds)
         
+        for b in badThings {
+            b.tick(context:context)
+        }
+        
         fillMaze(context:context)
         
         if(drawPoints.count < 50) {
@@ -386,14 +403,12 @@ class Labyrinth: UIImageView {
             fillMaze(context:context)
         }
         
-        for b in badThings {
-            b.tick(context:context)
-        }
+
         
         imageView.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        NSLog("%d %d", tick, drawPoints.count)
+      //  NSLog("%d %d", tick, drawPoints.count)
     }
     
     func showMenu() {
@@ -476,6 +491,21 @@ extension UIImage {
     }
 }
 
+extension CGColor {
+    func getColorArray() -> [CUnsignedChar] {
+        
+        UIGraphicsBeginImageContext(CGSize(width:1, height:1))
+        let context = UIGraphicsGetCurrentContext()!
+        context.setFillColor(self)
+        context.fill(CGRect(x: 0, y: 0, width: 1, height: 1 ))
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return image!.getPixelColor(y:0,x:0)
+    }
+
+}
 
 extension MutableCollection {
     mutating func shuffle(rs:GKMersenneTwisterRandomSource) {

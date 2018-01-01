@@ -17,7 +17,6 @@ class EnemySnake:EnemyBasis {
     
     var tickWait = 10;
     
-    let allDirections:[Point] = [Point(x:1, y:0), Point(x:-1, y:0), Point(x:0,y:-1), Point(x:0,y:1)]
     
     override init(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) {
         super.init(parent: parent, rs: rs)
@@ -97,27 +96,3 @@ class EnemySnake:EnemyBasis {
 }
 
 
-class EnemyBasis {
-    let parent:Labyrinth
-    let rs:GKMersenneTwisterRandomSource
-    
-    init(parent: Labyrinth, rs:GKMersenneTwisterRandomSource) {
-        self.parent = parent
-        self.rs = rs
-    }
-    
-    func tick(context:CGContext) {
-        
-    }
-    
-    func randomStartPoint() -> Point {
-        let x = rs.nextInt(upperBound:parent.mazeColSize-2)
-        let y = rs.nextInt(upperBound:parent.mazeRowSize-4) + 2
-        
-        if(!parent.board[y][x]) {
-            return randomStartPoint()
-        }
-        
-        return Point(x:x, y:y)
-    }
-}
