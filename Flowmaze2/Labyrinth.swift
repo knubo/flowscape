@@ -10,6 +10,9 @@ import UIKit
 import GameKit
 
 class Labyrinth: UIImageView {
+    let colorWall = UIColor(red:0.25, green:0.25, blue:0.26, alpha:1.0).cgColor
+    let colorFill = UIColor(red:0.53, green:0.75, blue:0.92, alpha:1.0).cgColor
+    // UIColor(red:0.28, green:0.55, blue:0.78, alpha:1.0).cgColor (darker blue)
     
     let imageView:UIImageView = UIImageView();
     
@@ -32,6 +35,8 @@ class Labyrinth: UIImageView {
     
     var menuScaledHeight:Int?
     var menuDrawPoint:CGRect?
+    
+    var badThings: [EnemyBasis] = []
     
     @objc func updateTimer() {
         tick = tick + 1
@@ -129,7 +134,7 @@ class Labyrinth: UIImageView {
         let context = UIGraphicsGetCurrentContext()
         imageView.image?.draw(in:imageView.bounds)
         
-        context?.setFillColor(board[cellY][cellX] ? UIColor.white.cgColor : UIColor.green.cgColor)
+        context?.setFillColor(board[cellY][cellX] ? UIColor.white.cgColor : colorWall)
         context?.fill(CGRect(x: (cellX * boxSize) + marginLeft, y: (cellY * boxSize) + marginTop, width: boxSize, height: boxSize ))
         context?.strokePath()
         
@@ -229,11 +234,22 @@ class Labyrinth: UIImageView {
             board.append(row)
         }
         
-        let randomRow = rs.nextInt(upperBound: mazeRowSize-1)
-        let randomCol = rs.nextInt(upperBound: mazeColSize-1)
+        let randomRow = rs.nextInt(upperBound: mazeRowSize-2)
+        let randomCol = rs.nextInt(upperBound: mazeColSize-2)
         
-        fillMaze(rs: rs, row: randomRow + 1, col: randomCol + 1)
+        fillMaze(rs: rs, row: randomRow + 2, col: randomCol + 2)
         addEntryAndExitToMaze()
+        
+        badThings.removeAll()
+       // badThings.append(EnemySnake(parent:self, rs:rs))
+    }
+    
+    func boxAt(p:Point) -> CGRect {
+        return boxAt(p.x, p.y)
+    }
+    
+    func boxAt(_ x: Int, _ y: Int) -> CGRect {
+        return CGRect(x: (x * boxSize) + marginLeft, y: (y * boxSize) + marginTop, width: boxSize, height: boxSize )
     }
     
     fileprivate func makeMaze() {
@@ -252,8 +268,8 @@ class Labyrinth: UIImageView {
                 if(board[y][x]) {
                     continue;
                 }
-                context?.setFillColor(UIColor.green.cgColor)
-                context?.fill(CGRect(x: (x * boxSize) + marginLeft, y: (y * boxSize) + marginTop, width: boxSize, height: boxSize ))
+                context?.setFillColor(colorWall)
+                context?.fill(boxAt(x, y))
                 
             }
         }
@@ -279,27 +295,23 @@ class Labyrinth: UIImageView {
         let startY = marginTop + boxSize / 2
         
         drawPoints.insert( CGPoint(x:startX, y:startY) );
+        
     }
     
     
     
-    fileprivate func fillMaze() {
+    fileprivate func fillMaze(context:CGContext) {
         let checkCoords = [(1,0),(0,1),(-1,0),(0,-1)]
         
         var newPoints:Set = Set<CGPoint>();
-        
-        UIGraphicsBeginImageContext(imageView.bounds.size)
-        let context = UIGraphicsGetCurrentContext()
-        imageView.image?.draw(in:imageView.bounds)
-        
-        context?.setFillColor(UIColor.blue.cgColor)
+     
+        context.setFillColor(colorFill)
         
         findNewPoints(context, checkCoords, &newPoints)
         
-        context?.strokePath()
+        context.strokePath()
         
-        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+      
         
         drawPoints = newPoints
     }
@@ -363,19 +375,23 @@ class Labyrinth: UIImageView {
         if mode != GameMode.PLAYING {
             return
         }
+        UIGraphicsBeginImageContext(imageView.bounds.size)
+        let context = UIGraphicsGetCurrentContext()!
+        imageView.image?.draw(in:imageView.bounds)
         
-        fillMaze()
+        fillMaze(context:context)
         
         if(drawPoints.count < 50) {
-            fillMaze()
-            fillMaze()
-            
-        }
-        if(drawPoints.count < 100) {
-            fillMaze()
-            
+            fillMaze(context:context)
+            fillMaze(context:context)
         }
         
+        for b in badThings {
+            b.tick(context:context)
+        }
+        
+        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
         
         NSLog("%d %d", tick, drawPoints.count)
     }
@@ -492,4 +508,26 @@ extension CGPoint: Hashable {
 public func ==(lhs: CGPoint, rhs: CGPoint) -> Bool {
     return lhs.equalTo(rhs)
 }
+
+struct Point:Hashable {
+    var x:Int=0
+    var y:Int=0
+    
+    func move(direction:Point) -> Point {
+        return Point(x: x+direction.x, y: y+direction.y)
+    }
+    
+    func inverse() -> Point {
+        return Point(x: -x, y: -y)
+    }
+    
+    public var hashValue: Int {
+        return self.x.hashValue << MemoryLayout<Int>.size ^ self.y.hashValue
+    }
+    
+    static func == (lhs: Point, rhs: Point) -> Bool {
+          return lhs.x == rhs.x && lhs.y == rhs.y
+    }
+}
+
 
