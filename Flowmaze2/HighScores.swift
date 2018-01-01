@@ -60,6 +60,22 @@ class HighScores {
         return defaults.integer(forKey:"max_successful_level")
     }
     
+    func scores() -> [GameScore] {
+        let defaults = UserDefaults.standard
+
+        let levels = defaults.stringArray(forKey:"levels") ?? [String]()
+
+        var scores:[GameScore] = []
+        
+        for l in levels {
+            let tick = defaults.integer(forKey: l + "_tick_me")
+
+            scores.append(GameScore(actions:[], endTick:tick, level:Int(l)!))
+        }
+        
+        return scores
+    }
+    
 }
 
 struct GameAction {

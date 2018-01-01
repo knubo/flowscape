@@ -12,13 +12,14 @@ import UIKit
 class HighScoreViewController: UIViewController , UICollectionViewDataSource, UICollectionViewDelegate {
     
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
-    var items = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48"]
-    
+ 
+    var items:[GameScore] = []
     
     // MARK: - UICollectionViewDataSource protocol
     
     // tell the collection view how many cells to make
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.items = HighScores.sharedInstance.scores()
         return self.items.count
     }
     
@@ -29,8 +30,9 @@ class HighScoreViewController: UIViewController , UICollectionViewDataSource, UI
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! MyCollectionViewCell
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.levelLabel.text = self.items[indexPath.item]
-        cell.scoreLabel.text = "1000"
+        let score = self.items[indexPath.item]
+        cell.levelLabel.text = String(score.level)
+        cell.scoreLabel.text = String(score.endTick)
         cell.backgroundColor = UIColor(red:1.00, green:1.00, blue:0.60, alpha:1.0)
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 1
