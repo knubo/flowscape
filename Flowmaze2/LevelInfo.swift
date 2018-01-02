@@ -25,7 +25,12 @@ class LevelInfo {
         
     }
     func addBadThings(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) {
-        let level = parent.level;
+        let level = parent.level - 10;
+        
+        /* First 10 levels are "boring" */
+        if(level < 0) {
+            return
+        }
         
         if(level > snake.count) {
             allocateByRandom(parent:parent, rs:rs)

@@ -21,7 +21,7 @@ class Labyrinth: UIImageView {
     
     let boxSize = 25
     var marginTop = 0, marginLeft = 0
-    var mazeRowSize = 0, mazeColSize = 0, level = 1
+    var mazeRowSize = 0, mazeColSize = 0, level = HighScores.sharedInstance.getLastCompletedLevel() + 1
     
     var mode = GameMode.PLAYING
     
@@ -235,8 +235,8 @@ class Labyrinth: UIImageView {
             board.append(row)
         }
         
-        let randomRow = rs.nextInt(upperBound: mazeRowSize-2)
-        let randomCol = rs.nextInt(upperBound: mazeColSize-2)
+        let randomRow = rs.nextInt(upperBound: mazeRowSize-4)
+        let randomCol = rs.nextInt(upperBound: mazeColSize-4)
         
         fillMaze(rs: rs, row: randomRow + 2, col: randomCol + 2)
         addEntryAndExitToMaze()

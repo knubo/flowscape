@@ -23,7 +23,7 @@ class HighScores {
         
         let maxLevel =  defaults.integer(forKey:"max_successful_level")
         if(score.level > maxLevel) {
-            defaults.set(score.level, forKey:"last_successsful_level")
+            defaults.set(score.level, forKey:"max_successful_level")
         }
         
         var levels = defaults.stringArray(forKey:"levels") ?? [String]()
