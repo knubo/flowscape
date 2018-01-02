@@ -28,7 +28,7 @@ class Labyrinth: UIImageView {
     var drawPoints:Set = Set<CGPoint>()
     var gameActions:[GameAction] = []
     
-    let timeBetweenDraw:CFTimeInterval = 0.01
+    let timeBetweenDraw:CFTimeInterval = 0.02
     
     var tick:Int = 0
     
@@ -242,14 +242,10 @@ class Labyrinth: UIImageView {
         addEntryAndExitToMaze()
         
         badThings.removeAll()
-    //    badThings.append(EnemyFlow(parent:self, rs:rs))
-  //      badThings.append(EnemyFlow(parent:self, rs:rs))
-   //     badThings.append(EnemySnake(parent:self, rs:rs))
-    //    badThings.append(EnemySnake(parent:self, rs:rs))
-
-    //    badThings.append(EnemyBurn(parent:self, rs:rs))
-    //    badThings.append(EnemyFill(parent:self, rs:rs))
+        LevelInfo.sharedInstance.addBadThings(parent:self, rs:rs)
     }
+
+  
     
     func boxAt(p:Point) -> CGRect {
         return boxAt(p.x, p.y)
