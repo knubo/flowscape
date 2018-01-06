@@ -76,6 +76,19 @@ class HighScores {
         return scores
     }
     
+    func getFullScore(l:Int) -> GameScore {
+        let level = String(l)
+        let defaults = UserDefaults.standard
+
+        let tick = defaults.integer(forKey: level + "_tick_me")
+        let when:Date = defaults.object(forKey: level+"_when_me") as! Date
+        let moves = defaults.string(forKey: level+"_moves_me")
+        
+        
+        
+        return GameScore(actions: [], endTick: tick, level: l, when:when)
+    }
+    
 }
 
 struct GameAction {
@@ -91,6 +104,20 @@ struct GameScore {
     var actions:[GameAction]
     var endTick = 0
     var level = 0
+    var when:Date? = nil
+    
+    init(actions:[GameAction], endTick:Int, level:Int) {
+        self.actions = actions
+        self.endTick = endTick
+        self.level = level
+    }
+    
+    init(actions:[GameAction], endTick:Int, level:Int, when:Date) {
+        self.actions = actions
+        self.endTick = endTick
+        self.level = level
+        self.when = when
+    }
     
     func describeActions() -> String {
         return actions.map {g in g.info()}.joined(separator:",")

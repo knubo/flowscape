@@ -21,7 +21,8 @@ class Labyrinth: UIImageView {
     
     let boxSize = 25
     var marginTop = 0, marginLeft = 0
-    var mazeRowSize = 0, mazeColSize = 0, level = HighScores.sharedInstance.getLastCompletedLevel() + 1
+    var mazeRowSize = 0, mazeColSize = 0
+    static var level = 1
     
     var mode = GameMode.PLAYING
     
@@ -155,7 +156,7 @@ class Labyrinth: UIImageView {
         
         if( relativeY > 138 && relativeY < 191) {
             if(mode == GameMode.HIGHSCORE || mode == GameMode.SUCCESS) {
-                level = level + 1
+                Labyrinth.level = Labyrinth.level + 1
             }
             
             startGame()
@@ -223,7 +224,7 @@ class Labyrinth: UIImageView {
     func createMaze() {
         
         let rs = GKMersenneTwisterRandomSource()
-        rs.seed = UInt64(level)
+        rs.seed = UInt64(Labyrinth.level)
         board = []
         
         
@@ -349,7 +350,7 @@ class Labyrinth: UIImageView {
                 let c = self.imageView.image!.getPixelColor(y: y + p1, x: x + p2)
                 
                 if(colorIsYellow(c)) {
-                    let highScore = HighScores.sharedInstance.postScore(score:GameScore(actions:gameActions, endTick:tick, level:level))
+                    let highScore = HighScores.sharedInstance.postScore(score:GameScore(actions:gameActions, endTick:tick, level:Labyrinth.level))
                     mode = highScore ? GameMode.HIGHSCORE : GameMode.SUCCESS
                     showMenu()
                     return

@@ -100,10 +100,75 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ncj-vR-3Y0"/>
                     </view>
+                    <connections>
+                        <segue destination="dq0-fc-QTT" kind="popoverPresentation" identifier="showDetails" popoverAnchorView="kfw-PJ-kn0" id="zqr-cp-fdx">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgu-7a-uQN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="850.39999999999998" y="731.5270935960591"/>
+        </scene>
+        <!--High Score Details View Controller-->
+        <scene sceneID="eQV-2F-SlZ">
+            <objects>
+                <viewController id="dq0-fc-QTT" customClass="HighScoreDetailsViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hwg-Du-dRC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hft-wJ-Y89">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JN-dK-C8b">
+                                        <rect key="frame" x="152" y="660" width="70" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Play again"/>
+                                        <connections>
+                                            <action selector="playAgainAction:" destination="dq0-fc-QTT" eventType="touchUpInside" id="zpR-q5-qDz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6X-d2-VoA">
+                                        <rect key="frame" x="170" y="696" width="34" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="dq0-fc-QTT" eventType="touchUpInside" id="vz5-4Q-8bT"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UQ-bX-ziv">
+                                        <rect key="frame" x="8" y="554" width="359" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z6p-3R-jiZ">
+                                        <rect key="frame" x="8" y="8" width="359" height="538"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hft-wJ-Y89" firstAttribute="leading" secondItem="hwg-Du-dRC" secondAttribute="leading" id="8Dc-qL-u6N"/>
+                            <constraint firstItem="Hft-wJ-Y89" firstAttribute="top" secondItem="dSt-Js-JgF" secondAttribute="top" id="De5-eg-Jdx"/>
+                            <constraint firstItem="Hft-wJ-Y89" firstAttribute="bottom" secondItem="dSt-Js-JgF" secondAttribute="bottom" id="d0j-ms-kTa"/>
+                            <constraint firstAttribute="trailing" secondItem="Hft-wJ-Y89" secondAttribute="trailing" id="va9-cO-ptw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dSt-Js-JgF"/>
+                    </view>
+                    <connections>
+                        <outlet property="levelLabel" destination="1UQ-bX-ziv" id="SP2-IZ-VWp"/>
+                        <segue destination="0jo-J5-qeD" kind="show" identifier="playSelectedGame" id="d7I-CM-4ED"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fUR-r7-maQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1664.8" y="719.70443349753702"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="ew1-YI-PFa">
@@ -118,7 +183,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
-                                    <segue destination="0jo-J5-qeD" kind="showDetail" action="showViewController:sender:" id="fRp-pd-S08"/>
+                                    <action selector="playLatestGame:" destination="Q4Z-nN-6iT" eventType="touchUpInside" id="1T5-R7-ma9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mA-Ei-J13">
@@ -133,6 +198,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bQY-Xh-2WG"/>
                     </view>
+                    <connections>
+                        <segue destination="0jo-J5-qeD" kind="show" identifier="playHighestLevel" id="Zex-8T-ZMF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6v-u5-hhK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -173,6 +241,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lT4-hS-41f"/>
+        <segue reference="Zex-8T-ZMF"/>
+        <segue reference="PyX-bw-gKT"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,8 @@ class HighScoreViewController: UIViewController , UICollectionViewDataSource, UI
  
     var items:[GameScore] = []
     
+    var currentLevel:GameScore? = nil
+    
     // MARK: - UICollectionViewDataSource protocol
     
     // tell the collection view how many cells to make
@@ -45,7 +47,13 @@ class HighScoreViewController: UIViewController , UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
+        let score = self.items[indexPath.item]
+
+        currentLevel = HighScores.sharedInstance.getFullScore(l: score.level)
         print("You selected cell #\(indexPath.item)!")
+        
+        HighScoreDetailsViewController.level = score.level
+        performSegue(withIdentifier: "showDetails", sender:self)
     }
     
 }

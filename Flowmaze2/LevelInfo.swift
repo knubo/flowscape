@@ -25,7 +25,7 @@ class LevelInfo {
         
     }
     func addBadThings(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) {
-        let level = parent.level - 10;
+        let level = Labyrinth.level - 10;
         
         /* First 10 levels are "boring" */
         if(level < 0) {
@@ -76,12 +76,6 @@ class LevelInfo {
         return Int(v)!
     }
     
-    //    badThings.append(EnemyFlow(parent:self, rs:rs))
-    //      badThings.append(EnemyFlow(parent:self, rs:rs))
-    //     badThings.append(EnemySnake(parent:self, rs:rs))
-    //    badThings.append(EnemySnake(parent:self, rs:rs))
-    
-    //    badThings.append(EnemyBurn(parent:self, rs:rs))
-    //    badThings.append(EnemyFill(parent:self, rs:rs))
+   
     
 }
