@@ -19,7 +19,7 @@ class Labyrinth: UIImageView {
     
     var board: [[Bool]] = []
     
-    let boxSize = 25
+    let boxSize = 30
     var marginTop = 0, marginLeft = 0
     var mazeRowSize = 0, mazeColSize = 0
     static var level = 1
@@ -59,13 +59,22 @@ class Labyrinth: UIImageView {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+            super.init(coder: aDecoder)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.pauseGame(notification:)), name: Notification.Name("pauseGame"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.restartGame(notification:)), name: Notification.Name("restartGame"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.initializeGameBoard(notification:)), name: Notification.Name("initGameboard"), object: nil)
+        
+    }
+    
+     @objc func initializeGameBoard(notification: Notification)  {
         
         activateTimer()
         
         imageView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
         self.addSubview(imageView)
-        
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
         self.imageView.isUserInteractionEnabled = true
@@ -85,26 +94,28 @@ class Labyrinth: UIImageView {
             width = bounds.size.width
         }
         
-        mazeColSize = Int(floor(width / 25)) - 1
-        mazeRowSize = Int(floor(height / 25)) - 1
+        mazeColSize = Int(floor(width / CGFloat(boxSize)))
+        mazeRowSize = Int(floor(height / CGFloat(boxSize)))
         
         if #available(iOS 11.0, *) {
             marginLeft =  Int(safeAreaInsets.left)
         } else {
             marginLeft = 0
         }
-        
+        marginLeft = marginLeft + ((Int(width) - mazeColSize) / boxSize) / 2
+    
         if #available(iOS 11.0, *) {
-            marginTop = (Int(height) - mazeRowSize * boxSize) / 2 + Int(safeAreaInsets.top)
+            marginTop = Int(safeAreaInsets.top)
         } else {
-            marginTop = (Int(height) - mazeRowSize * boxSize) / 2
+            marginTop = 0
         }
+        
+        marginTop = marginTop + (Int(height) - (mazeRowSize * boxSize)) / 2
         
         makeMaze()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.pauseGame(notification:)), name: Notification.Name("pauseGame"), object: nil)
+     
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.restartGame(notification:)), name: Notification.Name("restartGame"), object: nil)
     }
     
     @objc func pauseGame(notification: Notification) {

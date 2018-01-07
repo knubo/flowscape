@@ -179,16 +179,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM4-SH-MV8">
-                                <rect key="frame" x="164" y="345" width="46" height="38"/>
+                                <rect key="frame" x="0.0" y="114" width="359" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="playLatestGame:" destination="Q4Z-nN-6iT" eventType="touchUpInside" id="1T5-R7-ma9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mA-Ei-J13">
-                                <rect key="frame" x="164" y="391" width="48" height="30"/>
+                                <rect key="frame" x="0.0" y="253" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Scores"/>
                                 <connections>
                                     <segue destination="fEF-x2-iiV" kind="show" id="xAu-0j-2UE"/>
@@ -224,10 +226,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Qbx-S4-fk4" firstAttribute="leading" secondItem="iWK-X8-tgP" secondAttribute="leading" id="9Sb-RK-2h9"/>
-                            <constraint firstItem="Qbx-S4-fk4" firstAttribute="bottom" secondItem="mkE-T4-qZr" secondAttribute="bottom" id="DtN-l1-Lv8"/>
-                            <constraint firstItem="mkE-T4-qZr" firstAttribute="top" secondItem="Qbx-S4-fk4" secondAttribute="top" constant="20" id="bmm-4N-zDA"/>
-                            <constraint firstAttribute="trailing" secondItem="Qbx-S4-fk4" secondAttribute="trailing" id="fIl-K4-J8Q"/>
+                            <constraint firstItem="Qbx-S4-fk4" firstAttribute="bottom" secondItem="mkE-T4-qZr" secondAttribute="bottom" id="DyJ-DG-Z7X"/>
+                            <constraint firstAttribute="trailing" secondItem="Qbx-S4-fk4" secondAttribute="trailing" id="bgp-xJ-gL5"/>
+                            <constraint firstItem="Qbx-S4-fk4" firstAttribute="top" secondItem="iWK-X8-tgP" secondAttribute="topMargin" constant="-28" id="cRN-dD-MtA"/>
+                            <constraint firstItem="Qbx-S4-fk4" firstAttribute="leading" secondItem="iWK-X8-tgP" secondAttribute="leading" id="omh-gB-BdH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mkE-T4-qZr"/>
                     </view>
@@ -242,6 +244,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Zex-8T-ZMF"/>
-        <segue reference="PyX-bw-gKT"/>
+        <segue reference="Ns5-4T-hgz"/>
     </inferredMetricsTieBreakers>
 </document>
