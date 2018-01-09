@@ -52,7 +52,7 @@ class HighScoreViewController: UIViewController , UICollectionViewDataSource, UI
         currentLevel = HighScores.sharedInstance.getFullScore(l: score.level)
         print("You selected cell #\(indexPath.item)!")
         
-        HighScoreDetailsViewController.level = score.level
+        HighScoreDetailsViewController.score = currentLevel
         performSegue(withIdentifier: "showDetails", sender:self)
     }
     

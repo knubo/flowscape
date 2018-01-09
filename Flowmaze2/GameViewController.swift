@@ -18,7 +18,7 @@ class GameViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         NotificationCenter.default.addObserver(self, selector: #selector(self.goToMenu(notification:)), name: Notification.Name("goToMenu"), object: nil)
         
-
+        
     }
     
     override func viewDidLayoutSubviews() {

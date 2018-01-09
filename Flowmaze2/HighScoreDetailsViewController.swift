@@ -11,19 +11,38 @@ import UIKit
 
 class HighScoreDetailsViewController: UIViewController {
     @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var gameBoard: UIImageView!
     
-    static var level:Int = 0;
+    static var score:GameScore?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        levelLabel.text = String(HighScoreDetailsViewController.level)
+        let score = HighScoreDetailsViewController.score!
+        
+        levelLabel.text = String(score.level)
+        
+        let lab:Labyrinth = Labyrinth(image:UIImage())
+        
+        let dim = HighScores.sharedInstance.getDimensions()
+        
+
+        DispatchQueue.global(qos: .background).async {
+
+            lab.simulate(score: score, width: dim.x, height: dim.y)
+            
+            DispatchQueue.main.async {
+                self.gameBoard.image = lab.imageView.image
+                self.gameBoard.setNeedsDisplay()
+            }
+        }
+      
     }
     
     
     //MARK: Actions
 	
     @IBAction func playAgainAction(_ sender: Any) {
-       Labyrinth.level = HighScoreDetailsViewController.level
+        Labyrinth.level = HighScoreDetailsViewController.score!.level
         
         performSegue(withIdentifier: "playSelectedGame", sender:self)
         
@@ -35,4 +54,5 @@ class HighScoreDetailsViewController: UIViewController {
         }
     }
     
+  
 }

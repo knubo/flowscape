@@ -11,6 +11,8 @@ import GameKit
 
 class Labyrinth: UIImageView {
     let colorWall = UIColor(red:0.25, green:0.25, blue:0.26, alpha:1.0).cgColor
+    let colorWallUser = UIColor(red:0.40, green:0.40, blue:0.41, alpha:1.0).cgColor
+    
     let colorFill = UIColor(red:0.53, green:0.75, blue:0.92, alpha:1.0).cgColor
     // UIColor(red:0.28, green:0.55, blue:0.78, alpha:1.0).cgColor (darker blue)
     let colorBackground = UIColor.white.cgColor
@@ -19,7 +21,7 @@ class Labyrinth: UIImageView {
     
     var board: [[Bool]] = []
     
-    let boxSize = 30
+    var boxSize = 30
     var marginTop = 0, marginLeft = 0
     var mazeRowSize = 0, mazeColSize = 0
     static var level = 1
@@ -58,14 +60,47 @@ class Labyrinth: UIImageView {
         timer = Timer.scheduledTimer(timeInterval: timeBetweenDraw, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
     }
     
+    required init(image:UIImage) {
+        super.init(image:image)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(self.pauseGame(notification:)), name: Notification.Name("pauseGame"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.restartGame(notification:)), name: Notification.Name("restartGame"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.initializeGameBoard(notification:)), name: Notification.Name("initGameboard"), object: nil)
+        
+    }
+    
+    func simulate(score:GameScore, width:Int, height:Int) {
+        
+        mode = GameMode.SIMULATE
+        
+        Labyrinth.level = score.level
+    
+        mazeColSize = score.boardSize!.x
+        mazeRowSize = score.boardSize!.y
+        
+        imageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        self.addSubview(imageView)
+	
+       
+        makeMaze()
+        
+        var actionIndex = 0
+        
+        for tick in 0..<score.endTick {
+            
+            while(score.actions.count > actionIndex && score.actions[actionIndex].tick == tick) {
+                 toggleCellValueAt(score.actions[actionIndex].y, score.actions[actionIndex].x)
+                 actionIndex = actionIndex + 1
+            }
+            
+            gameLoop()
+        }
         
     }
     
@@ -110,12 +145,13 @@ class Labyrinth: UIImageView {
             marginTop = 0
         }
         
+        HighScores.sharedInstance.setDimensions(width:Int(self.bounds.width) , height:Int(self.bounds.height))
+        
         marginTop = marginTop + (Int(height) - (mazeRowSize * boxSize)) / 2
         
         makeMaze()
-        
      
-        
+     
     }
     
     @objc func pauseGame(notification: Notification) {
@@ -125,6 +161,22 @@ class Labyrinth: UIImageView {
     
     @objc func restartGame(notification: Notification) {
         activateTimer()
+    }
+    
+    fileprivate func toggleCellValueAt(_ cellY: Int, _ cellX: Int) {
+        board[cellY][cellX] = !board[cellY][cellX]
+        
+        
+        UIGraphicsBeginImageContext(imageView.bounds.size)
+        let context = UIGraphicsGetCurrentContext()
+        imageView.image?.draw(in:imageView.bounds)
+        
+        context?.setFillColor(board[cellY][cellX] ? UIColor.white.cgColor : colorWallUser)
+        context?.fill(CGRect(x: (cellX * boxSize) + marginLeft, y: (cellY * boxSize) + marginTop, width: boxSize, height: boxSize ))
+        context?.strokePath()
+        
+        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
     }
     
     @objc func tapAction(_ sender: UITapGestureRecognizer) {
@@ -138,21 +190,10 @@ class Labyrinth: UIImageView {
         
         let cellX = (Int(point.x) - marginLeft) / boxSize
         let cellY = (Int(point.y) - marginTop) / boxSize
-        
-        board[cellY][cellX] = !board[cellY][cellX]
-        
-        gameActions.append(GameAction(x:cellX, y:cellY, tick:tick, cellValue:board[cellY][cellX] ))
-        
-        UIGraphicsBeginImageContext(imageView.bounds.size)
-        let context = UIGraphicsGetCurrentContext()
-        imageView.image?.draw(in:imageView.bounds)
-        
-        context?.setFillColor(board[cellY][cellX] ? UIColor.white.cgColor : colorWall)
-        context?.fill(CGRect(x: (cellX * boxSize) + marginLeft, y: (cellY * boxSize) + marginTop, width: boxSize, height: boxSize ))
-        context?.strokePath()
-        
-        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+
+        gameActions.append(GameAction(x:cellX, y:cellY, tick:tick, cellValue:!board[cellY][cellX] ))
+
+        toggleCellValueAt(cellY, cellX)
         
     }
     
@@ -343,6 +384,9 @@ class Labyrinth: UIImageView {
     fileprivate func findNewPoints(_ context: CGContext?, _ checkCoords: [(Int, Int)], _ newPoints: inout Set<CGPoint>) {
         
         if(drawPoints.count == 0) {
+            if(mode == GameMode.SIMULATE) {
+                return
+            }
             mode = GameMode.GAME_OVER
             showMenu()
             return
@@ -360,8 +404,10 @@ class Labyrinth: UIImageView {
                 }
                 let c = self.imageView.image!.getPixelColor(y: y + p1, x: x + p2)
                 
-                if(colorIsYellow(c)) {
-                    let highScore = HighScores.sharedInstance.postScore(score:GameScore(actions:gameActions, endTick:tick, level:Labyrinth.level))
+                if(colorIsYellow(c) && mode != GameMode.SIMULATE) {
+                    let boardSize = Point(x:mazeColSize, y:mazeRowSize)
+                    
+                    let highScore = HighScores.sharedInstance.postScore(score:GameScore(actions:gameActions, endTick:tick, level:Labyrinth.level, boardSize:boardSize))
                     mode = highScore ? GameMode.HIGHSCORE : GameMode.SUCCESS
                     showMenu()
                     return
@@ -393,7 +439,7 @@ class Labyrinth: UIImageView {
     }
     
     func gameLoop() {
-        if mode != GameMode.PLAYING {
+        if mode != GameMode.PLAYING && mode != GameMode.SIMULATE {
             return
         }
         UIGraphicsBeginImageContext(imageView.bounds.size)
@@ -473,7 +519,7 @@ struct NextCell {
 }
 
 enum GameMode {
-    case GAME_OVER, PLAYING, HIGHSCORE, SUCCESS
+    case GAME_OVER, PLAYING, HIGHSCORE, SUCCESS, SIMULATE
     
 }
 

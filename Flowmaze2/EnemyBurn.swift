@@ -31,7 +31,7 @@ class EnemyBurn:EnemyBasis {
         
         context.strokePath()
         
-        if(tickCount < 40) {
+        if(tickCount < 80) {
             tickCount = tickCount + 1
             return
         }

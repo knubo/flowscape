@@ -21,6 +21,9 @@ class HighScores {
     func postScore(score:GameScore) -> Bool {
         let defaults = UserDefaults.standard
         
+        defaults.set(score.boardSize!.x, forKey:"board_size_x")
+        defaults.set(score.boardSize!.y, forKey:"board_size_y")
+        
         let maxLevel =  defaults.integer(forKey:"max_successful_level")
         if(score.level > maxLevel) {
             defaults.set(score.level, forKey:"max_successful_level")
@@ -60,17 +63,32 @@ class HighScores {
         return defaults.integer(forKey:"max_successful_level")
     }
     
+    func setDimensions(width:Int, height:Int) {
+        let defaults = UserDefaults.standard
+
+        defaults.set(width, forKey:"pixel_width")
+        defaults.set(height, forKey:"pixel_height")
+    }
+    
+    func getDimensions() -> Point {
+        let defaults = UserDefaults.standard
+
+        return Point(x:defaults.integer(forKey:"pixel_width"), y:defaults.integer(forKey:"pixel_height"))
+    }
+    
     func scores() -> [GameScore] {
         let defaults = UserDefaults.standard
 
         let levels = defaults.stringArray(forKey:"levels") ?? [String]()
 
+        let boardSize:Point = Point(x:defaults.integer(forKey:"board_size_x"),y:defaults.integer(forKey:"board_size_y"))
+        
         var scores:[GameScore] = []
         
         for l in levels {
             let tick = defaults.integer(forKey: l + "_tick_me")
 
-            scores.append(GameScore(actions:[], endTick:tick, level:Int(l)!))
+            scores.append(GameScore(actions:[], endTick:tick, level:Int(l)!, boardSize:boardSize))
         }
         
         return scores
@@ -82,11 +100,32 @@ class HighScores {
 
         let tick = defaults.integer(forKey: level + "_tick_me")
         let when:Date = defaults.object(forKey: level+"_when_me") as! Date
-        let moves = defaults.string(forKey: level+"_moves_me")
+        let moves = defaults.string(forKey: level+"moves_me")
+        
+        let boardSize:Point = Point(x:defaults.integer(forKey:"board_size_x"),y:defaults.integer(forKey:"board_size_y"))
+
+        let elements = moves!.split(separator:",")
         
         
+        var actions:[GameAction] = []
         
-        return GameScore(actions: [], endTick: tick, level: l, when:when)
+        
+        var i:Int = 0
+        while i < elements.count {
+            let x = String(elements[i])
+            let y = String(elements[i+1])
+            let tick = String(elements[i+2])
+            let cellValue = String(elements[i+3]) == "1" ? true : false
+            
+            actions.append(GameAction(x:Int(x)!,
+                                      y:Int(y)!,
+                                      tick:Int(tick)!,
+                                      cellValue:cellValue))
+            i = i + 4
+        }
+        
+        
+        return GameScore(actions: actions, endTick: tick, level: l, when:when, boardSize:boardSize)
     }
     
 }
@@ -96,7 +135,7 @@ struct GameAction {
     var cellValue = false
     
     func info() -> String {
-        return String(format:"x:%d,y:%d,t:%t,v:%d", x, y, tick, cellValue ? 1 : 0)
+        return String(format:"%d,%d,%d,%d", x, y, tick, cellValue ? 1 : 0)
     }
 }
 
@@ -105,18 +144,21 @@ struct GameScore {
     var endTick = 0
     var level = 0
     var when:Date? = nil
+    var boardSize:Point? = nil
     
-    init(actions:[GameAction], endTick:Int, level:Int) {
+    init(actions:[GameAction], endTick:Int, level:Int, boardSize:Point) {
         self.actions = actions
         self.endTick = endTick
         self.level = level
+        self.boardSize = boardSize
     }
     
-    init(actions:[GameAction], endTick:Int, level:Int, when:Date) {
+    init(actions:[GameAction], endTick:Int, level:Int, when:Date, boardSize:Point) {
         self.actions = actions
         self.endTick = endTick
         self.level = level
         self.when = when
+        self.boardSize = boardSize
     }
     
     func describeActions() -> String {
