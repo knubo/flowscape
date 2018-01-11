@@ -13,10 +13,11 @@ import GameKit
 class LevelInfo {
     static let sharedInstance = LevelInfo()
     
-    let snake = "11111222223000000000000000000001112221121456"
-    let flow =  "00000000000111112222300000000001001001111000"
-    let burn =  "00000000000000000000011111000000100101011000"
-    let fill =  "00000000000000000000000000111110010010101000"
+    let snake = "1111122222300000000000000000000111222112114566"
+    let flow =  "0000000000011111222230000000000100100111110000"
+    let burn =  "0000000000000000000001111100000010010101110000"
+    let fill =  "0000000000000000000000000011111001001010110000"
+    let nice =  "0001000100000100000000010000000000000000010001"
     
     
     func allocateByRandom(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) {
@@ -64,6 +65,11 @@ class LevelInfo {
             parent.badThings.append(EnemyFill(parent:parent, rs:rs))
         }
         
+        count = valueAtLocation(str: nice, pos:level)
+        while(count > 0) {
+            count = count - 1
+            parent.badThings.append(NiceSnake(parent:parent, rs:rs))
+        }
         
         
     }

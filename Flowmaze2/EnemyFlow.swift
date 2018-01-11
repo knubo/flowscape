@@ -13,6 +13,7 @@ import GameKit
 class EnemyFlow:EnemyBasis {
     var drawPoints:Set = Set<CGPoint>()
 
+    var wallUserColorArray:[CUnsignedChar] = [];
     var wallColorArray:[CUnsignedChar] = [];
     var fillColorArray:[CUnsignedChar] = [];
     var limitColorArray:[CUnsignedChar] = [];
@@ -29,6 +30,8 @@ class EnemyFlow:EnemyBasis {
         drawPoints.insert( CGPoint(x:parent.marginLeft + parent.boxSize * startPoint.x + parent.boxSize / 2, y:parent.marginTop + parent.boxSize * startPoint.y + parent.boxSize / 2) );
 
         wallColorArray = parent.colorWall.getColorArray()
+        wallUserColorArray = parent.colorWallUser.getColorArray()
+        
         fillColorArray = fillColor.getColorArray()
         limitColorArray = UIColor.black.cgColor.getColorArray()
         
@@ -66,9 +69,11 @@ class EnemyFlow:EnemyBasis {
                 let c = parent.imageView.image!.getPixelColor(y: y + p1, x: x + p2)
                 
                 let isWallColor = c[0] == wallColorArray[0] && c[1] == wallColorArray[1] && c[2] == wallColorArray[2]
+                let isWallUserColor = c[0] == wallUserColorArray[0] && c[1] == wallUserColorArray[1] && c[2] == wallUserColorArray[2]
+
                 let isFill = c[0] == fillColorArray[0] && c[1] == fillColorArray[1] && c[2] == fillColorArray[2]
 
-                if(!isFill && !isWallColor) {
+                if(!isFill && !isWallColor && !isWallUserColor) {
                     newPoints.insert ( CGPoint(x:x+p2, y:y+p1) )
                 }
             }
