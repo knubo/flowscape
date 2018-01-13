@@ -77,7 +77,21 @@ class Labyrinth: UIImageView {
         
     }
     
-    func simulate(score:GameScore, width:Int, height:Int) {
+    func simulateSlow(score:GameScore, width:Int, height:Int) {
+        mode = GameMode.SIMULATE
+        
+        Labyrinth.level = score.level
+        
+        mazeColSize = score.boardSize!.x
+        mazeRowSize = score.boardSize!.y
+        
+        imageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        self.addSubview(imageView)
+        
+        makeMaze()
+    }
+    
+    func simulateFast(score:GameScore, width:Int, height:Int) {
         
         mode = GameMode.SIMULATE
         
@@ -164,7 +178,7 @@ class Labyrinth: UIImageView {
         activateTimer()
     }
     
-    fileprivate func toggleCellValueAt(_ cellY: Int, _ cellX: Int) {
+    func toggleCellValueAt(_ cellY: Int, _ cellX: Int) {
         board[cellY][cellX] = !board[cellY][cellX]
         
         

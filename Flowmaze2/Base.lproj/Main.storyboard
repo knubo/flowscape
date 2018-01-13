@@ -122,17 +122,10 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JN-dK-C8b">
-                                        <rect key="frame" x="152" y="666" width="70" height="30"/>
+                                        <rect key="frame" x="115" y="665" width="70" height="30"/>
                                         <state key="normal" title="Play again"/>
                                         <connections>
                                             <action selector="playAgainAction:" destination="dq0-fc-QTT" eventType="touchUpInside" id="zpR-q5-qDz"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6X-d2-VoA">
-                                        <rect key="frame" x="170" y="704" width="34" height="30"/>
-                                        <state key="normal" title="Back"/>
-                                        <connections>
-                                            <action selector="backAction:" destination="dq0-fc-QTT" eventType="touchUpInside" id="vz5-4Q-8bT"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z6p-3R-jiZ">
@@ -144,18 +137,34 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9L-4g-63E">
+                                        <rect key="frame" x="193" y="665" width="44" height="30"/>
+                                        <state key="normal" title="Watch"/>
+                                        <connections>
+                                            <action selector="simulateAction:" destination="dq0-fc-QTT" eventType="touchUpInside" id="hDF-4R-aDx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6X-d2-VoA">
+                                        <rect key="frame" x="170" y="696" width="34" height="30"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="dq0-fc-QTT" eventType="touchUpInside" id="vz5-4Q-8bT"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="1UQ-bX-ziv" firstAttribute="centerX" secondItem="1JN-dK-C8b" secondAttribute="centerX" id="0hB-Me-gG5"/>
+                                    <constraint firstItem="T6X-d2-VoA" firstAttribute="bottom" secondItem="Hft-wJ-Y89" secondAttribute="bottomMargin" id="6Wv-Hd-JE3"/>
+                                    <constraint firstItem="1JN-dK-C8b" firstAttribute="baseline" secondItem="z9L-4g-63E" secondAttribute="baseline" id="AXE-7U-ec5"/>
                                     <constraint firstItem="Z6p-3R-jiZ" firstAttribute="leading" secondItem="1UQ-bX-ziv" secondAttribute="leading" id="BQv-J4-bSX"/>
-                                    <constraint firstAttribute="bottom" secondItem="T6X-d2-VoA" secondAttribute="bottom" id="DBM-wo-uI9"/>
-                                    <constraint firstItem="1JN-dK-C8b" firstAttribute="top" secondItem="1UQ-bX-ziv" secondAttribute="bottom" constant="8" symbolic="YES" id="Qd1-MT-1ic"/>
+                                    <constraint firstItem="1JN-dK-C8b" firstAttribute="leading" secondItem="Hft-wJ-Y89" secondAttribute="leading" constant="115" id="CQC-62-X7G"/>
+                                    <constraint firstItem="z9L-4g-63E" firstAttribute="leading" secondItem="1JN-dK-C8b" secondAttribute="trailing" constant="8" symbolic="YES" id="Cvd-lN-wFf"/>
                                     <constraint firstItem="Z6p-3R-jiZ" firstAttribute="leading" secondItem="Hft-wJ-Y89" secondAttribute="leadingMargin" id="Rlm-TP-lhr"/>
-                                    <constraint firstItem="T6X-d2-VoA" firstAttribute="top" secondItem="1JN-dK-C8b" secondAttribute="bottom" constant="8" symbolic="YES" id="i8O-dn-YtD"/>
+                                    <constraint firstItem="T6X-d2-VoA" firstAttribute="top" secondItem="1JN-dK-C8b" secondAttribute="bottom" constant="1" id="kIj-xp-fK6"/>
                                     <constraint firstItem="Z6p-3R-jiZ" firstAttribute="trailing" secondItem="Hft-wJ-Y89" secondAttribute="trailingMargin" id="kv7-cW-1IG"/>
-                                    <constraint firstItem="1JN-dK-C8b" firstAttribute="centerX" secondItem="T6X-d2-VoA" secondAttribute="centerX" id="oU8-I3-4vl"/>
+                                    <constraint firstItem="T6X-d2-VoA" firstAttribute="centerX" secondItem="1UQ-bX-ziv" secondAttribute="centerX" id="n9j-pD-BWt"/>
                                     <constraint firstItem="1UQ-bX-ziv" firstAttribute="top" secondItem="Z6p-3R-jiZ" secondAttribute="bottom" constant="8" symbolic="YES" id="pJj-5Q-rMC"/>
+                                    <constraint firstItem="1JN-dK-C8b" firstAttribute="top" secondItem="1UQ-bX-ziv" secondAttribute="bottom" constant="7" id="psc-p7-6bd"/>
                                     <constraint firstItem="Z6p-3R-jiZ" firstAttribute="top" secondItem="Hft-wJ-Y89" secondAttribute="topMargin" id="qe9-pZ-cc1"/>
                                     <constraint firstItem="Z6p-3R-jiZ" firstAttribute="trailing" secondItem="1UQ-bX-ziv" secondAttribute="trailing" id="w45-WB-Ce7"/>
                                 </constraints>
@@ -253,7 +262,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Zex-8T-ZMF"/>
+        <segue reference="d7I-CM-4ED"/>
         <segue reference="Ns5-4T-hgz"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,6 +14,10 @@ class HighScoreDetailsViewController: UIViewController {
     @IBOutlet weak var gameBoard: UIImageView!
     
     static var score:GameScore?;
+    var timer:Timer? = nil
+
+    var lab:Labyrinth? = nil
+    var actionIndex:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +32,7 @@ class HighScoreDetailsViewController: UIViewController {
 
         DispatchQueue.global(qos: .background).async {
 
-            lab.simulate(score: score, width: dim.x, height: dim.y)
+            lab.simulateFast(score: score, width: dim.x, height: dim.y)
             
             DispatchQueue.main.async {
                 self.gameBoard.image = lab.imageView.image
@@ -44,12 +48,51 @@ class HighScoreDetailsViewController: UIViewController {
     @IBAction func playAgainAction(_ sender: Any) {
         Labyrinth.level = HighScoreDetailsViewController.score!.level
         
+        timer?.invalidate()
+
         performSegue(withIdentifier: "playSelectedGame", sender:self)
         
     }
+    
+    @IBAction func simulateAction(_ sender: Any) {
+        Labyrinth.level = HighScoreDetailsViewController.score!.level
+        let score = HighScoreDetailsViewController.score!
+        actionIndex = 0
+        
+        lab = Labyrinth(image:UIImage())
+        
+        let dim = HighScores.sharedInstance.getDimensions()
+        
+        lab!.simulateSlow(score: score, width: dim.x, height: dim.y)
+        
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(timeInterval: lab!.timeBetweenDraw, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+    }
   
+    @objc func updateTimer() {
+        lab!.tick = lab!.tick + 1
+        
+        let score = HighScoreDetailsViewController.score!
+
+        if(lab!.tick > score.endTick) {
+            timer?.invalidate()
+            return
+        }
+        
+        while(score.actions.count > actionIndex && score.actions[actionIndex].tick == lab!.tick) {
+            lab!.toggleCellValueAt(score.actions[actionIndex].y, score.actions[actionIndex].x)
+            actionIndex = actionIndex + 1
+        }
+        
+        lab!.gameLoop()
+        self.gameBoard.image = lab!.imageView.image
+        self.gameBoard.setNeedsDisplay()
+    }
     
     @IBAction func backAction(_ sender: Any) {
+        timer?.invalidate()
+
         dismiss(animated: true) {
         }
     }
