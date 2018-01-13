@@ -13,18 +13,38 @@ import GameKit
 class LevelInfo {
     static let sharedInstance = LevelInfo()
     
-    let snake = "1111122222300000000000000000000111222112114566"
-    let flow =  "0000000000011111222230000000000100100111110000"
-    let burn =  "0000000000000000000001111100000010010101110000"
-    let fill =  "0000000000000000000000000011111001001010110000"
-    let nice =  "0001000100000100000000010000000000000000010001"
-    
+    let snake = "11111222223000000000000000000001112221121145661"
+    let flow =  "00000000000111112222300000000001001001111100000"
+    let burn =  "00000000000000000000011111000000100101011100000"
+    let fill =  "00000000000000000000000000111110010010101100001"
+    let nice =  "00010001000001000000000100000000000000000100010"
+    let laser = "00000000000000000000000000000000000000000000001"
     
     func allocateByRandom(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) {
         //TODO!
         
         
     }
+    
+    func createSnake(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) -> EnemyBasis {
+        return EnemySnake(parent:parent, rs:rs)
+    }
+    func createLaser(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) -> EnemyBasis {
+        return EnemyLaser(parent:parent, rs:rs)
+    }
+    func createFlow(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) -> EnemyBasis {
+        return EnemyFlow(parent:parent, rs:rs)
+    }
+    func createBurn(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) -> EnemyBasis {
+        return EnemyBurn(parent:parent, rs:rs)
+    }
+    func createFill(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) -> EnemyBasis {
+        return EnemyFill(parent:parent, rs:rs)
+    }
+    func createNiceSnake(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) -> EnemyBasis {
+        return NiceSnake(parent:parent, rs:rs)
+    }
+    
     func addBadThings(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) {
         let level = Labyrinth.level - 10;
         
@@ -38,39 +58,19 @@ class LevelInfo {
             return
         }
         
-        var count = valueAtLocation(str:snake, pos:level)
+        let things:[(String,((Labyrinth, GKMersenneTwisterRandomSource)->EnemyBasis))] =
+            [(snake,createSnake), (laser, createLaser), (flow, createFlow), (burn, createBurn), (fill, createFill),
+             (nice, createNiceSnake)]
         
-        while(count > 0) {
-            count = count - 1
-            parent.badThings.append(EnemySnake(parent:parent, rs:rs))
+        
+        for (str, c) in things {
+            var count = valueAtLocation(str:str, pos:level)
+            while(count > 0) {
+                count = count - 1
+                parent.badThings.append(c(parent, rs))
+            }
         }
-        
-        count = valueAtLocation(str: flow, pos: level)
-        
-        while(count > 0) {
-            count = count - 1
-            parent.badThings.append(EnemyFlow(parent:parent, rs:rs))
-        }
-        
-        count = valueAtLocation(str: burn, pos: level)
-        
-        while(count > 0) {
-            count = count - 1
-            parent.badThings.append(EnemyBurn(parent:parent, rs:rs))
-        }
-        
-        count = valueAtLocation(str: fill, pos:level)
-        while(count > 0) {
-            count = count - 1
-            parent.badThings.append(EnemyFill(parent:parent, rs:rs))
-        }
-        
-        count = valueAtLocation(str: nice, pos:level)
-        while(count > 0) {
-            count = count - 1
-            parent.badThings.append(NiceSnake(parent:parent, rs:rs))
-        }
-        
+    
         
     }
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E7198BC2007BC7100B6CDF3 /* NiceSnake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198BB2007BC7100B6CDF3 /* NiceSnake.swift */; };
+		8E7198BE2007E18000B6CDF3 /* EnemyLaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198BD2007E18000B6CDF3 /* EnemyLaser.swift */; };
 		8EB92B1F1FFC06CC0096CC55 /* LevelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB92B1E1FFC06CC0096CC55 /* LevelInfo.swift */; };
 		8EB92B2120013FCF0096CC55 /* HighScoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB92B2020013FCF0096CC55 /* HighScoreDetailsViewController.swift */; };
 		8EEF077B1FF2F74B0032CDAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF077A1FF2F74B0032CDAE /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		8E7198BB2007BC7100B6CDF3 /* NiceSnake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceSnake.swift; sourceTree = "<group>"; };
+		8E7198BD2007E18000B6CDF3 /* EnemyLaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyLaser.swift; sourceTree = "<group>"; };
 		8EB92B1E1FFC06CC0096CC55 /* LevelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelInfo.swift; sourceTree = "<group>"; };
 		8EB92B2020013FCF0096CC55 /* HighScoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreDetailsViewController.swift; sourceTree = "<group>"; };
 		8EEF07771FF2F74B0032CDAE /* Flowmaze2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowmaze2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +106,7 @@
 				8EFFF5811FF80373007947D6 /* HighScores.swift */,
 				8E7198BB2007BC7100B6CDF3 /* NiceSnake.swift */,
 				8EFFF58B1FFA2D1D007947D6 /* EnemySnake.swift */,
+				8E7198BD2007E18000B6CDF3 /* EnemyLaser.swift */,
 				8EFFF5911FFA8065007947D6 /* EnemyBasis.swift */,
 				8EFFF58D1FFA6F33007947D6 /* EnemyFlow.swift */,
 				8EFFF58F1FFA8000007947D6 /* EnemyBurn.swift */,
@@ -187,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E7198BE2007E18000B6CDF3 /* EnemyLaser.swift in Sources */,
 				8EFFF58E1FFA6F33007947D6 /* EnemyFlow.swift in Sources */,
 				8EEF077D1FF2F74B0032CDAE /* GameViewController.swift in Sources */,
 				8EFFF58C1FFA2D1D007947D6 /* EnemySnake.swift in Sources */,

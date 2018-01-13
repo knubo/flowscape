@@ -40,6 +40,8 @@ class Labyrinth: UIImageView {
     var menuScaledHeight:Int?
     var menuDrawPoint:CGRect?
     
+    var height:CGFloat = CGFloat(0), width:CGFloat = CGFloat(0)
+
     var badThings: [EnemyBasis] = []
     
     @objc func updateTimer() {
@@ -116,7 +118,6 @@ class Labyrinth: UIImageView {
         self.imageView.addGestureRecognizer(tapGestureRecognizer)
         
         let bounds = imageView.bounds
-        var height:CGFloat = CGFloat(0), width:CGFloat = CGFloat(0)
         
         if #available(iOS 11.0, *) {
             height = bounds.size.height - safeAreaInsets.bottom - safeAreaInsets.top
