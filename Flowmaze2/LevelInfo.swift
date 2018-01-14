@@ -13,9 +13,9 @@ import GameKit
 class LevelInfo {
     static let sharedInstance = LevelInfo()
     
-    let snake = "11111222223000000000000000000001112221121145661"
+    let snake = "11111222223000000000000000000001112221131145661"
     let flow =  "00000000000111112222300000000001001001111100000"
-    let burn =  "00000000000000000000011111000000100101011100000"
+    let burn =  "00000000000000000000011111000000100100000000000"
     let fill =  "00000000000000000000000000111110010010101100001"
     let nice =  "00010001000001000000000100000000000000000100010"
     let laser = "00000000000000000000000000000000000000000000001"
@@ -53,7 +53,7 @@ class LevelInfo {
             return
         }
         
-        if(level > snake.count) {
+        if(level >= snake.count) {
             allocateByRandom(parent:parent, rs:rs)
             return
         }

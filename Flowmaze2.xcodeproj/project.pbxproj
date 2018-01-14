@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		8E7198BC2007BC7100B6CDF3 /* NiceSnake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198BB2007BC7100B6CDF3 /* NiceSnake.swift */; };
 		8E7198BE2007E18000B6CDF3 /* EnemyLaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198BD2007E18000B6CDF3 /* EnemyLaser.swift */; };
+		8E7198C6200B8A1300B6CDF3 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198C0200B8A1300B6CDF3 /* UIImageViewExtension.swift */; };
+		8E7198C7200B8A1300B6CDF3 /* CIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198C2200B8A1300B6CDF3 /* CIColorExtension.swift */; };
+		8E7198C8200B8A1300B6CDF3 /* CIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198C3200B8A1300B6CDF3 /* CIImageExtension.swift */; };
+		8E7198C9200B8A1300B6CDF3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E7198C4200B8A1300B6CDF3 /* Info.plist */; };
+		8E7198CA200B8A1300B6CDF3 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198C5200B8A1300B6CDF3 /* QRCode.swift */; };
+		8E7198CC200B8B9F00B6CDF3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8E7198CB200B8B9F00B6CDF3 /* LICENSE */; };
 		8EB92B1F1FFC06CC0096CC55 /* LevelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB92B1E1FFC06CC0096CC55 /* LevelInfo.swift */; };
 		8EB92B2120013FCF0096CC55 /* HighScoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB92B2020013FCF0096CC55 /* HighScoreDetailsViewController.swift */; };
 		8EEF077B1FF2F74B0032CDAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF077A1FF2F74B0032CDAE /* AppDelegate.swift */; };
@@ -34,6 +40,13 @@
 /* Begin PBXFileReference section */
 		8E7198BB2007BC7100B6CDF3 /* NiceSnake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceSnake.swift; sourceTree = "<group>"; };
 		8E7198BD2007E18000B6CDF3 /* EnemyLaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyLaser.swift; sourceTree = "<group>"; };
+		8E7198C0200B8A1300B6CDF3 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		8E7198C1200B8A1300B6CDF3 /* QRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCode.h; sourceTree = "<group>"; };
+		8E7198C2200B8A1300B6CDF3 /* CIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIColorExtension.swift; sourceTree = "<group>"; };
+		8E7198C3200B8A1300B6CDF3 /* CIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIImageExtension.swift; sourceTree = "<group>"; };
+		8E7198C4200B8A1300B6CDF3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E7198C5200B8A1300B6CDF3 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		8E7198CB200B8B9F00B6CDF3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8EB92B1E1FFC06CC0096CC55 /* LevelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelInfo.swift; sourceTree = "<group>"; };
 		8EB92B2020013FCF0096CC55 /* HighScoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreDetailsViewController.swift; sourceTree = "<group>"; };
 		8EEF07771FF2F74B0032CDAE /* Flowmaze2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowmaze2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +82,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E7198BF200B88D500B6CDF3 /* qr_code */ = {
+			isa = PBXGroup;
+			children = (
+				8E7198CB200B8B9F00B6CDF3 /* LICENSE */,
+				8E7198C2200B8A1300B6CDF3 /* CIColorExtension.swift */,
+				8E7198C3200B8A1300B6CDF3 /* CIImageExtension.swift */,
+				8E7198C4200B8A1300B6CDF3 /* Info.plist */,
+				8E7198C1200B8A1300B6CDF3 /* QRCode.h */,
+				8E7198C5200B8A1300B6CDF3 /* QRCode.swift */,
+				8E7198C0200B8A1300B6CDF3 /* UIImageViewExtension.swift */,
+			);
+			path = qr_code;
+			sourceTree = "<group>";
+		};
 		8EEF076E1FF2F74B0032CDAE = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +115,7 @@
 		8EEF07791FF2F74B0032CDAE /* Flowmaze2 */ = {
 			isa = PBXGroup;
 			children = (
+				8E7198BF200B88D500B6CDF3 /* qr_code */,
 				8EFFF57F1FF51C12007947D6 /* MenuViewController.swift */,
 				8EEF077A1FF2F74B0032CDAE /* AppDelegate.swift */,
 				8EFFF5891FF91B23007947D6 /* SceneViewController.swift */,
@@ -176,10 +204,12 @@
 			files = (
 				8EFFF5871FF8FE5D007947D6 /* Highscore.png in Resources */,
 				8EFFF5881FF8FE5D007947D6 /* Success.png in Resources */,
+				8E7198CC200B8B9F00B6CDF3 /* LICENSE in Resources */,
 				8EEF07851FF2F74B0032CDAE /* LaunchScreen.storyboard in Resources */,
 				8EFFF5861FF8FE5D007947D6 /* GameOver.png in Resources */,
 				8EEF07821FF2F74B0032CDAE /* Assets.xcassets in Resources */,
 				8EEF07801FF2F74B0032CDAE /* Main.storyboard in Resources */,
+				8E7198C9200B8A1300B6CDF3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,14 +225,18 @@
 				8EEF077D1FF2F74B0032CDAE /* GameViewController.swift in Sources */,
 				8EFFF58C1FFA2D1D007947D6 /* EnemySnake.swift in Sources */,
 				8EFFF5941FFA907A007947D6 /* EnemyFill.swift in Sources */,
+				8E7198C7200B8A1300B6CDF3 /* CIColorExtension.swift in Sources */,
 				8E7198BC2007BC7100B6CDF3 /* NiceSnake.swift in Sources */,
 				8EB92B2120013FCF0096CC55 /* HighScoreDetailsViewController.swift in Sources */,
 				8EEF078D1FF2F7690032CDAE /* Labyrinth.swift in Sources */,
+				8E7198CA200B8A1300B6CDF3 /* QRCode.swift in Sources */,
 				8EFFF5901FFA8000007947D6 /* EnemyBurn.swift in Sources */,
 				8EFFF5921FFA8065007947D6 /* EnemyBasis.swift in Sources */,
 				8EFFF5821FF80373007947D6 /* HighScores.swift in Sources */,
 				8EB92B1F1FFC06CC0096CC55 /* LevelInfo.swift in Sources */,
 				8EFFF58A1FF91B23007947D6 /* SceneViewController.swift in Sources */,
+				8E7198C8200B8A1300B6CDF3 /* CIImageExtension.swift in Sources */,
+				8E7198C6200B8A1300B6CDF3 /* UIImageViewExtension.swift in Sources */,
 				8EEF077B1FF2F74B0032CDAE /* AppDelegate.swift in Sources */,
 				8EFFF5801FF51C12007947D6 /* MenuViewController.swift in Sources */,
 				8EFFF5961FFA958C007947D6 /* HighScoreViewController.swift in Sources */,
