@@ -51,8 +51,6 @@ class HighScores {
         defaults.set(score.endTick, forKey: String(score.level) + "_tick_me")
         defaults.set(Date(), forKey:String(score.level)+"_when_me")
         defaults.set(score.describeActions(), forKey:String(score.level)+"moves_me")
-
-        
       
         return true
     }
@@ -74,6 +72,12 @@ class HighScores {
         let defaults = UserDefaults.standard
 
         return Point(x:defaults.integer(forKey:"pixel_width"), y:defaults.integer(forKey:"pixel_height"))
+    }
+    
+    func getQRCode(level:Int) -> String {
+        let defaults = UserDefaults.standard
+
+        return ""
     }
     
     func scores() -> [GameScore] {

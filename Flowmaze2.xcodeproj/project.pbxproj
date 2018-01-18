@@ -15,6 +15,8 @@
 		8E7198C9200B8A1300B6CDF3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E7198C4200B8A1300B6CDF3 /* Info.plist */; };
 		8E7198CA200B8A1300B6CDF3 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198C5200B8A1300B6CDF3 /* QRCode.swift */; };
 		8E7198CC200B8B9F00B6CDF3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8E7198CB200B8B9F00B6CDF3 /* LICENSE */; };
+		8E7C85FE20114BBC00969EC8 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7C85FD20114BBC00969EC8 /* ShareViewController.swift */; };
+		8E7C86002011528400969EC8 /* Flowmaze.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E7C85FF2011528400969EC8 /* Flowmaze.png */; };
 		8EB92B1F1FFC06CC0096CC55 /* LevelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB92B1E1FFC06CC0096CC55 /* LevelInfo.swift */; };
 		8EB92B2120013FCF0096CC55 /* HighScoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB92B2020013FCF0096CC55 /* HighScoreDetailsViewController.swift */; };
 		8EEF077B1FF2F74B0032CDAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF077A1FF2F74B0032CDAE /* AppDelegate.swift */; };
@@ -47,6 +49,8 @@
 		8E7198C4200B8A1300B6CDF3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E7198C5200B8A1300B6CDF3 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		8E7198CB200B8B9F00B6CDF3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		8E7C85FD20114BBC00969EC8 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		8E7C85FF2011528400969EC8 /* Flowmaze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flowmaze.png; sourceTree = "<group>"; };
 		8EB92B1E1FFC06CC0096CC55 /* LevelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelInfo.swift; sourceTree = "<group>"; };
 		8EB92B2020013FCF0096CC55 /* HighScoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreDetailsViewController.swift; sourceTree = "<group>"; };
 		8EEF07771FF2F74B0032CDAE /* Flowmaze2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowmaze2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,10 +124,12 @@
 				8EEF077A1FF2F74B0032CDAE /* AppDelegate.swift */,
 				8EFFF5891FF91B23007947D6 /* SceneViewController.swift */,
 				8EEF077C1FF2F74B0032CDAE /* GameViewController.swift */,
+				8E7C85FD20114BBC00969EC8 /* ShareViewController.swift */,
 				8EFFF5951FFA958C007947D6 /* HighScoreViewController.swift */,
 				8EB92B2020013FCF0096CC55 /* HighScoreDetailsViewController.swift */,
 				8EEF077E1FF2F74B0032CDAE /* Main.storyboard */,
 				8EEF07811FF2F74B0032CDAE /* Assets.xcassets */,
+				8E7C85FF2011528400969EC8 /* Flowmaze.png */,
 				8EFFF5831FF8FE5D007947D6 /* GameOver.png */,
 				8EFFF5841FF8FE5D007947D6 /* Highscore.png */,
 				8EFFF5851FF8FE5D007947D6 /* Success.png */,
@@ -209,6 +215,7 @@
 				8EFFF5861FF8FE5D007947D6 /* GameOver.png in Resources */,
 				8EEF07821FF2F74B0032CDAE /* Assets.xcassets in Resources */,
 				8EEF07801FF2F74B0032CDAE /* Main.storyboard in Resources */,
+				8E7C86002011528400969EC8 /* Flowmaze.png in Resources */,
 				8E7198C9200B8A1300B6CDF3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E7C85FE20114BBC00969EC8 /* ShareViewController.swift in Sources */,
 				8E7198BE2007E18000B6CDF3 /* EnemyLaser.swift in Sources */,
 				8EFFF58E1FFA6F33007947D6 /* EnemyFlow.swift in Sources */,
 				8EEF077D1FF2F74B0032CDAE /* GameViewController.swift in Sources */,

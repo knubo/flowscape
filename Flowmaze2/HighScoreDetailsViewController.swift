@@ -54,6 +54,10 @@ class HighScoreDetailsViewController: UIViewController {
         
     }
     
+    @IBAction func shareAction(_ sender: Any) {
+        performSegue(withIdentifier: "share", sender:self)
+    }
+    
     @IBAction func simulateAction(_ sender: Any) {
         Labyrinth.level = HighScoreDetailsViewController.score!.level
         let score = HighScoreDetailsViewController.score!

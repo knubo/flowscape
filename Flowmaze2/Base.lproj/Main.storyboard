@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,7 +16,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" userLabel="View Controllers" customClass="SceneViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <containerView key="view" opaque="NO" contentMode="scaleToFill" id="jZX-tb-vaL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                         <connections>
                             <segue destination="Q4Z-nN-6iT" kind="embed" identifier="menu" id="PyX-bw-gKT"/>
@@ -34,18 +34,18 @@
             <objects>
                 <viewController id="fEF-x2-iiV" customClass="HighScoreViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aj8-U7-fa2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAF-Yp-BtE">
-                                <rect key="frame" x="270" y="20" width="34" height="30"/>
+                                <rect key="frame" x="325" y="44" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <segue destination="Q4Z-nN-6iT" kind="show" identifier="toMenuFromScore" id="lT4-hS-41f"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kfw-PJ-kn0">
-                                <rect key="frame" x="0.0" y="58" width="320" height="510"/>
+                                <rect key="frame" x="0.0" y="82" width="375" height="696"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VOF-Da-DJG">
                                     <size key="itemSize" width="66" height="65"/>
@@ -113,19 +113,11 @@
             <objects>
                 <viewController id="dq0-fc-QTT" customClass="HighScoreDetailsViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hwg-Du-dRC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jl-Ov-ibe">
-                                <rect key="frame" x="225" y="518" width="44" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <state key="normal" title="Watch"/>
-                                <connections>
-                                    <action selector="simulateAction:" destination="dq0-fc-QTT" eventType="touchUpInside" id="eRa-UT-hWa"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQO-3l-uVV">
-                                <rect key="frame" x="119" y="518" width="70" height="30"/>
+                                <rect key="frame" x="94" y="762" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Play again"/>
                                 <connections>
@@ -133,7 +125,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDR-ET-3xv">
-                                <rect key="frame" x="60" y="518" width="34" height="30"/>
+                                <rect key="frame" x="19" y="762" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
@@ -141,16 +133,32 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NkD-jG-AAh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="743"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZz-Zm-7Mn">
-                                <rect key="frame" x="0.0" y="489" width="320" height="21"/>
+                                <rect key="frame" x="0.0" y="733" width="375" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0L8-Ko-HPV">
+                                <rect key="frame" x="306" y="762" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" title="Share"/>
+                                <connections>
+                                    <action selector="shareAction:" destination="dq0-fc-QTT" eventType="touchUpInside" id="e08-I5-uAe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jl-Ov-ibe">
+                                <rect key="frame" x="219" y="762" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" title="Watch"/>
+                                <connections>
+                                    <action selector="simulateAction:" destination="dq0-fc-QTT" eventType="touchUpInside" id="eRa-UT-hWa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dSt-Js-JgF"/>
@@ -159,18 +167,48 @@
                         <outlet property="gameBoard" destination="NkD-jG-AAh" id="NGV-hA-5DE"/>
                         <outlet property="levelLabel" destination="IZz-Zm-7Mn" id="4z6-S8-mWp"/>
                         <segue destination="0jo-J5-qeD" kind="show" identifier="playSelectedGame" id="d7I-CM-4ED"/>
+                        <segue destination="yhb-nj-ncX" kind="show" identifier="share" id="b5q-YA-bnv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUR-r7-maQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1661.25" y="717.5"/>
         </scene>
+        <!--Share View Controller-->
+        <scene sceneID="w69-PM-J2P">
+            <objects>
+                <viewController id="yhb-nj-ncX" customClass="ShareViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iaR-Xl-ejm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kW5-Hk-d9a">
+                                <rect key="frame" x="0.0" y="44" width="375" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQX-9O-OZJ">
+                                <rect key="frame" x="64" y="126" width="247" height="246"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="CYG-Xj-KfV"/>
+                    </view>
+                    <connections>
+                        <outlet property="logoImage" destination="kW5-Hk-d9a" id="9Iu-K0-VSD"/>
+                        <outlet property="qrCodeImage" destination="uQX-9O-OZJ" id="hZU-z3-WSW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O6s-J1-reP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2580" y="717.48768472906409"/>
+        </scene>
         <!--Menu View Controller-->
         <scene sceneID="ew1-YI-PFa">
             <objects>
                 <viewController id="Q4Z-nN-6iT" customClass="MenuViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BAk-PX-2o2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM4-SH-MV8">
@@ -208,11 +246,11 @@
             <objects>
                 <viewController id="0jo-J5-qeD" customClass="GameViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="iWK-X8-tgP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbx-S4-fk4" customClass="Labyrinth" customModule="Flowmaze2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="-8" width="320" height="576"/>
+                                <rect key="frame" x="0.0" y="16" width="375" height="762"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" updatesFrequently="YES"/>
