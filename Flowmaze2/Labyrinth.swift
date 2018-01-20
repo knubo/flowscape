@@ -44,6 +44,8 @@ class Labyrinth: UIImageView {
 
     var badThings: [EnemyBasis] = []
     
+    var rs:GKMersenneTwisterRandomSource?
+    
     @objc func updateTimer() {
         tick = tick + 1
         
@@ -233,7 +235,7 @@ class Labyrinth: UIImageView {
         
     }
     
-    func fillMaze(rs:GKMersenneTwisterRandomSource, row:Int, col:Int) {
+    func fillMaze(row:Int, col:Int) {
         
         if(col  == 0 || col == mazeColSize - 1 || row == 0 || row == mazeRowSize - 1) {
             return;
@@ -241,7 +243,7 @@ class Labyrinth: UIImageView {
         
         board[row][col] = true
         
-        let checkOrder = [ NextCell(x:-1,y:0), NextCell(x:1,y:0), NextCell(x:0,y:-1), NextCell(x:0,y:1)].shuffled(rs:rs)
+        let checkOrder = [ NextCell(x:-1,y:0), NextCell(x:1,y:0), NextCell(x:0,y:-1), NextCell(x:0,y:1)].shuffled(rs:rs!)
         
         for cell in checkOrder {
             
@@ -266,7 +268,7 @@ class Labyrinth: UIImageView {
             }
             
             if(continueToNextCell) {
-                fillMaze(rs:rs, row: row + cell.y, col:col + cell.x)
+                fillMaze(row: row + cell.y, col:col + cell.x)
             }
             
         }
@@ -289,9 +291,8 @@ class Labyrinth: UIImageView {
     }
     
     func createMaze() {
-        
-        let rs = GKMersenneTwisterRandomSource()
-        rs.seed = UInt64(Labyrinth.level)
+        rs = GKMersenneTwisterRandomSource()
+        rs!.seed = UInt64(Labyrinth.level)
         board = []
         
         
@@ -303,14 +304,14 @@ class Labyrinth: UIImageView {
             board.append(row)
         }
         
-        let randomRow = rs.nextInt(upperBound: mazeRowSize-4)
-        let randomCol = rs.nextInt(upperBound: mazeColSize-4)
+        let randomRow = rs!.nextInt(upperBound: mazeRowSize-4)
+        let randomCol = rs!.nextInt(upperBound: mazeColSize-4)
         
-        fillMaze(rs: rs, row: randomRow + 2, col: randomCol + 2)
+        fillMaze(row: randomRow + 2, col: randomCol + 2)
         addEntryAndExitToMaze()
         
         badThings.removeAll()
-        LevelInfo.sharedInstance.addBadThings(parent:self, rs:rs)
+        LevelInfo.sharedInstance.addBadThings(parent:self, rs:rs!)
     }
 
   
@@ -422,7 +423,7 @@ class Labyrinth: UIImageView {
                 if(colorIsYellow(c) && mode != GameMode.SIMULATE) {
                     let boardSize = Point(x:mazeColSize, y:mazeRowSize)
                     
-                    let highScore = HighScores.sharedInstance.postScore(score:GameScore(actions:gameActions, endTick:tick, level:Labyrinth.level, boardSize:boardSize))
+                    let highScore = HighScores.sharedInstance.postScore(score:GameScore(actions:gameActions, endTick:tick, level:Labyrinth.level, boardSize:boardSize), rs:rs!)
                     mode = highScore ? GameMode.HIGHSCORE : GameMode.SUCCESS
                     showMenu()
                     return

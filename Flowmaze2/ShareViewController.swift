@@ -14,7 +14,8 @@ class ShareViewController: UIViewController {
     @IBOutlet weak var logoImage: UIImageView!
     
     override func viewDidLayoutSubviews() {
-        let q = QRCode("Hello world")
+        let str = HighScores.sharedInstance.getQRCode(level: HighScoreDetailsViewController.score!.level)
+        let q = QRCode(str)
         
         qrCodeImage.image = q?.image
         

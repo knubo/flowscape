@@ -14,11 +14,12 @@
 // Store lowest tick.
 
 import Foundation
+import GameKit
 
 class HighScores {
     static let sharedInstance = HighScores()
     
-    func postScore(score:GameScore) -> Bool {
+    func postScore(score:GameScore, rs:GKMersenneTwisterRandomSource) -> Bool {
         let defaults = UserDefaults.standard
         
         defaults.set(score.boardSize!.x, forKey:"board_size_x")
@@ -52,6 +53,13 @@ class HighScores {
         defaults.set(Date(), forKey:String(score.level)+"_when_me")
         defaults.set(score.describeActions(), forKey:String(score.level)+"moves_me")
       
+        var s:String = ""
+        for _ in 1...40 {
+            s = s + String(rs.nextInt(upperBound:9))
+        }
+        
+        defaults.set(s, forKey: String(score.level)+"checksum_me")
+        
         return true
     }
     
@@ -76,8 +84,28 @@ class HighScores {
     
     func getQRCode(level:Int) -> String {
         let defaults = UserDefaults.standard
-
-        return ""
+        
+        let score = getFullScore(l:level)
+        
+        let jsonObject: [String: String] = [
+            "pw": defaults.string(forKey:"pixel_width")!,
+            "ph":defaults.string(forKey:"pixel_height")!,
+            "bx":defaults.string(forKey:"board_size_x")!,
+            "by":defaults.string(forKey:"board_size_y")!,
+            "tk":String(score.endTick),
+            "ll":String(score.level),
+            "wn":score.when!.description,
+            "ms":score.describeActions(),
+            "cs": defaults.string(forKey:String(level)+"checksum_me")!
+            ]
+        
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(jsonObject)
+            return String(data: data, encoding: .utf8)!
+        } catch {
+            return ""
+        }
     }
     
     func scores() -> [GameScore] {
