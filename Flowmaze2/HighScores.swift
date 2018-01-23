@@ -82,6 +82,19 @@ class HighScores {
         return Point(x:defaults.integer(forKey:"pixel_width"), y:defaults.integer(forKey:"pixel_height"))
     }
     
+    func getMyName() -> String {
+        let defaults = UserDefaults.standard
+        
+        let name = defaults.string(forKey: "share_name")
+        
+        if(name != nil) {
+            return name!
+        }
+        
+        return "Player 1"
+    }
+    
+    
     func getQRCode(level:Int) -> String {
         let defaults = UserDefaults.standard
         
