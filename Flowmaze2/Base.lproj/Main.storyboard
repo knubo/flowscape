@@ -233,10 +233,12 @@
                         <viewLayoutGuide key="safeArea" id="CYG-Xj-KfV"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="K7r-u6-l6e" id="bvZ-KI-fVn"/>
                         <outlet property="levelLabel" destination="5L5-kX-HpV" id="osm-lQ-wji"/>
                         <outlet property="logoImage" destination="kW5-Hk-d9a" id="9Iu-K0-VSD"/>
                         <outlet property="nameLabel" destination="jwF-yc-lBv" id="WaZ-wA-M5X"/>
                         <outlet property="qrCodeImage" destination="uQX-9O-OZJ" id="hZU-z3-WSW"/>
+                        <outlet property="shareButton" destination="zg4-hq-LyX" id="i5S-cG-d0v"/>
                         <outlet property="tickLabel" destination="dAN-o8-lIO" id="2VT-nI-cdn"/>
                     </connections>
                 </viewController>
@@ -291,7 +293,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbx-S4-fk4" customClass="Labyrinth" customModule="Flowmaze2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24" width="375" height="754"/>
+                                <rect key="frame" x="0.0" y="16" width="375" height="762"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" updatesFrequently="YES"/>

@@ -94,6 +94,12 @@ class HighScores {
         return "Player 1"
     }
     
+    func setMyName(name:String) {
+        let defaults = UserDefaults.standard
+
+        defaults.set(name, forKey:"share_name")
+    }
+    
     
     func getQRCode(level:Int) -> String {
         let defaults = UserDefaults.standard

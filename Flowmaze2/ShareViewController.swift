@@ -12,7 +12,9 @@ import UIKit
 class ShareViewController: UIViewController {
     @IBOutlet weak var qrCodeImage: UIImageView!
     @IBOutlet weak var logoImage: UIImageView!
-    
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var tickLabel: UILabel!
@@ -40,7 +42,22 @@ class ShareViewController: UIViewController {
     }
 
     @IBAction func share(_ sender: Any) {
+        HighScores.sharedInstance.setMyName(name: nameLabel.text!)
+
+        backButton.isHidden = true
+        shareButton.isHidden = true
         
+        let bounds = UIScreen.main.bounds
+        UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
+        self.view.drawHierarchy(in: bounds, afterScreenUpdates: false)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        let activityViewController = UIActivityViewController(activityItems: [img!], applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: nil)
+        
+        backButton.isHidden = false
+        shareButton.isHidden = false
+
     }
 
 }
