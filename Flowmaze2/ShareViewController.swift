@@ -44,12 +44,12 @@ class ShareViewController: UIViewController {
     @IBAction func share(_ sender: Any) {
         HighScores.sharedInstance.setMyName(name: nameLabel.text!)
 
-        backButton.isHidden = true
-        shareButton.isHidden = true
+        self.backButton.isHidden = true
+        self.shareButton.isHidden = true
         
         let bounds = UIScreen.main.bounds
         UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
-        self.view.drawHierarchy(in: bounds, afterScreenUpdates: false)
+        self.view.drawHierarchy(in: bounds, afterScreenUpdates: true)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         let activityViewController = UIActivityViewController(activityItems: [img!], applicationActivities: nil)
