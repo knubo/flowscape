@@ -17,6 +17,9 @@
 		8E7198CC200B8B9F00B6CDF3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8E7198CB200B8B9F00B6CDF3 /* LICENSE */; };
 		8E7C85FE20114BBC00969EC8 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7C85FD20114BBC00969EC8 /* ShareViewController.swift */; };
 		8E7C86002011528400969EC8 /* Flowmaze.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E7C85FF2011528400969EC8 /* Flowmaze.png */; };
+		8E9395442026016400F03E37 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9395432026016400F03E37 /* ActionViewController.swift */; };
+		8E9395472026016400F03E37 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E9395452026016400F03E37 /* MainInterface.storyboard */; };
+		8E93954B2026016400F03E37 /* FlowMazeImport.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8E9395412026016400F03E37 /* FlowMazeImport.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8EB92B1F1FFC06CC0096CC55 /* LevelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB92B1E1FFC06CC0096CC55 /* LevelInfo.swift */; };
 		8EB92B2120013FCF0096CC55 /* HighScoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB92B2020013FCF0096CC55 /* HighScoreDetailsViewController.swift */; };
 		8EEF077B1FF2F74B0032CDAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF077A1FF2F74B0032CDAE /* AppDelegate.swift */; };
@@ -39,6 +42,30 @@
 		8EFFF5961FFA958C007947D6 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFFF5951FFA958C007947D6 /* HighScoreViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8E9395492026016400F03E37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8EEF076F1FF2F74B0032CDAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E9395402026016400F03E37;
+			remoteInfo = FlowMazeImport;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8E93954F2026016400F03E37 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8E93954B2026016400F03E37 /* FlowMazeImport.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		8E7198BB2007BC7100B6CDF3 /* NiceSnake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceSnake.swift; sourceTree = "<group>"; };
 		8E7198BD2007E18000B6CDF3 /* EnemyLaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyLaser.swift; sourceTree = "<group>"; };
@@ -51,6 +78,10 @@
 		8E7198CB200B8B9F00B6CDF3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8E7C85FD20114BBC00969EC8 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		8E7C85FF2011528400969EC8 /* Flowmaze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flowmaze.png; sourceTree = "<group>"; };
+		8E9395412026016400F03E37 /* FlowMazeImport.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FlowMazeImport.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E9395432026016400F03E37 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		8E9395462026016400F03E37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		8E9395482026016400F03E37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EB92B1E1FFC06CC0096CC55 /* LevelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelInfo.swift; sourceTree = "<group>"; };
 		8EB92B2020013FCF0096CC55 /* HighScoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreDetailsViewController.swift; sourceTree = "<group>"; };
 		8EEF07771FF2F74B0032CDAE /* Flowmaze2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowmaze2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +107,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8E93953E2026016400F03E37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8EEF07741FF2F74B0032CDAE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -100,10 +138,21 @@
 			path = qr_code;
 			sourceTree = "<group>";
 		};
+		8E9395422026016400F03E37 /* FlowMazeImport */ = {
+			isa = PBXGroup;
+			children = (
+				8E9395432026016400F03E37 /* ActionViewController.swift */,
+				8E9395452026016400F03E37 /* MainInterface.storyboard */,
+				8E9395482026016400F03E37 /* Info.plist */,
+			);
+			path = FlowMazeImport;
+			sourceTree = "<group>";
+		};
 		8EEF076E1FF2F74B0032CDAE = {
 			isa = PBXGroup;
 			children = (
 				8EEF07791FF2F74B0032CDAE /* Flowmaze2 */,
+				8E9395422026016400F03E37 /* FlowMazeImport */,
 				8EEF07781FF2F74B0032CDAE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				8EEF07771FF2F74B0032CDAE /* Flowmaze2.app */,
+				8E9395412026016400F03E37 /* FlowMazeImport.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,6 +202,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8E9395402026016400F03E37 /* FlowMazeImport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E93954E2026016400F03E37 /* Build configuration list for PBXNativeTarget "FlowMazeImport" */;
+			buildPhases = (
+				8E93953D2026016400F03E37 /* Sources */,
+				8E93953E2026016400F03E37 /* Frameworks */,
+				8E93953F2026016400F03E37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlowMazeImport;
+			productName = FlowMazeImport;
+			productReference = 8E9395412026016400F03E37 /* FlowMazeImport.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		8EEF07761FF2F74B0032CDAE /* Flowmaze2 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8EEF07891FF2F74B0032CDAE /* Build configuration list for PBXNativeTarget "Flowmaze2" */;
@@ -159,10 +226,12 @@
 				8EEF07731FF2F74B0032CDAE /* Sources */,
 				8EEF07741FF2F74B0032CDAE /* Frameworks */,
 				8EEF07751FF2F74B0032CDAE /* Resources */,
+				8E93954F2026016400F03E37 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8E93954A2026016400F03E37 /* PBXTargetDependency */,
 			);
 			name = Flowmaze2;
 			productName = Flowmaze2;
@@ -179,6 +248,10 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Knut Erik Borgen";
 				TargetAttributes = {
+					8E9395402026016400F03E37 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					8EEF07761FF2F74B0032CDAE = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -199,11 +272,20 @@
 			projectRoot = "";
 			targets = (
 				8EEF07761FF2F74B0032CDAE /* Flowmaze2 */,
+				8E9395402026016400F03E37 /* FlowMazeImport */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8E93953F2026016400F03E37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E9395472026016400F03E37 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8EEF07751FF2F74B0032CDAE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,6 +305,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8E93953D2026016400F03E37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E9395442026016400F03E37 /* ActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8EEF07731FF2F74B0032CDAE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,7 +343,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8E93954A2026016400F03E37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E9395402026016400F03E37 /* FlowMazeImport */;
+			targetProxy = 8E9395492026016400F03E37 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		8E9395452026016400F03E37 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8E9395462026016400F03E37 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		8EEF077E1FF2F74B0032CDAE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -273,6 +379,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8E93954C2026016400F03E37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S5FN3MKRTG;
+				INFOPLIST_FILE = FlowMazeImport/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = no.knubo.Flowmaze2.FlowMazeImport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8E93954D2026016400F03E37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S5FN3MKRTG;
+				INFOPLIST_FILE = FlowMazeImport/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = no.knubo.Flowmaze2.FlowMazeImport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		8EEF07871FF2F74B0032CDAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -385,6 +521,7 @@
 		8EEF078A1FF2F74B0032CDAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S5FN3MKRTG;
@@ -401,6 +538,7 @@
 		8EEF078B1FF2F74B0032CDAE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S5FN3MKRTG;
@@ -417,6 +555,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8E93954E2026016400F03E37 /* Build configuration list for PBXNativeTarget "FlowMazeImport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E93954C2026016400F03E37 /* Debug */,
+				8E93954D2026016400F03E37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8EEF07721FF2F74B0032CDAE /* Build configuration list for PBXProject "Flowmaze2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
