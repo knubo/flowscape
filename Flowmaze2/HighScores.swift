@@ -18,9 +18,10 @@ import GameKit
 
 class HighScores {
     static let sharedInstance = HighScores()
+    let ME_CONST = "me"
     
     func postScore(score:GameScore, rs:GKMersenneTwisterRandomSource) -> Bool {
-        let defaults = UserDefaults.standard
+        let defaults = UserDefaults.standard //TODO BYTTE TIL NY 
         
         defaults.set(score.boardSize!.x, forKey:"board_size_x")
         defaults.set(score.boardSize!.y, forKey:"board_size_y")
@@ -38,27 +39,27 @@ class HighScores {
         }
         
         var who = defaults.stringArray(forKey:String(score.level)) ?? [String]()
-        if(!who.contains("me")) {
-            who.append("me")
+        if(!who.contains(ME_CONST)) {
+            who.append(ME_CONST)
             defaults.set(who, forKey:String(score.level))
         }
         
-        let tick = defaults.integer(forKey: String(score.level) + "_tick_me")
+        let tick = defaults.integer(forKey: String(score.level) + "_tick_"+ME_CONST)
         
         if(tick != 0 && tick < score.endTick) {
             return false
         }
         
-        defaults.set(score.endTick, forKey: String(score.level) + "_tick_me")
-        defaults.set(Date(), forKey:String(score.level)+"_when_me")
-        defaults.set(score.describeActions(), forKey:String(score.level)+"moves_me")
+        defaults.set(score.endTick, forKey: String(score.level) + "_tick_"+ME_CONST)
+        defaults.set(Date(), forKey:String(score.level)+"_when_"+ME_CONST)
+        defaults.set(score.describeActions(), forKey:String(score.level)+"moves_"+ME_CONST)
       
         var s:String = ""
         for _ in 1...40 {
             s = s + String(rs.nextInt(upperBound:9))
         }
         
-        defaults.set(s, forKey: String(score.level)+"checksum_me")
+        defaults.set(s, forKey: String(score.level)+"checksum_"+ME_CONST)
         
         return true
     }
@@ -113,9 +114,9 @@ class HighScores {
             "by":defaults.string(forKey:"board_size_y")!,
             "tk":String(score.endTick),
             "ll":String(score.level),
-            "wn":score.when!.description,
+            "wn":score.when,
             "ms":score.describeActions(),
-            "cs": defaults.string(forKey:String(level)+"checksum_me")!
+            "cs": defaults.string(forKey:String(level)+"checksum_"+ME_CONST)!
             ]
         
         let encoder = JSONEncoder()
@@ -137,9 +138,13 @@ class HighScores {
         var scores:[GameScore] = []
         
         for l in levels {
-            let tick = defaults.integer(forKey: l + "_tick_me")
+            let who = defaults.stringArray(forKey:l) ?? [String]()
+            
+            for w in who {
+                let tick = defaults.integer(forKey: l + "_tick_" + w)
 
-            scores.append(GameScore(actions:[], endTick:tick, level:Int(l)!, boardSize:boardSize))
+                scores.append(GameScore(actions:[], endTick:tick, level:Int(l)!, boardSize:boardSize, myScore:w == ME_CONST))
+            }
         }
         
         return scores
@@ -149,9 +154,9 @@ class HighScores {
         let level = String(l)
         let defaults = UserDefaults.standard
 
-        let tick = defaults.integer(forKey: level + "_tick_me")
-        let when:Date = defaults.object(forKey: level+"_when_me") as! Date
-        let moves = defaults.string(forKey: level+"moves_me")
+        let tick = defaults.integer(forKey: level + "_tick_"+ME_CONST)
+        let when:Date = defaults.object(forKey: level+"_when_"+ME_CONST) as! Date
+        let moves = defaults.string(forKey: level+"moves_"+ME_CONST)
         
         let boardSize:Point = Point(x:defaults.integer(forKey:"board_size_x"),y:defaults.integer(forKey:"board_size_y"))
 
@@ -176,7 +181,7 @@ class HighScores {
         }
         
         
-        return GameScore(actions: actions, endTick: tick, level: l, when:when, boardSize:boardSize)
+        return GameScore(actions: actions, endTick: tick, level: l, when:when, boardSize:boardSize, myScore:true)
     }
     
 }
@@ -194,22 +199,25 @@ struct GameScore {
     var actions:[GameAction]
     var endTick = 0
     var level = 0
-    var when:Date? = nil
+    var when:String = ""
     var boardSize:Point? = nil
+    var myScore:Bool
     
-    init(actions:[GameAction], endTick:Int, level:Int, boardSize:Point) {
+    init(actions:[GameAction], endTick:Int, level:Int, boardSize:Point, myScore:Bool) {
         self.actions = actions
         self.endTick = endTick
         self.level = level
         self.boardSize = boardSize
+        self.myScore = myScore
     }
     
-    init(actions:[GameAction], endTick:Int, level:Int, when:Date, boardSize:Point) {
+    init(actions:[GameAction], endTick:Int, level:Int, when:Date, boardSize:Point, myScore:Bool) {
         self.actions = actions
         self.endTick = endTick
         self.level = level
-        self.when = when
+        self.when = when.description
         self.boardSize = boardSize
+        self.myScore = myScore
     }
     
     func describeActions() -> String {

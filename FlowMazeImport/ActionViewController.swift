@@ -51,43 +51,72 @@ class ActionViewController: UIViewController {
     }
     
     func imageLoaded(image:UIImage) {
+        let features = detectQRCode(image)
+        
+        if(features?.count == 0) {
+            statusLabel.text="Found no QR code"
+            return
+        }
+        
+    
+   
+        
         var decode = ""
-      
-        let ciImage = CIImage(image: image)
-        
-        let detector = CIDetector()
-        
-        let features = detector.features(in:ciImage!)
         
         for feature in features as! [CIQRCodeFeature] {
             decode = feature.messageString!
         }
         
-        NSLog("Decode: %s", decode)
+
         
         if let data = decode.data(using: String.Encoding.utf8) {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any]
-                
+            
                 parseJson(json:json!);
             } catch {
-                statusLabel.text = "JSON Parse error"
+                statusLabel.text = "JSON Parse error:"+decode
             }
         }
         
     }
+    
+    func detectQRCode(_ image: UIImage?) -> [CIFeature]? {
+        
+        if let image = image, let ciImage = CIImage.init(image: image) {
+            var options: [String: Any]
+            let context = CIContext()
+            options = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
+            let qrDetector = CIDetector(ofType: CIDetectorTypeQRCode, context: context, options: options)
+            if ciImage.properties.keys.contains((kCGImagePropertyOrientation as String)){
+                options = [CIDetectorImageOrientation: ciImage.properties[(kCGImagePropertyOrientation as String)] ?? 1]
+            } else {
+                options = [CIDetectorImageOrientation: 1]
+            }
+            let features = qrDetector?.features(in: ciImage, options: options)
+            return features
+            
+        }
+        
+        return []
+            
+    }
 
     func parseJson(json:[String:Any]) {
+
         let pixel_width = json["pw"]
         let pixel_height = json["ph"]
         let board_size_x = json["bx"]
         let board_size_y = json["by"]
-        let endTick = json["tk"] as! Int
+        let endTick = Int(json["tk"] as! String)!
+        
         let level:String = json["ll"] as! String
         let whenDate = json["wn"] as! String
         let actions = json["ms"] as! String
         // let checksum = json["cs"]
         let name = json["sn"] as! String
+        
+ 
         
         let defaults = UserDefaults.standard
         
@@ -109,7 +138,7 @@ class ActionViewController: UIViewController {
         
         let tick = defaults.integer(forKey: level + "_tick_"+name)
         
-        if(tick != 0 && tick < endTick) {
+        if(tick != 0 && tick <= endTick) {
             statusLabel.text = "Higher score already registered"
             return
         }
@@ -124,6 +153,7 @@ class ActionViewController: UIViewController {
         defaults.set(board_size_x, forKey: level+"_board_size_x_"+name)
         defaults.set(board_size_y, forKey: level+"_board_size_y_"+name)
         
+        statusLabel.text = "Score imported"
     }
     
 
