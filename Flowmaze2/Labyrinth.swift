@@ -423,7 +423,7 @@ class Labyrinth: UIImageView {
                 if(colorIsYellow(c) && mode != GameMode.SIMULATE) {
                     let boardSize = Point(x:mazeColSize, y:mazeRowSize)
                     
-                    let highScore = HighScores.sharedInstance.postScore(score:GameScore(actions:gameActions, endTick:tick, level:Labyrinth.level, boardSize:boardSize, myScore:true), rs:rs!)
+                    let highScore = HighScores.sharedInstance.postScore(score:GameScore(actions:gameActions, endTick:tick, level:Labyrinth.level, boardSize:boardSize), rs:rs!)
                     mode = highScore ? GameMode.HIGHSCORE : GameMode.SUCCESS
                     showMenu()
                     return
