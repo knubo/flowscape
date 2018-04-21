@@ -15,6 +15,8 @@ class ActionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSLog("Activated Score import")
     
         // Get the item[s] we're handling from the extension context.
         
@@ -31,6 +33,7 @@ class ActionViewController: UIViewController {
                             if let strongImageView = weakImageView {
                                 if let imageURL = imageURL as? URL {
                                     strongImageView.image = UIImage(data: try! Data(contentsOf: imageURL))
+                                    self.imageLoaded(image:strongImageView.image!)
                                 }
                             }
                         }
@@ -47,7 +50,77 @@ class ActionViewController: UIViewController {
             }
         }
     }
+    
+    func imageLoaded(image:UIImage) {
+        var decode = ""
+        let detector = CIDetector()
+        let features = detector.features(in:image.ciImage!)
+        for feature in features as! [CIQRCodeFeature] {
+            decode = feature.messageString!
+        }
+        
+        NSLog("Decode: %s", decode)
+        
+        if let data = decode.data(using: String.Encoding.utf8) {
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any]
+               
+                parseJson(json:json!);
+            } catch {
+                NSLog("Something went wrong")
+            }
+        }
 
+    }
+ 
+    func parseJson(json:[String:Any]) {
+        let pixel_width = json["pw"]
+        let pixel_height = json["ph"]
+        let board_size_x = json["bx"]
+        let board_size_y = json["by"]
+        let endTick = json["tk"] as! Int
+        let level:String = json["ll"] as! String
+        let whenDate = json["wn"] as! String
+        let actions = json["ms"] as! String
+       // let checksum = json["cs"]
+        let name = json["sn"] as! String
+        
+        let defaults = UserDefaults.standard
+
+        
+        //TODO VERIFY CHECKSUM
+        
+        var levels = defaults.stringArray(forKey:"levels") ?? [String]()
+        
+        if(!levels.contains(level)) {
+            levels.append(level)
+            defaults.set(levels, forKey:"levels")
+        }
+        
+        var who = defaults.stringArray(forKey:level) ?? [String]()
+        if(!who.contains(name)) {
+            who.append(name)
+            defaults.set(who, forKey:level)
+        }
+        
+        let tick = defaults.integer(forKey: level + "_tick_"+name)
+        
+        if(tick != 0 && tick < endTick) {
+            return
+        }
+
+        defaults.set(endTick, forKey: level + "_tick_"+name)
+        defaults.set(whenDate, forKey:level+"_when_"+name)
+        defaults.set(actions, forKey:level+"moves_"+name)
+        
+        
+        defaults.set(pixel_width, forKey: level+"_pixel_width_"+name)
+        defaults.set(pixel_height, forKey: level+"_pixel_height_"+name)
+        defaults.set(board_size_x, forKey: level+"_board_size_x_"+name)
+        defaults.set(board_size_y, forKey: level+"_board_size_y_"+name)
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
