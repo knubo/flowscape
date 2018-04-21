@@ -61,12 +61,13 @@
                     <size key="freeformSize" width="320" height="528"/>
                     <connections>
                         <outlet property="imageView" destination="9ga-4F-77Z" id="5y6-5w-9QO"/>
+                        <outlet property="statusLabel" destination="wWi-Ug-I64" id="AQ0-9b-BN2"/>
                         <outlet property="view" destination="zMn-AG-sqS" id="Qma-de-2ek"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113.59999999999999" y="116.94152923538232"/>
+            <point key="canvasLocation" x="113.59999999999999" y="116.74876847290641"/>
         </scene>
     </scenes>
 </document>
