@@ -67,6 +67,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8E55EC2420989CF20098F7A7 /* FlowMazeImport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlowMazeImport.entitlements; sourceTree = "<group>"; };
+		8E55EC2520989D010098F7A7 /* Flowmaze2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flowmaze2.entitlements; sourceTree = "<group>"; };
 		8E7198BB2007BC7100B6CDF3 /* NiceSnake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceSnake.swift; sourceTree = "<group>"; };
 		8E7198BD2007E18000B6CDF3 /* EnemyLaser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyLaser.swift; sourceTree = "<group>"; };
 		8E7198C0200B8A1300B6CDF3 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		8E9395422026016400F03E37 /* FlowMazeImport */ = {
 			isa = PBXGroup;
 			children = (
+				8E55EC2420989CF20098F7A7 /* FlowMazeImport.entitlements */,
 				8E9395432026016400F03E37 /* ActionViewController.swift */,
 				8E9395452026016400F03E37 /* MainInterface.storyboard */,
 				8E9395482026016400F03E37 /* Info.plist */,
@@ -169,6 +172,7 @@
 		8EEF07791FF2F74B0032CDAE /* Flowmaze2 */ = {
 			isa = PBXGroup;
 			children = (
+				8E55EC2520989D010098F7A7 /* Flowmaze2.entitlements */,
 				8E7198BF200B88D500B6CDF3 /* qr_code */,
 				8EFFF57F1FF51C12007947D6 /* MenuViewController.swift */,
 				8EEF077A1FF2F74B0032CDAE /* AppDelegate.swift */,
@@ -251,10 +255,20 @@
 					8E9395402026016400F03E37 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					8EEF07761FF2F74B0032CDAE = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -382,6 +396,7 @@
 		8E93954C2026016400F03E37 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FlowMazeImport/FlowMazeImport.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S5FN3MKRTG;
 				INFOPLIST_FILE = FlowMazeImport/Info.plist;
@@ -397,6 +412,7 @@
 		8E93954D2026016400F03E37 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FlowMazeImport/FlowMazeImport.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S5FN3MKRTG;
 				INFOPLIST_FILE = FlowMazeImport/Info.plist;
@@ -527,6 +543,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Flowmaze2/Flowmaze2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S5FN3MKRTG;
 				INFOPLIST_FILE = Flowmaze2/Info.plist;
@@ -544,6 +561,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Flowmaze2/Flowmaze2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S5FN3MKRTG;
 				INFOPLIST_FILE = Flowmaze2/Info.plist;

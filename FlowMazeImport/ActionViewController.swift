@@ -119,7 +119,7 @@ class ActionViewController: UIViewController {
         let name = json["sn"] as! String
         
  
-        let defaults = UserDefaults(suiteName: "no.knubo.flowmaze.highscore")!
+        let defaults = UserDefaults(suiteName: "group.flowmaze.knubo.no")!
                 
         //TODO VERIFY CHECKSUM
         
@@ -154,6 +154,8 @@ class ActionViewController: UIViewController {
         defaults.set(board_size_y, forKey: level+"_board_size_y_"+name)
         
         statusLabel.text = "Score imported"
+    
+        
     }
     
 

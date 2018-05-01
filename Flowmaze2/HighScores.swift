@@ -21,7 +21,7 @@ class HighScores {
     let ME_CONST = "me"
     
     fileprivate func highscoreDefaults() -> UserDefaults {
-        return UserDefaults(suiteName: "no.knubo.flowmaze.highscore")!
+        return UserDefaults(suiteName: "group.flowmaze.knubo.no")!
     }
     
     func postScore(score:GameScore, rs:GKMersenneTwisterRandomSource) -> Bool {
