@@ -166,6 +166,7 @@
                     <connections>
                         <outlet property="gameBoard" destination="NkD-jG-AAh" id="NGV-hA-5DE"/>
                         <outlet property="levelLabel" destination="IZz-Zm-7Mn" id="4z6-S8-mWp"/>
+                        <outlet property="shareButton" destination="0L8-Ko-HPV" id="Gme-CM-I08"/>
                         <segue destination="0jo-J5-qeD" kind="show" identifier="playSelectedGame" id="d7I-CM-4ED"/>
                         <segue destination="yhb-nj-ncX" kind="show" identifier="share" id="b5q-YA-bnv"/>
                     </connections>
@@ -293,7 +294,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbx-S4-fk4" customClass="Labyrinth" customModule="Flowmaze2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24" width="375" height="754"/>
+                                <rect key="frame" x="0.0" y="16" width="375" height="762"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" updatesFrequently="YES"/>

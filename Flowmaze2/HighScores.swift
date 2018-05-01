@@ -55,7 +55,7 @@ class HighScores {
         }
         
         defaults.set(score.endTick, forKey: String(score.level) + "_tick_"+ME_CONST)
-        defaults.set(Date(), forKey:String(score.level)+"_when_"+ME_CONST)
+        defaults.set(Date().description, forKey:String(score.level)+"_when_"+ME_CONST)
         defaults.set(score.describeActions(), forKey:String(score.level)+"moves_"+ME_CONST)
       
         var s:String = ""
@@ -109,7 +109,7 @@ class HighScores {
     func getQRCode(level:Int) -> String {
         let defaults = highscoreDefaults()
         
-        let score = getFullScore(l:level)
+        let score = getFullScore(l:level, who:ME_CONST)
         
         let jsonObject: [String: String] = [
             "pw": defaults.string(forKey:"pixel_width")!,
@@ -148,20 +148,20 @@ class HighScores {
             for w in who {
                 let tick = defaults.integer(forKey: l + "_tick_" + w)
 
-                scores.append(GameScore(actions:[], endTick:tick, level:Int(l)!, boardSize:boardSize, myScore:w == ME_CONST))
+                scores.append(GameScore(actions:[], endTick:tick, level:Int(l)!, boardSize:boardSize, myScore:w == ME_CONST, who:w))
             }
         }
         
         return scores
     }
     
-    func getFullScore(l:Int) -> GameScore {
+    func getFullScore(l:Int, who:String) -> GameScore {
         let level = String(l)
         let defaults = highscoreDefaults()
 
-        let tick = defaults.integer(forKey: level + "_tick_"+ME_CONST)
-        let when:Date = defaults.object(forKey: level+"_when_"+ME_CONST) as! Date
-        let moves = defaults.string(forKey: level+"moves_"+ME_CONST)
+        let tick = defaults.integer(forKey: level + "_tick_"+who)
+        let when:String = defaults.string(forKey: level+"_when_"+who)!
+        let moves = defaults.string(forKey: level+"moves_"+who)
         
         let boardSize:Point = Point(x:defaults.integer(forKey:"board_size_x"),y:defaults.integer(forKey:"board_size_y"))
 
@@ -186,7 +186,7 @@ class HighScores {
         }
         
         
-        return GameScore(actions: actions, endTick: tick, level: l, when:when, boardSize:boardSize, myScore:true)
+        return GameScore(actions: actions, endTick: tick, level: l, when:when, boardSize:boardSize, myScore:who == ME_CONST, who:who)
     }
     
 }
@@ -207,22 +207,25 @@ struct GameScore {
     var when:String = ""
     var boardSize:Point? = nil
     var myScore:Bool
+    var who:String
     
-    init(actions:[GameAction], endTick:Int, level:Int, boardSize:Point, myScore:Bool) {
+    init(actions:[GameAction], endTick:Int, level:Int, boardSize:Point, myScore:Bool, who:String) {
         self.actions = actions
         self.endTick = endTick
         self.level = level
         self.boardSize = boardSize
         self.myScore = myScore
+        self.who = who
     }
     
-    init(actions:[GameAction], endTick:Int, level:Int, when:Date, boardSize:Point, myScore:Bool) {
+    init(actions:[GameAction], endTick:Int, level:Int, when:String, boardSize:Point, myScore:Bool, who:String) {
         self.actions = actions
         self.endTick = endTick
         self.level = level
-        self.when = when.description
+        self.when = when
         self.boardSize = boardSize
         self.myScore = myScore
+        self.who = who
     }
     
     func describeActions() -> String {

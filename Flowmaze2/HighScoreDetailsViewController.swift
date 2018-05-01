@@ -12,6 +12,7 @@ import UIKit
 class HighScoreDetailsViewController: UIViewController {
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var gameBoard: UIImageView!
+    @IBOutlet weak var shareButton: UIButton!
     
     static var score:GameScore?;
     var timer:Timer? = nil
@@ -23,13 +24,14 @@ class HighScoreDetailsViewController: UIViewController {
         super.viewDidLoad()
         let score = HighScoreDetailsViewController.score!
         
-        levelLabel.text = String(score.level)
+        levelLabel.text = String(score.level) + (score.myScore ? "" : " - "+score.who)
         
         let lab:Labyrinth = Labyrinth(image:UIImage())
         
         let dim = HighScores.sharedInstance.getDimensions()
         
-
+        shareButton.isHidden = !score.myScore
+        
         DispatchQueue.global(qos: .background).async {
 
             lab.simulateFast(score: score, width: dim.x, height: dim.y)
