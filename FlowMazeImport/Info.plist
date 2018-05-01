@@ -20,6 +20,8 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>To be able to store a high score image to your images</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionAttributes</key>

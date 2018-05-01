@@ -20,8 +20,12 @@ class HighScores {
     static let sharedInstance = HighScores()
     let ME_CONST = "me"
     
+    fileprivate func highscoreDefaults() -> UserDefaults {
+        return UserDefaults(suiteName: "no.knubo.flowmaze.highscore")!
+    }
+    
     func postScore(score:GameScore, rs:GKMersenneTwisterRandomSource) -> Bool {
-        let defaults = UserDefaults.standard //TODO BYTTE TIL NY 
+        let defaults = highscoreDefaults()
         
         defaults.set(score.boardSize!.x, forKey:"board_size_x")
         defaults.set(score.boardSize!.y, forKey:"board_size_y")
@@ -65,26 +69,26 @@ class HighScores {
     }
     
     func getLastCompletedLevel() -> Int {
-        let defaults = UserDefaults.standard
+        let defaults = highscoreDefaults()
 
         return defaults.integer(forKey:"max_successful_level")
     }
     
     func setDimensions(width:Int, height:Int) {
-        let defaults = UserDefaults.standard
+        let defaults = highscoreDefaults()
 
         defaults.set(width, forKey:"pixel_width")
         defaults.set(height, forKey:"pixel_height")
     }
     
     func getDimensions() -> Point {
-        let defaults = UserDefaults.standard
+        let defaults = highscoreDefaults()
 
         return Point(x:defaults.integer(forKey:"pixel_width"), y:defaults.integer(forKey:"pixel_height"))
     }
     
     func getMyName() -> String {
-        let defaults = UserDefaults.standard
+        let defaults = highscoreDefaults()
         
         let name = defaults.string(forKey: "share_name")
         
@@ -96,14 +100,14 @@ class HighScores {
     }
     
     func setMyName(name:String) {
-        let defaults = UserDefaults.standard
+        let defaults = highscoreDefaults()
 
         defaults.set(name, forKey:"share_name")
     }
     
     
     func getQRCode(level:Int) -> String {
-        let defaults = UserDefaults.standard
+        let defaults = highscoreDefaults()
         
         let score = getFullScore(l:level)
         
@@ -129,7 +133,7 @@ class HighScores {
     }
     
     func scores() -> [GameScore] {
-        let defaults = UserDefaults.standard
+        let defaults = highscoreDefaults()
 
         let levels = defaults.stringArray(forKey:"levels") ?? [String]()
 
@@ -152,7 +156,7 @@ class HighScores {
     
     func getFullScore(l:Int) -> GameScore {
         let level = String(l)
-        let defaults = UserDefaults.standard
+        let defaults = highscoreDefaults()
 
         let tick = defaults.integer(forKey: level + "_tick_"+ME_CONST)
         let when:Date = defaults.object(forKey: level+"_when_"+ME_CONST) as! Date

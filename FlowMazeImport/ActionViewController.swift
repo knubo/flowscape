@@ -116,11 +116,8 @@ class ActionViewController: UIViewController {
         // let checksum = json["cs"]
         let name = json["sn"] as! String
         
- 
-        
-        let defaults = UserDefaults.standard
-        
-        
+        let defaults = UserDefaults(suiteName: "no.knubo.flowmaze.highscore")!
+                
         //TODO VERIFY CHECKSUM
         
         var levels = defaults.stringArray(forKey:"levels") ?? [String]()
