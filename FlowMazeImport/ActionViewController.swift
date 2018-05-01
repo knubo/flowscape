@@ -58,22 +58,22 @@ class ActionViewController: UIViewController {
             return
         }
         
-    
-   
-        
         var decode = ""
         
         for feature in features as! [CIQRCodeFeature] {
             decode = feature.messageString!
         }
         
-
-        
         if let data = decode.data(using: String.Encoding.utf8) {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any]
             
-                parseJson(json:json!);
+                if(json == nil) {
+                    statusLabel.text = "Failed to read data"
+                } else {
+                    parseJson(json:json!);
+                }
+                
             } catch {
                 statusLabel.text = "JSON Parse error:"+decode
             }
@@ -104,6 +104,8 @@ class ActionViewController: UIViewController {
 
     func parseJson(json:[String:Any]) {
 
+ 
+        
         let pixel_width = json["pw"]
         let pixel_height = json["ph"]
         let board_size_x = json["bx"]
@@ -113,9 +115,10 @@ class ActionViewController: UIViewController {
         let level:String = json["ll"] as! String
         let whenDate = json["wn"] as! String
         let actions = json["ms"] as! String
-        // let checksum = json["cs"]
+        let checksum = json["cs"]
         let name = json["sn"] as! String
         
+ 
         let defaults = UserDefaults(suiteName: "no.knubo.flowmaze.highscore")!
                 
         //TODO VERIFY CHECKSUM

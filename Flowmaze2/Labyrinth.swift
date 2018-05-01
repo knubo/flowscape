@@ -583,7 +583,7 @@ extension MutableCollection {
         guard c > 1 else { return }
         
         for (firstUnshuffled, unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
-            let d: IndexDistance = numericCast(rs.nextInt(upperBound:numericCast(unshuffledCount)))
+            let d = rs.nextInt(upperBound:numericCast(unshuffledCount))
             let i = index(firstUnshuffled, offsetBy: d)
             swapAt(firstUnshuffled, i)
         }

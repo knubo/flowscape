@@ -120,7 +120,8 @@ class HighScores {
             "ll":String(score.level),
             "wn":score.when,
             "ms":score.describeActions(),
-            "cs": defaults.string(forKey:String(level)+"checksum_"+ME_CONST)!
+            "cs": defaults.string(forKey:String(level)+"checksum_"+ME_CONST)!,
+            "sn": getMyName()
             ]
         
         let encoder = JSONEncoder()

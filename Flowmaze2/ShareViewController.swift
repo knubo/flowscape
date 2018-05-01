@@ -42,8 +42,8 @@ class ShareViewController: UIViewController {
     }
 
     @IBAction func share(_ sender: Any) {
-        HighScores.sharedInstance.setMyName(name: nameLabel.text!)
-
+        updateImageAndShareName()
+        
         self.backButton.isHidden = true
         self.shareButton.isHidden = true
         
@@ -59,5 +59,13 @@ class ShareViewController: UIViewController {
         shareButton.isHidden = false
 
     }
+    func updateImageAndShareName() {
+        HighScores.sharedInstance.setMyName(name: nameLabel.text!)
 
+        let str = HighScores.sharedInstance.getQRCode(level: HighScoreDetailsViewController.score!.level)
+        let q = QRCode(str)
+        qrCodeImage.image = q?.image
+
+    }
+    
 }
