@@ -40,14 +40,16 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAF-Yp-BtE">
                                 <rect key="frame" x="325" y="44" width="34" height="30"/>
-                                <state key="normal" title="Back"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="Q4Z-nN-6iT" kind="show" identifier="toMenuFromScore" id="lT4-hS-41f"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kfw-PJ-kn0">
                                 <rect key="frame" x="0.0" y="82" width="375" height="696"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.0" green="0.020735683210000001" blue="0.30514628500000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VOF-Da-DJG">
                                     <size key="itemSize" width="66" height="65"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -90,7 +92,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.020735683210000001" blue="0.30514628500000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kfw-PJ-kn0" secondAttribute="trailing" id="0Ed-J3-ayw"/>
                             <constraint firstItem="kfw-PJ-kn0" firstAttribute="bottom" secondItem="ncj-vR-3Y0" secondAttribute="bottom" id="2sc-Yh-Kyh"/>
@@ -279,7 +281,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.020735683214530422" blue="0.30514628498047747" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9mA-Ei-J13" firstAttribute="top" secondItem="dM4-SH-MV8" secondAttribute="bottom" constant="8" id="08f-Kj-KTl"/>
                             <constraint firstItem="9mA-Ei-J13" firstAttribute="centerY" secondItem="BAk-PX-2o2" secondAttribute="centerY" constant="61.5" id="2Ih-P9-28g"/>
@@ -339,7 +341,8 @@
         <image name="Scores.png" width="294" height="95"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="xAu-0j-2UE"/>
         <segue reference="Zex-8T-ZMF"/>
-        <segue reference="PyX-bw-gKT"/>
+        <segue reference="lT4-hS-41f"/>
     </inferredMetricsTieBreakers>
 </document>
