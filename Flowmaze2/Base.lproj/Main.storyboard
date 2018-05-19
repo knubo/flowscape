@@ -6,6 +6,7 @@
     <dependencies>
         <deployment version="4144" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -255,26 +256,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM4-SH-MV8">
-                                <rect key="frame" x="0.0" y="114" width="359" height="114"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="playLatestGame:" destination="Q4Z-nN-6iT" eventType="touchUpInside" id="1T5-R7-ma9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mA-Ei-J13">
-                                <rect key="frame" x="0.0" y="253" width="375" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="FlowMazeMenu.png" translatesAutoresizingMaskIntoConstraints="NO" id="72l-gx-Tp9">
+                                <rect key="frame" x="0.0" y="20" width="375" height="167.33333333333334"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="72l-gx-Tp9" secondAttribute="height" multiplier="414:185" id="zKp-8o-lne"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mA-Ei-J13" userLabel="ScoreButton">
+                                <rect key="frame" x="40" y="420" width="294" height="95"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="Scores"/>
+                                <state key="normal" backgroundImage="Scores.png"/>
                                 <connections>
                                     <segue destination="fEF-x2-iiV" kind="show" id="xAu-0j-2UE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM4-SH-MV8" userLabel="PlayButton">
+                                <rect key="frame" x="83" y="302" width="208" height="110"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" backgroundImage="Play.png"/>
+                                <connections>
+                                    <action selector="playLatestGame:" destination="Q4Z-nN-6iT" eventType="touchUpInside" id="1T5-R7-ma9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9mA-Ei-J13" firstAttribute="top" secondItem="dM4-SH-MV8" secondAttribute="bottom" constant="8" id="08f-Kj-KTl"/>
+                            <constraint firstItem="9mA-Ei-J13" firstAttribute="centerY" secondItem="BAk-PX-2o2" secondAttribute="centerY" constant="61.5" id="2Ih-P9-28g"/>
+                            <constraint firstAttribute="trailing" secondItem="72l-gx-Tp9" secondAttribute="trailing" id="A7v-cG-ioj"/>
+                            <constraint firstItem="72l-gx-Tp9" firstAttribute="leading" secondItem="BAk-PX-2o2" secondAttribute="leading" id="NML-ma-sEE"/>
+                            <constraint firstItem="9mA-Ei-J13" firstAttribute="centerX" secondItem="dM4-SH-MV8" secondAttribute="centerX" id="YZQ-CY-IUj"/>
+                            <constraint firstItem="9mA-Ei-J13" firstAttribute="centerX" secondItem="72l-gx-Tp9" secondAttribute="centerX" id="jmr-0X-as2"/>
+                            <constraint firstItem="72l-gx-Tp9" firstAttribute="top" secondItem="BAk-PX-2o2" secondAttribute="topMargin" constant="-24" id="vIp-1y-6es" userLabel="FlowMazeMenu.png.top = topMargin"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bQY-Xh-2WG"/>
                     </view>
                     <connections>
@@ -283,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6v-u5-hhK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-218.40000000000001" y="731.5270935960591"/>
+            <point key="canvasLocation" x="-220.28985507246378" y="729.61956521739137"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="UOJ-lc-NPd">
@@ -294,7 +308,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbx-S4-fk4" customClass="Labyrinth" customModule="Flowmaze2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="16" width="375" height="762"/>
+                                <rect key="frame" x="0.0" y="24" width="375" height="754"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" updatesFrequently="YES"/>
@@ -319,8 +333,13 @@
             <point key="canvasLocation" x="622" y="8"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="FlowMazeMenu.png" width="429" height="94"/>
+        <image name="Play.png" width="208" height="110"/>
+        <image name="Scores.png" width="294" height="95"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d7I-CM-4ED"/>
+        <segue reference="Zex-8T-ZMF"/>
         <segue reference="PyX-bw-gKT"/>
     </inferredMetricsTieBreakers>
 </document>

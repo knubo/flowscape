@@ -186,7 +186,7 @@ class HighScores {
         }
         
         
-        return GameScore(actions: actions, endTick: tick, level: l, when:when, boardSize:boardSize, myScore:who == ME_CONST, who:who)
+        return GameScore(actions: actions, endTick: tick, level: l, when:when, boardSize:boardSize, myScore:who == ME_CONST	, who:who)
     }
     
 }

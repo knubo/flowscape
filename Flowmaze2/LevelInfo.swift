@@ -20,11 +20,7 @@ class LevelInfo {
     let nice =  "00010001000001000000000100000000000000000100010"
     let laser = "00000000000000000000000000000000000000000000001"
     
-    func allocateByRandom(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) {
-        //TODO!
-        
-        
-    }
+ 
     
     func createSnake(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) -> EnemyBasis {
         return EnemySnake(parent:parent, rs:rs)
@@ -46,17 +42,22 @@ class LevelInfo {
     }
     
     func addBadThings(parent:Labyrinth, rs:GKMersenneTwisterRandomSource) {
-        let level = Labyrinth.level - 10;
+        var level = Labyrinth.level - 10;
         
         /* First 10 levels are "boring" */
         if(level < 0) {
             return
         }
         
-        if(level >= snake.count) {
-            allocateByRandom(parent:parent, rs:rs)
-            return
-        }
+        if(level > snake.count) {
+            let minSnakeCount = level / snake.count
+
+            for _ in 0..<minSnakeCount {
+                parent.badThings.append(createSnake(parent:parent, rs:rs))
+            }
+         }
+        
+        level = level % snake.count
         
         let things:[(String,((Labyrinth, GKMersenneTwisterRandomSource)->EnemyBasis))] =
             [(snake,createSnake), (laser, createLaser), (flow, createFlow), (burn, createBurn), (fill, createFill),
@@ -71,6 +72,7 @@ class LevelInfo {
             }
         }
     
+        
         
     }
     

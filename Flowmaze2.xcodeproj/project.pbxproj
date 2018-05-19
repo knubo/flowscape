@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E47CB2220B0A94E0064B18B /* FlowMazeMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E47CB1F20B0A94D0064B18B /* FlowMazeMenu.png */; };
+		8E47CB2320B0A94E0064B18B /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E47CB2020B0A94E0064B18B /* Play.png */; };
+		8E47CB2420B0A94E0064B18B /* Scores.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E47CB2120B0A94E0064B18B /* Scores.png */; };
 		8E7198BC2007BC7100B6CDF3 /* NiceSnake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198BB2007BC7100B6CDF3 /* NiceSnake.swift */; };
 		8E7198BE2007E18000B6CDF3 /* EnemyLaser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198BD2007E18000B6CDF3 /* EnemyLaser.swift */; };
 		8E7198C6200B8A1300B6CDF3 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198C0200B8A1300B6CDF3 /* UIImageViewExtension.swift */; };
@@ -67,6 +70,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8E47CB1F20B0A94D0064B18B /* FlowMazeMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlowMazeMenu.png; sourceTree = "<group>"; };
+		8E47CB2020B0A94E0064B18B /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play.png; sourceTree = "<group>"; };
+		8E47CB2120B0A94E0064B18B /* Scores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Scores.png; sourceTree = "<group>"; };
 		8E55EC2420989CF20098F7A7 /* FlowMazeImport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlowMazeImport.entitlements; sourceTree = "<group>"; };
 		8E55EC2520989D010098F7A7 /* Flowmaze2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flowmaze2.entitlements; sourceTree = "<group>"; };
 		8E7198BB2007BC7100B6CDF3 /* NiceSnake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceSnake.swift; sourceTree = "<group>"; };
@@ -184,6 +190,9 @@
 				8EEF077E1FF2F74B0032CDAE /* Main.storyboard */,
 				8EEF07811FF2F74B0032CDAE /* Assets.xcassets */,
 				8E7C85FF2011528400969EC8 /* Flowmaze.png */,
+				8E47CB1F20B0A94D0064B18B /* FlowMazeMenu.png */,
+				8E47CB2020B0A94E0064B18B /* Play.png */,
+				8E47CB2120B0A94E0064B18B /* Scores.png */,
 				8EFFF5831FF8FE5D007947D6 /* GameOver.png */,
 				8EFFF5841FF8FE5D007947D6 /* Highscore.png */,
 				8EFFF5851FF8FE5D007947D6 /* Success.png */,
@@ -304,14 +313,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E47CB2420B0A94E0064B18B /* Scores.png in Resources */,
 				8EFFF5871FF8FE5D007947D6 /* Highscore.png in Resources */,
 				8EFFF5881FF8FE5D007947D6 /* Success.png in Resources */,
 				8E7198CC200B8B9F00B6CDF3 /* LICENSE in Resources */,
+				8E47CB2220B0A94E0064B18B /* FlowMazeMenu.png in Resources */,
 				8EEF07851FF2F74B0032CDAE /* LaunchScreen.storyboard in Resources */,
 				8EFFF5861FF8FE5D007947D6 /* GameOver.png in Resources */,
 				8EEF07821FF2F74B0032CDAE /* Assets.xcassets in Resources */,
 				8EEF07801FF2F74B0032CDAE /* Main.storyboard in Resources */,
 				8E7C86002011528400969EC8 /* Flowmaze.png in Resources */,
+				8E47CB2320B0A94E0064B18B /* Play.png in Resources */,
 				8E7198C9200B8A1300B6CDF3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
