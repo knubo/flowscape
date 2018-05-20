@@ -133,9 +133,8 @@ class ActionViewController: UIViewController {
             return
         }
         
-        
-        
-        //TODO VERIFY CHECKSUM
+
+        //VERIFY CHECKSUM ??
         
         var levels = defaults.stringArray(forKey:"levels") ?? [String]()
         

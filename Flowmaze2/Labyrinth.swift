@@ -403,6 +403,11 @@ class Labyrinth: UIImageView {
             if(mode == GameMode.SIMULATE) {
                 return
             }
+
+            if(mode != GameMode.PLAYING) {
+                return
+            }
+
             mode = GameMode.GAME_OVER
             showMenu()
             return
