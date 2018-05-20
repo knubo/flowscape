@@ -32,6 +32,7 @@ class HighScoreDetailsViewController: UIViewController {
         
         shareButton.isHidden = !score.myScore
         
+        
         DispatchQueue.global(qos: .background).async {
 
             lab.simulateFast(score: score, width: dim.x, height: dim.y)

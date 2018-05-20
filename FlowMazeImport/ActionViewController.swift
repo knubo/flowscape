@@ -103,24 +103,38 @@ class ActionViewController: UIViewController {
     }
 
     func parseJson(json:[String:Any]) {
-
- 
         
         let pixel_width = json["pw"]
         let pixel_height = json["ph"]
-        let board_size_x = json["bx"]
-        let board_size_y = json["by"]
+        let board_size_x = json["bx"] is String ? (json["bx"] as! String) : String((json["bx"] as! Int))
+        let board_size_y = json["by"] is String ? (json["by"] as! String) : String((json["by"] as! Int))
         let endTick = Int(json["tk"] as! String)!
         
         let level:String = json["ll"] as! String
         let whenDate = json["wn"] as! String
         let actions = json["ms"] as! String
-        let checksum = json["cs"]
+       // let checksum = json["cs"]
         let name = json["sn"] as! String
         
  
         let defaults = UserDefaults(suiteName: "group.flowmaze.knubo.no")!
-                
+        
+        let myBoardSizeX = defaults.string(forKey:"board_size_x")
+        let myBoardSizeY = defaults.string(forKey:"board_size_y")
+
+        
+        if(myBoardSizeX == nil) {
+            statusLabel.text = "Play one round before importing score"
+            return
+        }
+        
+        if(board_size_x != myBoardSizeX || board_size_y != myBoardSizeY) {
+            statusLabel.text = "Game played on other device type than yours"
+            return
+        }
+        
+        
+        
         //TODO VERIFY CHECKSUM
         
         var levels = defaults.stringArray(forKey:"levels") ?? [String]()

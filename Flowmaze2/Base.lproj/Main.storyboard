@@ -47,6 +47,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kfw-PJ-kn0">
                                 <rect key="frame" x="0.0" y="82" width="375" height="696"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VOF-Da-DJG">
                                     <size key="itemSize" width="66" height="65"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -338,7 +339,7 @@
         <image name="Scores.png" width="294" height="95"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zex-8T-ZMF"/>
+        <segue reference="d7I-CM-4ED"/>
         <segue reference="lT4-hS-41f"/>
     </inferredMetricsTieBreakers>
 </document>
