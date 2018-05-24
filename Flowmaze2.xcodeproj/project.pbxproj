@@ -25,6 +25,7 @@
 		8E93954B2026016400F03E37 /* FlowMazeImport.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8E9395412026016400F03E37 /* FlowMazeImport.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8EB92B1F1FFC06CC0096CC55 /* LevelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB92B1E1FFC06CC0096CC55 /* LevelInfo.swift */; };
 		8EB92B2120013FCF0096CC55 /* HighScoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB92B2020013FCF0096CC55 /* HighScoreDetailsViewController.swift */; };
+		8EDFFC3D20B7636F00540980 /* AssetsImport.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDFFC3C20B7636F00540980 /* AssetsImport.xcassets */; };
 		8EEF077B1FF2F74B0032CDAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF077A1FF2F74B0032CDAE /* AppDelegate.swift */; };
 		8EEF077D1FF2F74B0032CDAE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF077C1FF2F74B0032CDAE /* GameViewController.swift */; };
 		8EEF07801FF2F74B0032CDAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EEF077E1FF2F74B0032CDAE /* Main.storyboard */; };
@@ -92,6 +93,7 @@
 		8E9395482026016400F03E37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EB92B1E1FFC06CC0096CC55 /* LevelInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelInfo.swift; sourceTree = "<group>"; };
 		8EB92B2020013FCF0096CC55 /* HighScoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreDetailsViewController.swift; sourceTree = "<group>"; };
+		8EDFFC3C20B7636F00540980 /* AssetsImport.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssetsImport.xcassets; sourceTree = "<group>"; };
 		8EEF07771FF2F74B0032CDAE /* Flowmaze2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowmaze2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EEF077A1FF2F74B0032CDAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EEF077C1FF2F74B0032CDAE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				8E9395432026016400F03E37 /* ActionViewController.swift */,
 				8E9395452026016400F03E37 /* MainInterface.storyboard */,
 				8E9395482026016400F03E37 /* Info.plist */,
+				8EDFFC3C20B7636F00540980 /* AssetsImport.xcassets */,
 			);
 			path = FlowMazeImport;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E9395472026016400F03E37 /* MainInterface.storyboard in Resources */,
+				8EDFFC3D20B7636F00540980 /* AssetsImport.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +412,7 @@
 		8E93954C2026016400F03E37 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconImport;
 				CODE_SIGN_ENTITLEMENTS = FlowMazeImport/FlowMazeImport.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S5FN3MKRTG;
@@ -424,6 +429,7 @@
 		8E93954D2026016400F03E37 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconImport;
 				CODE_SIGN_ENTITLEMENTS = FlowMazeImport/FlowMazeImport.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S5FN3MKRTG;

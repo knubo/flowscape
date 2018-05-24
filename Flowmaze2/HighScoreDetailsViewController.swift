@@ -20,6 +20,9 @@ class HighScoreDetailsViewController: UIViewController {
     var lab:Labyrinth? = nil
     var actionIndex:Int = 0
     
+
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let score = HighScoreDetailsViewController.score!
@@ -30,14 +33,23 @@ class HighScoreDetailsViewController: UIViewController {
         
         let dim = HighScores.sharedInstance.getDimensions()
         
-        shareButton.isHidden = !score.myScore
         
+        let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+ 
+        shareButton.isHidden = !score.myScore
         
         DispatchQueue.global(qos: .background).async {
 
             lab.simulateFast(score: score, width: dim.x, height: dim.y)
             
             DispatchQueue.main.async {
+                activityIndicator.stopAnimating()
                 self.gameBoard.image = lab.imageView.image
                 self.gameBoard.setNeedsDisplay()
             }

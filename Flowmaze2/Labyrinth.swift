@@ -117,8 +117,12 @@ class Labyrinth: UIImageView {
                  actionIndex = actionIndex + 1
             }
             
-            gameLoop()
+            autoreleasepool {
+                self.gameLoop()
+            }
         }
+        NSLog("Simulate fast complete")
+
         
     }
     
@@ -478,10 +482,9 @@ class Labyrinth: UIImageView {
             fillMaze(context:context)
         }
         
-
-        
         imageView.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
         
       //  NSLog("%d %d", tick, drawPoints.count)
     }
