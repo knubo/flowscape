@@ -18,6 +18,9 @@
 		8E7198C9200B8A1300B6CDF3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E7198C4200B8A1300B6CDF3 /* Info.plist */; };
 		8E7198CA200B8A1300B6CDF3 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198C5200B8A1300B6CDF3 /* QRCode.swift */; };
 		8E7198CC200B8B9F00B6CDF3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8E7198CB200B8B9F00B6CDF3 /* LICENSE */; };
+		8E7758D320B9C30300AA2EC1 /* Help.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E7758D220B9C30200AA2EC1 /* Help.png */; };
+		8E7758D520B9C8FC00AA2EC1 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7758D420B9C8FC00AA2EC1 /* HelpViewController.swift */; };
+		8E7758D820B9D2ED00AA2EC1 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 8E7758D720B9D2ED00AA2EC1 /* index.html */; };
 		8E7C85FE20114BBC00969EC8 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7C85FD20114BBC00969EC8 /* ShareViewController.swift */; };
 		8E7C86002011528400969EC8 /* Flowmaze.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E7C85FF2011528400969EC8 /* Flowmaze.png */; };
 		8E9395442026016400F03E37 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9395432026016400F03E37 /* ActionViewController.swift */; };
@@ -85,6 +88,9 @@
 		8E7198C4200B8A1300B6CDF3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E7198C5200B8A1300B6CDF3 /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
 		8E7198CB200B8B9F00B6CDF3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		8E7758D220B9C30200AA2EC1 /* Help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help.png; sourceTree = "<group>"; };
+		8E7758D420B9C8FC00AA2EC1 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		8E7758D720B9D2ED00AA2EC1 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		8E7C85FD20114BBC00969EC8 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		8E7C85FF2011528400969EC8 /* Flowmaze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flowmaze.png; sourceTree = "<group>"; };
 		8E9395412026016400F03E37 /* FlowMazeImport.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FlowMazeImport.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +154,14 @@
 			path = qr_code;
 			sourceTree = "<group>";
 		};
+		8E7758D620B9D2A300AA2EC1 /* web */ = {
+			isa = PBXGroup;
+			children = (
+				8E7758D720B9D2ED00AA2EC1 /* index.html */,
+			);
+			path = web;
+			sourceTree = "<group>";
+		};
 		8E9395422026016400F03E37 /* FlowMazeImport */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +195,7 @@
 		8EEF07791FF2F74B0032CDAE /* Flowmaze2 */ = {
 			isa = PBXGroup;
 			children = (
+				8E7758D620B9D2A300AA2EC1 /* web */,
 				8E55EC2520989D010098F7A7 /* Flowmaze2.entitlements */,
 				8E7198BF200B88D500B6CDF3 /* qr_code */,
 				8EFFF57F1FF51C12007947D6 /* MenuViewController.swift */,
@@ -188,6 +203,7 @@
 				8EFFF5891FF91B23007947D6 /* SceneViewController.swift */,
 				8EEF077C1FF2F74B0032CDAE /* GameViewController.swift */,
 				8E7C85FD20114BBC00969EC8 /* ShareViewController.swift */,
+				8E7758D420B9C8FC00AA2EC1 /* HelpViewController.swift */,
 				8EFFF5951FFA958C007947D6 /* HighScoreViewController.swift */,
 				8EB92B2020013FCF0096CC55 /* HighScoreDetailsViewController.swift */,
 				8EEF077E1FF2F74B0032CDAE /* Main.storyboard */,
@@ -197,6 +213,7 @@
 				8E47CB2020B0A94E0064B18B /* Play.png */,
 				8E47CB2120B0A94E0064B18B /* Scores.png */,
 				8EFFF5831FF8FE5D007947D6 /* GameOver.png */,
+				8E7758D220B9C30200AA2EC1 /* Help.png */,
 				8EFFF5841FF8FE5D007947D6 /* Highscore.png */,
 				8EFFF5851FF8FE5D007947D6 /* Success.png */,
 				8EEF07831FF2F74B0032CDAE /* LaunchScreen.storyboard */,
@@ -318,11 +335,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E47CB2420B0A94E0064B18B /* Scores.png in Resources */,
+				8E7758D320B9C30300AA2EC1 /* Help.png in Resources */,
 				8EFFF5871FF8FE5D007947D6 /* Highscore.png in Resources */,
 				8EFFF5881FF8FE5D007947D6 /* Success.png in Resources */,
 				8E7198CC200B8B9F00B6CDF3 /* LICENSE in Resources */,
 				8E47CB2220B0A94E0064B18B /* FlowMazeMenu.png in Resources */,
 				8EEF07851FF2F74B0032CDAE /* LaunchScreen.storyboard in Resources */,
+				8E7758D820B9D2ED00AA2EC1 /* index.html in Resources */,
 				8EFFF5861FF8FE5D007947D6 /* GameOver.png in Resources */,
 				8EEF07821FF2F74B0032CDAE /* Assets.xcassets in Resources */,
 				8EEF07801FF2F74B0032CDAE /* Main.storyboard in Resources */,
@@ -358,6 +377,7 @@
 				8EB92B2120013FCF0096CC55 /* HighScoreDetailsViewController.swift in Sources */,
 				8EEF078D1FF2F7690032CDAE /* Labyrinth.swift in Sources */,
 				8E7198CA200B8A1300B6CDF3 /* QRCode.swift in Sources */,
+				8E7758D520B9C8FC00AA2EC1 /* HelpViewController.swift in Sources */,
 				8EFFF5901FFA8000007947D6 /* EnemyBurn.swift in Sources */,
 				8EFFF5921FFA8065007947D6 /* EnemyBasis.swift in Sources */,
 				8EFFF5821FF80373007947D6 /* HighScores.swift in Sources */,

@@ -62,14 +62,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="66" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddD-KB-eEW">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddD-KB-eEW">
                                                     <rect key="frame" x="0.0" y="33" width="66" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A27-fs-Ipr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A27-fs-Ipr">
                                                     <rect key="frame" x="0.0" y="0.0" width="66" height="33"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -257,7 +257,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Q7c-Ft-p8O">
-                                <rect key="frame" x="0.0" y="346" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="311" width="375" height="190"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM4-SH-MV8" userLabel="PlayButton">
                                         <rect key="frame" x="60.666666666666657" y="0.0" width="253.99999999999997" height="50"/>
@@ -275,10 +275,17 @@
                                             <segue destination="fEF-x2-iiV" kind="show" id="xAu-0j-2UE"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxW-gP-J9V" userLabel="HelpButton">
+                                        <rect key="frame" x="90.666666666666686" y="140" width="194" height="50"/>
+                                        <state key="normal" backgroundImage="Help.png"/>
+                                        <connections>
+                                            <segue destination="CV8-I5-gOw" kind="show" id="FgI-c1-ig0"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aew-3X-GXs" userLabel="FlowMaze">
-                                <rect key="frame" x="0.0" y="133" width="375" height="85"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aew-3X-GXs" secondAttribute="height" multiplier="1024:63" constant="-1007.7460317460316" id="zcU-Gb-bt1"/>
                                 </constraints>
@@ -294,7 +301,7 @@
                             <constraint firstItem="aew-3X-GXs" firstAttribute="trailing" secondItem="Q7c-Ft-p8O" secondAttribute="trailing" id="bDX-0K-XAM"/>
                             <constraint firstItem="aew-3X-GXs" firstAttribute="leading" secondItem="Q7c-Ft-p8O" secondAttribute="leading" id="fXL-Mp-SNA"/>
                             <constraint firstItem="Q7c-Ft-p8O" firstAttribute="centerY" secondItem="BAk-PX-2o2" secondAttribute="centerY" id="kuv-CU-OCe"/>
-                            <constraint firstItem="aew-3X-GXs" firstAttribute="top" secondItem="bQY-Xh-2WG" secondAttribute="top" constant="89" id="wxc-qO-n6r" userLabel="FlowMaze.top = Safe Area.top + 70"/>
+                            <constraint firstItem="aew-3X-GXs" firstAttribute="top" secondItem="bQY-Xh-2WG" secondAttribute="top" constant="40" id="wxc-qO-n6r" userLabel="FlowMaze.top = Safe bottom "/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bQY-Xh-2WG"/>
                     </view>
@@ -306,6 +313,45 @@
             </objects>
             <point key="canvasLocation" x="-223.24218749999997" y="727.81844802342596"/>
         </scene>
+        <!--Help View Controller-->
+        <scene sceneID="S9u-En-XcF">
+            <objects>
+                <viewController id="CV8-I5-gOw" userLabel="Help View Controller" customClass="HelpViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uoh-bq-xhh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPe-Nu-WXK">
+                                <rect key="frame" x="325" y="44" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="Q4Z-nN-6iT" kind="show" id="rta-Js-q8i"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DAo-kQ-XBW">
+                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DAo-kQ-XBW" firstAttribute="top" secondItem="fPe-Nu-WXK" secondAttribute="bottom" constant="20" id="0PO-1t-TE1"/>
+                            <constraint firstItem="DAo-kQ-XBW" firstAttribute="bottom" secondItem="YPU-VK-epI" secondAttribute="bottom" id="BIS-4h-gOH"/>
+                            <constraint firstItem="fPe-Nu-WXK" firstAttribute="trailing" secondItem="uoh-bq-xhh" secondAttribute="trailingMargin" id="LRU-IX-fmP"/>
+                            <constraint firstItem="DAo-kQ-XBW" firstAttribute="leading" secondItem="uoh-bq-xhh" secondAttribute="leading" id="Who-ii-jAE"/>
+                            <constraint firstItem="fPe-Nu-WXK" firstAttribute="top" secondItem="YPU-VK-epI" secondAttribute="top" id="fCp-Ie-3Q3"/>
+                            <constraint firstAttribute="trailing" secondItem="DAo-kQ-XBW" secondAttribute="trailing" id="iq7-Gz-emR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YPU-VK-epI"/>
+                    </view>
+                    <connections>
+                        <outlet property="subView" destination="DAo-kQ-XBW" id="ZoI-E9-tIe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZSp-e8-w2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-224.80000000000001" y="1703.2983508245879"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="UOJ-lc-NPd">
             <objects>
@@ -315,7 +361,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbx-S4-fk4" customClass="Labyrinth" customModule="Flowmaze2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24" width="375" height="754"/>
+                                <rect key="frame" x="0.0" y="16" width="375" height="762"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" updatesFrequently="YES"/>
@@ -342,11 +388,12 @@
     </scenes>
     <resources>
         <image name="FlowMazeMenu.png" width="495" height="63"/>
+        <image name="Help.png" width="194" height="40"/>
         <image name="Play.png" width="254" height="48"/>
         <image name="Scores.png" width="380" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Zex-8T-ZMF"/>
-        <segue reference="lT4-hS-41f"/>
+        <segue reference="rta-Js-q8i"/>
     </inferredMetricsTieBreakers>
 </document>
