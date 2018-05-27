@@ -21,6 +21,7 @@
 		8E7758D320B9C30300AA2EC1 /* Help.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E7758D220B9C30200AA2EC1 /* Help.png */; };
 		8E7758D520B9C8FC00AA2EC1 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7758D420B9C8FC00AA2EC1 /* HelpViewController.swift */; };
 		8E7758D820B9D2ED00AA2EC1 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 8E7758D720B9D2ED00AA2EC1 /* index.html */; };
+		8E7758DB20BACBD700AA2EC1 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7758DA20BACBD700AA2EC1 /* ImportViewController.swift */; };
 		8E7C85FE20114BBC00969EC8 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7C85FD20114BBC00969EC8 /* ShareViewController.swift */; };
 		8E7C86002011528400969EC8 /* Flowmaze.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E7C85FF2011528400969EC8 /* Flowmaze.png */; };
 		8E9395442026016400F03E37 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9395432026016400F03E37 /* ActionViewController.swift */; };
@@ -91,6 +92,7 @@
 		8E7758D220B9C30200AA2EC1 /* Help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Help.png; sourceTree = "<group>"; };
 		8E7758D420B9C8FC00AA2EC1 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		8E7758D720B9D2ED00AA2EC1 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		8E7758DA20BACBD700AA2EC1 /* ImportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
 		8E7C85FD20114BBC00969EC8 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		8E7C85FF2011528400969EC8 /* Flowmaze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flowmaze.png; sourceTree = "<group>"; };
 		8E9395412026016400F03E37 /* FlowMazeImport.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FlowMazeImport.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +208,7 @@
 				8E7758D420B9C8FC00AA2EC1 /* HelpViewController.swift */,
 				8EFFF5951FFA958C007947D6 /* HighScoreViewController.swift */,
 				8EB92B2020013FCF0096CC55 /* HighScoreDetailsViewController.swift */,
+				8E7758DA20BACBD700AA2EC1 /* ImportViewController.swift */,
 				8EEF077E1FF2F74B0032CDAE /* Main.storyboard */,
 				8EEF07811FF2F74B0032CDAE /* Assets.xcassets */,
 				8E7C85FF2011528400969EC8 /* Flowmaze.png */,
@@ -375,6 +378,7 @@
 				8E7198C7200B8A1300B6CDF3 /* CIColorExtension.swift in Sources */,
 				8E7198BC2007BC7100B6CDF3 /* NiceSnake.swift in Sources */,
 				8EB92B2120013FCF0096CC55 /* HighScoreDetailsViewController.swift in Sources */,
+				8E7758DB20BACBD700AA2EC1 /* ImportViewController.swift in Sources */,
 				8EEF078D1FF2F7690032CDAE /* Labyrinth.swift in Sources */,
 				8E7198CA200B8A1300B6CDF3 /* QRCode.swift in Sources */,
 				8E7758D520B9C8FC00AA2EC1 /* HelpViewController.swift in Sources */,

@@ -62,32 +62,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="66" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddD-KB-eEW">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddD-KB-eEW">
                                                     <rect key="frame" x="0.0" y="33" width="66" height="26"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="26" id="MT0-qd-39I"/>
-                                                    </constraints>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A27-fs-Ipr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A27-fs-Ipr">
                                                     <rect key="frame" x="0.0" y="0.0" width="66" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <constraints>
-                                            <constraint firstItem="A27-fs-Ipr" firstAttribute="leading" secondItem="ddD-KB-eEW" secondAttribute="leading" id="4eY-Yi-vQo"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="ddD-KB-eEW" secondAttribute="bottom" constant="-28" id="LfD-Rd-LfP"/>
-                                            <constraint firstItem="A27-fs-Ipr" firstAttribute="leading" secondItem="K1B-fU-MeJ" secondAttribute="leading" id="Ul5-i9-C8L"/>
-                                            <constraint firstItem="ddD-KB-eEW" firstAttribute="top" secondItem="A27-fs-Ipr" secondAttribute="bottom" id="c7e-JR-hSL"/>
-                                            <constraint firstAttribute="trailing" secondItem="A27-fs-Ipr" secondAttribute="trailing" id="mtJ-tC-u56"/>
-                                            <constraint firstItem="A27-fs-Ipr" firstAttribute="top" secondItem="K1B-fU-MeJ" secondAttribute="top" id="pOO-ET-orA"/>
-                                            <constraint firstItem="A27-fs-Ipr" firstAttribute="trailing" secondItem="ddD-KB-eEW" secondAttribute="trailing" id="wWK-x0-Bru"/>
-                                        </constraints>
                                         <connections>
                                             <outlet property="levelLabel" destination="A27-fs-Ipr" id="g17-vx-goz"/>
                                             <outlet property="scoreLabel" destination="ddD-KB-eEW" id="hiK-SI-TBY"/>
@@ -440,6 +430,7 @@
         <image name="Scores.png" width="380" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="eHU-4F-bcv"/>
         <segue reference="d7I-CM-4ED"/>
         <segue reference="lT4-hS-41f"/>
         <segue reference="H8Y-9T-KCA"/>
