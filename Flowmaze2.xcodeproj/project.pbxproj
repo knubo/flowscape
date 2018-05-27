@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CB7E62EEF70B13186DC12A7 /* Pods_Flowmaze2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687F1E7D61A1CA0C091AE981 /* Pods_Flowmaze2.framework */; };
 		8E47CB2220B0A94E0064B18B /* FlowMazeMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E47CB1F20B0A94D0064B18B /* FlowMazeMenu.png */; };
 		8E47CB2320B0A94E0064B18B /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E47CB2020B0A94E0064B18B /* Play.png */; };
 		8E47CB2420B0A94E0064B18B /* Scores.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E47CB2120B0A94E0064B18B /* Scores.png */; };
@@ -22,6 +23,7 @@
 		8E7758D520B9C8FC00AA2EC1 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7758D420B9C8FC00AA2EC1 /* HelpViewController.swift */; };
 		8E7758D820B9D2ED00AA2EC1 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 8E7758D720B9D2ED00AA2EC1 /* index.html */; };
 		8E7758DB20BACBD700AA2EC1 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7758DA20BACBD700AA2EC1 /* ImportViewController.swift */; };
+		8E7758DD20BB2D0700AA2EC1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 8E7758DC20BB2D0700AA2EC1 /* Podfile */; };
 		8E7C85FE20114BBC00969EC8 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7C85FD20114BBC00969EC8 /* ShareViewController.swift */; };
 		8E7C86002011528400969EC8 /* Flowmaze.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E7C85FF2011528400969EC8 /* Flowmaze.png */; };
 		8E9395442026016400F03E37 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9395432026016400F03E37 /* ActionViewController.swift */; };
@@ -75,6 +77,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		687F1E7D61A1CA0C091AE981 /* Pods_Flowmaze2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flowmaze2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		701DA5CFA7F5B59197F30753 /* Pods-Flowmaze2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flowmaze2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flowmaze2/Pods-Flowmaze2.release.xcconfig"; sourceTree = "<group>"; };
+		70F06EBA6BA7F57FDE61EC2A /* Pods-Flowmaze2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flowmaze2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flowmaze2/Pods-Flowmaze2.debug.xcconfig"; sourceTree = "<group>"; };
 		8E47CB1F20B0A94D0064B18B /* FlowMazeMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlowMazeMenu.png; sourceTree = "<group>"; };
 		8E47CB2020B0A94E0064B18B /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play.png; sourceTree = "<group>"; };
 		8E47CB2120B0A94E0064B18B /* Scores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Scores.png; sourceTree = "<group>"; };
@@ -93,6 +98,7 @@
 		8E7758D420B9C8FC00AA2EC1 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		8E7758D720B9D2ED00AA2EC1 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		8E7758DA20BACBD700AA2EC1 /* ImportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
+		8E7758DC20BB2D0700AA2EC1 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		8E7C85FD20114BBC00969EC8 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		8E7C85FF2011528400969EC8 /* Flowmaze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flowmaze.png; sourceTree = "<group>"; };
 		8E9395412026016400F03E37 /* FlowMazeImport.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FlowMazeImport.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,12 +142,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB7E62EEF70B13186DC12A7 /* Pods_Flowmaze2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3008AC80521DD54FDB364F9F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				70F06EBA6BA7F57FDE61EC2A /* Pods-Flowmaze2.debug.xcconfig */,
+				701DA5CFA7F5B59197F30753 /* Pods-Flowmaze2.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8E7198BF200B88D500B6CDF3 /* qr_code */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +198,8 @@
 				8EEF07791FF2F74B0032CDAE /* Flowmaze2 */,
 				8E9395422026016400F03E37 /* FlowMazeImport */,
 				8EEF07781FF2F74B0032CDAE /* Products */,
+				3008AC80521DD54FDB364F9F /* Pods */,
+				AE290038FC52B251AAFBB9AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -197,6 +215,7 @@
 		8EEF07791FF2F74B0032CDAE /* Flowmaze2 */ = {
 			isa = PBXGroup;
 			children = (
+				8E7758DC20BB2D0700AA2EC1 /* Podfile */,
 				8E7758D620B9D2A300AA2EC1 /* web */,
 				8E55EC2520989D010098F7A7 /* Flowmaze2.entitlements */,
 				8E7198BF200B88D500B6CDF3 /* qr_code */,
@@ -235,6 +254,14 @@
 			path = Flowmaze2;
 			sourceTree = "<group>";
 		};
+		AE290038FC52B251AAFBB9AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				687F1E7D61A1CA0C091AE981 /* Pods_Flowmaze2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -259,6 +286,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8EEF07891FF2F74B0032CDAE /* Build configuration list for PBXNativeTarget "Flowmaze2" */;
 			buildPhases = (
+				796B10AE481CAB86AEA01634 /* [CP] Check Pods Manifest.lock */,
 				8EEF07731FF2F74B0032CDAE /* Sources */,
 				8EEF07741FF2F74B0032CDAE /* Frameworks */,
 				8EEF07751FF2F74B0032CDAE /* Resources */,
@@ -337,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E7758DD20BB2D0700AA2EC1 /* Podfile in Resources */,
 				8E47CB2420B0A94E0064B18B /* Scores.png in Resources */,
 				8E7758D320B9C30300AA2EC1 /* Help.png in Resources */,
 				8EFFF5871FF8FE5D007947D6 /* Highscore.png in Resources */,
@@ -355,6 +384,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		796B10AE481CAB86AEA01634 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Flowmaze2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8E93953D2026016400F03E37 /* Sources */ = {
@@ -582,6 +632,7 @@
 		};
 		8EEF078A1FF2F74B0032CDAE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70F06EBA6BA7F57FDE61EC2A /* Pods-Flowmaze2.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -600,6 +651,7 @@
 		};
 		8EEF078B1FF2F74B0032CDAE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 701DA5CFA7F5B59197F30753 /* Pods-Flowmaze2.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

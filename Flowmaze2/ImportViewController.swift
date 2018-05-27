@@ -20,6 +20,9 @@ class ImportViewController: UIViewController {
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     
+    var lastScan:String?;
+
+    
     private let supportedCodeTypes = [AVMetadataObject.ObjectType.qr]
     
     override func viewDidLoad() {
@@ -174,8 +177,14 @@ extension ImportViewController: AVCaptureMetadataOutputObjectsDelegate {
             
             if metadataObj.stringValue != nil {
         //        launchApp(decodedURL: metadataObj.stringValue!)
-                messageLabel.text = "QR code found"22
+                messageLabel.text = "QR code found"
             }
+            
+            if(metadataObj.stringValue == lastScan) {
+                return;
+            }
+            
+            lastScan = metadataObj.stringValue!
             
             if let data = metadataObj.stringValue!.data(using: String.Encoding.utf8) {
                 do {
