@@ -364,7 +364,7 @@
         <!--Import Score Controller-->
         <scene sceneID="EhV-8l-y6y">
             <objects>
-                <viewController id="j1P-rp-Q7M" userLabel="Import Score Controller" sceneMemberID="viewController">
+                <viewController id="j1P-rp-Q7M" userLabel="Import Score Controller" customClass="ImportViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Dd-SJ-9nW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -376,18 +376,35 @@
                                     <segue destination="fEF-x2-iiV" kind="show" id="H8Y-9T-KCA"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibd-XZ-sE5" userLabel="feedbackLabel">
+                                <rect key="frame" x="16" y="44" width="301" height="21"/>
+                                <color key="backgroundColor" red="1" green="0.95962363402123119" blue="0.98327921869316648" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="301" id="DOr-L7-ZBX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Ibd-XZ-sE5" firstAttribute="top" secondItem="6iX-bJ-n0o" secondAttribute="top" id="KG3-S5-mO6"/>
+                            <constraint firstItem="goX-LN-x8O" firstAttribute="bottom" secondItem="Ibd-XZ-sE5" secondAttribute="bottom" constant="713" id="m4t-e9-RG8"/>
                             <constraint firstItem="6iX-bJ-n0o" firstAttribute="trailing" secondItem="3Dd-SJ-9nW" secondAttribute="trailingMargin" id="qMo-rk-qWq"/>
                             <constraint firstItem="6iX-bJ-n0o" firstAttribute="top" secondItem="goX-LN-x8O" secondAttribute="top" id="qzw-jC-Bct"/>
+                            <constraint firstItem="6iX-bJ-n0o" firstAttribute="leading" secondItem="Ibd-XZ-sE5" secondAttribute="trailing" constant="8" symbolic="YES" id="s54-ZU-1y5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="goX-LN-x8O"/>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="6iX-bJ-n0o" id="1xV-70-e0c"/>
+                        <outlet property="messageLabel" destination="Ibd-XZ-sE5" id="6LF-Xb-mhb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Bu-a8-0c4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="532" y="1523"/>
+            <point key="canvasLocation" x="532" y="1522.9064039408868"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="UOJ-lc-NPd">
@@ -430,7 +447,6 @@
         <image name="Scores.png" width="380" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eHU-4F-bcv"/>
         <segue reference="d7I-CM-4ED"/>
         <segue reference="lT4-hS-41f"/>
         <segue reference="H8Y-9T-KCA"/>
