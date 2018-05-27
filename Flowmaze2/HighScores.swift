@@ -30,6 +30,9 @@ class HighScores {
         defaults.set(score.boardSize!.x, forKey:"board_size_x")
         defaults.set(score.boardSize!.y, forKey:"board_size_y")
         
+        let playCount = defaults.integer(forKey:"playCount")
+        defaults.set(playCount + 1, forKey:"playCount")
+        
         let maxLevel =  defaults.integer(forKey:"max_successful_level")
         if(score.level > maxLevel) {
             defaults.set(score.level, forKey:"max_successful_level")

@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, GADInterstitialDelegate {
+    var interstitial: GADInterstitial!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,28 @@ class GameViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         NotificationCenter.default.addObserver(self, selector: #selector(self.goToMenu(notification:)), name: Notification.Name("goToMenu"), object: nil)
         
+            NotificationCenter.default.addObserver(self, selector: #selector(self.showAdd(notification:)), name: Notification.Name("showAdd"), object: nil)
+        
+        loadAdd();
+    }
+    
+    func loadAdd() {
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        let request = GADRequest()
+        interstitial.delegate = self
+        interstitial.load(request)
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        loadAdd()
+    }
+    
+    @objc func showAdd(notification: Notification) {
+        if interstitial.isReady {
+            interstitial.present(fromRootViewController: self)
+        } else  {
+            print("Ad wasn't ready")
+        }
     }
     
     override func viewDidLayoutSubviews() {

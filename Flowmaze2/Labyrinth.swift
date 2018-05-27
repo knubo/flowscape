@@ -490,7 +490,8 @@ class Labyrinth: UIImageView {
     }
     
     func showMenu() {
-        
+        NotificationCenter.default.post(name: Notification.Name("showAdd"), object: nil)
+
         var topImage: UIImage?
         
         switch(mode) {
