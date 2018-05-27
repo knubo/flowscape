@@ -62,22 +62,32 @@
                                             <rect key="frame" x="0.0" y="0.0" width="66" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddD-KB-eEW">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddD-KB-eEW">
                                                     <rect key="frame" x="0.0" y="33" width="66" height="26"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="26" id="MT0-qd-39I"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A27-fs-Ipr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A27-fs-Ipr">
                                                     <rect key="frame" x="0.0" y="0.0" width="66" height="33"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="A27-fs-Ipr" firstAttribute="leading" secondItem="ddD-KB-eEW" secondAttribute="leading" id="4eY-Yi-vQo"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="ddD-KB-eEW" secondAttribute="bottom" constant="-28" id="LfD-Rd-LfP"/>
+                                            <constraint firstItem="A27-fs-Ipr" firstAttribute="leading" secondItem="K1B-fU-MeJ" secondAttribute="leading" id="Ul5-i9-C8L"/>
+                                            <constraint firstItem="ddD-KB-eEW" firstAttribute="top" secondItem="A27-fs-Ipr" secondAttribute="bottom" id="c7e-JR-hSL"/>
+                                            <constraint firstAttribute="trailing" secondItem="A27-fs-Ipr" secondAttribute="trailing" id="mtJ-tC-u56"/>
+                                            <constraint firstItem="A27-fs-Ipr" firstAttribute="top" secondItem="K1B-fU-MeJ" secondAttribute="top" id="pOO-ET-orA"/>
+                                            <constraint firstItem="A27-fs-Ipr" firstAttribute="trailing" secondItem="ddD-KB-eEW" secondAttribute="trailing" id="wWK-x0-Bru"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="levelLabel" destination="A27-fs-Ipr" id="g17-vx-goz"/>
                                             <outlet property="scoreLabel" destination="ddD-KB-eEW" id="hiK-SI-TBY"/>
@@ -89,12 +99,21 @@
                                     <outlet property="delegate" destination="fEF-x2-iiV" id="jao-Sz-SHQ"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67q-PF-aZM">
+                                <rect key="frame" x="16" y="44" width="88" height="30"/>
+                                <state key="normal" title="Import score"/>
+                                <connections>
+                                    <segue destination="j1P-rp-Q7M" kind="show" id="eHU-4F-bcv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kfw-PJ-kn0" secondAttribute="trailing" id="0Ed-J3-ayw"/>
                             <constraint firstItem="kfw-PJ-kn0" firstAttribute="bottom" secondItem="ncj-vR-3Y0" secondAttribute="bottom" id="2sc-Yh-Kyh"/>
+                            <constraint firstItem="67q-PF-aZM" firstAttribute="leading" secondItem="aj8-U7-fa2" secondAttribute="leadingMargin" id="CoW-UT-a5e"/>
                             <constraint firstItem="aAF-Yp-BtE" firstAttribute="top" secondItem="ncj-vR-3Y0" secondAttribute="top" id="Fi7-q6-Pmb"/>
+                            <constraint firstItem="67q-PF-aZM" firstAttribute="baseline" secondItem="aAF-Yp-BtE" secondAttribute="baseline" id="GJQ-ZR-DsB"/>
                             <constraint firstItem="kfw-PJ-kn0" firstAttribute="top" secondItem="aAF-Yp-BtE" secondAttribute="bottom" constant="8" symbolic="YES" id="bcj-bj-CE7"/>
                             <constraint firstItem="aAF-Yp-BtE" firstAttribute="trailing" secondItem="aj8-U7-fa2" secondAttribute="trailingMargin" id="itp-rU-6uI"/>
                             <constraint firstItem="kfw-PJ-kn0" firstAttribute="leading" secondItem="aj8-U7-fa2" secondAttribute="leading" id="lMx-p4-ACi"/>
@@ -350,7 +369,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZSp-e8-w2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-224.80000000000001" y="1703.2983508245879"/>
+            <point key="canvasLocation" x="-210" y="1702"/>
+        </scene>
+        <!--Import Score Controller-->
+        <scene sceneID="EhV-8l-y6y">
+            <objects>
+                <viewController id="j1P-rp-Q7M" userLabel="Import Score Controller" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Dd-SJ-9nW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iX-bJ-n0o">
+                                <rect key="frame" x="325" y="44" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="fEF-x2-iiV" kind="show" id="H8Y-9T-KCA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6iX-bJ-n0o" firstAttribute="trailing" secondItem="3Dd-SJ-9nW" secondAttribute="trailingMargin" id="qMo-rk-qWq"/>
+                            <constraint firstItem="6iX-bJ-n0o" firstAttribute="top" secondItem="goX-LN-x8O" secondAttribute="top" id="qzw-jC-Bct"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="goX-LN-x8O"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Bu-a8-0c4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="532" y="1523"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="UOJ-lc-NPd">
@@ -361,7 +408,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbx-S4-fk4" customClass="Labyrinth" customModule="Flowmaze2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="16" width="375" height="762"/>
+                                <rect key="frame" x="0.0" y="24" width="375" height="754"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" updatesFrequently="YES"/>
@@ -393,7 +440,8 @@
         <image name="Scores.png" width="380" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zex-8T-ZMF"/>
-        <segue reference="rta-Js-q8i"/>
+        <segue reference="d7I-CM-4ED"/>
+        <segue reference="lT4-hS-41f"/>
+        <segue reference="H8Y-9T-KCA"/>
     </inferredMetricsTieBreakers>
 </document>
