@@ -71,6 +71,12 @@ class HighScores {
         return true
     }
     
+    func getPlayCount() -> Int {
+        let defaults = highscoreDefaults()
+        
+        return defaults.integer(forKey:"playCount")
+    }
+    
     func getLastCompletedLevel() -> Int {
         let defaults = highscoreDefaults()
 
