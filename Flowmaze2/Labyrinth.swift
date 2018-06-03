@@ -455,7 +455,7 @@ class Labyrinth: UIImageView {
     }
     
     func startGame() {
-      
+        HighScores.sharedInstance.increaseGameCount()
         drawPoints.removeAll()
         tick = 0
         gameActions.removeAll()
