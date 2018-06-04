@@ -492,6 +492,8 @@ class Labyrinth: UIImageView {
     func showMenu() {
         if(HighScores.sharedInstance.getPlayCount() % 6 == 0) {
             NotificationCenter.default.post(name: Notification.Name("showAdd"), object: nil)
+        } else {
+            NotificationCenter.default.post(name: Notification.Name("prepareAdd"), object: nil)
         }
         
         var topImage: UIImage?

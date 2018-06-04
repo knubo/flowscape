@@ -291,6 +291,7 @@
 				8EEF07741FF2F74B0032CDAE /* Frameworks */,
 				8EEF07751FF2F74B0032CDAE /* Resources */,
 				8E93954F2026016400F03E37 /* Embed App Extensions */,
+				6232C75258146E38A9C9F4CE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -386,6 +387,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6232C75258146E38A9C9F4CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Flowmaze2/Pods-Flowmaze2-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PersonalizedAdConsent/PersonalizedAdConsent.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PersonalizedAdConsent.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flowmaze2/Pods-Flowmaze2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		796B10AE481CAB86AEA01634 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

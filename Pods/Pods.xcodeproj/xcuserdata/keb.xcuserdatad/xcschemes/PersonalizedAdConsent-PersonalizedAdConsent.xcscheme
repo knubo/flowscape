@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A11CF41088BF706BF8D877FFA8B39894"
-               BuildableName = "Pods_Flowmaze2.framework"
-               BlueprintName = "Pods-Flowmaze2"
+               BlueprintIdentifier = "402DCC107FFBEC90FC7056DC32FD25E2"
+               BuildableName = "PersonalizedAdConsent.bundle"
+               BlueprintName = "PersonalizedAdConsent-PersonalizedAdConsent"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A11CF41088BF706BF8D877FFA8B39894"
-            BuildableName = "Pods_Flowmaze2.framework"
-            BlueprintName = "Pods-Flowmaze2"
+            BlueprintIdentifier = "402DCC107FFBEC90FC7056DC32FD25E2"
+            BuildableName = "PersonalizedAdConsent.bundle"
+            BlueprintName = "PersonalizedAdConsent-PersonalizedAdConsent"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
