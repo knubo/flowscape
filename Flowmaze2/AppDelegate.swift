@@ -1,4 +1,4 @@
-//
+    //
 //  AppDelegate.swift
 //  Flowmaze2
 //
@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-3940256099942544~1458002511") // TEST
-   //     GADMobileAds.configure(withApplicationID: "ca-app-pub-3752721631578562~1874643129") // PROD
+   //     GADMobileAds.configure(withApplicationID: "ca-app-pub-3940256099942544~1458002511") // TEST
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-3752721631578562~1874643129") // PROD
 
         PACConsentInformation.sharedInstance.requestConsentInfoUpdate(
             forPublisherIdentifiers: ["pub-3752721631578562"])

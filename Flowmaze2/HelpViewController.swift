@@ -2,13 +2,18 @@ import Foundation
 import UIKit
 import WebKit
 import PersonalizedAdConsent
+import StoreKit
 
 class HelpViewController: UIViewController, WKUIDelegate {
     
     @IBOutlet weak var subView: UIView!
     @IBOutlet weak var buyOrPrivacyButton: UIButton!
+    @IBOutlet weak var restorePurchaseButton: UIButton!
     
     var webView:WKWebView!
+    
+    static let productId = "FlowMaze No Adds"
+    static let store = IAPHelper(productIds: [productId])
     
     override func loadView() {
         super.loadView()
@@ -16,6 +21,15 @@ class HelpViewController: UIViewController, WKUIDelegate {
         webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         webView.uiDelegate = self
         subView.addSubview(webView)
+        
+        if(HelpViewController.gamePurchased()) {
+            buyOrPrivacyButton.isHidden = true
+            restorePurchaseButton.isHidden = true
+        }
+    }
+    
+    static func gamePurchased() -> Bool {
+        return UserDefaults.standard.bool(forKey:HelpViewController.productId)
     }
     
     override func viewDidLoad() {
@@ -31,7 +45,17 @@ class HelpViewController: UIViewController, WKUIDelegate {
     }
     
     func buyApp() {
-        
+        HelpViewController.store.requestProducts {success, products in
+            if success {
+                let product = products![0]
+
+                HelpViewController.store.buyProduct(product)
+            }
+        }
+    }
+    
+    @IBAction func restorePurchase(_ sender: Any) {
+        HelpViewController.store.restorePurchases()
     }
     
     @IBAction func privacyOrBuyGame(_ sender: Any) {

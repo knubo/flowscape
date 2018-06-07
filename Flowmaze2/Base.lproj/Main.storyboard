@@ -338,37 +338,48 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DAo-kQ-XBW">
-                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="658"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijc-it-LYJ">
-                                <rect key="frame" x="16" y="44" width="131" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Privacy / Buy game"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijc-it-LYJ">
+                                <rect key="frame" x="16" y="44" width="156" height="30"/>
+                                <state key="normal" title="Privacy / Remove adds"/>
                                 <connections>
                                     <action selector="privacyOrBuyGame:" destination="CV8-I5-gOw" eventType="touchUpInside" id="LpV-mh-7rb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvQ-8W-ZsV">
+                                <rect key="frame" x="16" y="82" width="128" height="30"/>
+                                <state key="normal" title="Restore purchases"/>
+                                <connections>
+                                    <action selector="restorePurchase:" destination="CV8-I5-gOw" eventType="touchUpInside" id="unw-Et-4aU"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DAo-kQ-XBW" firstAttribute="top" secondItem="fPe-Nu-WXK" secondAttribute="bottom" constant="20" id="0PO-1t-TE1"/>
-                            <constraint firstItem="DAo-kQ-XBW" firstAttribute="bottom" secondItem="YPU-VK-epI" secondAttribute="bottom" id="BIS-4h-gOH"/>
-                            <constraint firstItem="fPe-Nu-WXK" firstAttribute="trailing" secondItem="uoh-bq-xhh" secondAttribute="trailingMargin" id="LRU-IX-fmP"/>
-                            <constraint firstItem="DAo-kQ-XBW" firstAttribute="leading" secondItem="uoh-bq-xhh" secondAttribute="leading" id="Who-ii-jAE"/>
-                            <constraint firstItem="fPe-Nu-WXK" firstAttribute="top" secondItem="YPU-VK-epI" secondAttribute="top" id="fCp-Ie-3Q3"/>
-                            <constraint firstAttribute="trailing" secondItem="DAo-kQ-XBW" secondAttribute="trailing" id="iq7-Gz-emR"/>
+                            <constraint firstItem="ijc-it-LYJ" firstAttribute="leading" secondItem="uoh-bq-xhh" secondAttribute="leadingMargin" id="HvZ-y5-3fP"/>
+                            <constraint firstItem="ijc-it-LYJ" firstAttribute="top" secondItem="YPU-VK-epI" secondAttribute="top" id="JTJ-l9-uHF"/>
+                            <constraint firstItem="ijc-it-LYJ" firstAttribute="baseline" secondItem="fPe-Nu-WXK" secondAttribute="baseline" id="NkM-cL-YNw"/>
+                            <constraint firstAttribute="trailing" secondItem="DAo-kQ-XBW" secondAttribute="trailing" id="Pdm-jk-P1m"/>
+                            <constraint firstItem="DAo-kQ-XBW" firstAttribute="top" secondItem="JvQ-8W-ZsV" secondAttribute="bottom" constant="8" symbolic="YES" id="WG1-Hi-bfa"/>
+                            <constraint firstItem="ijc-it-LYJ" firstAttribute="leading" secondItem="JvQ-8W-ZsV" secondAttribute="leading" id="bA9-c3-wY0"/>
+                            <constraint firstItem="JvQ-8W-ZsV" firstAttribute="top" secondItem="ijc-it-LYJ" secondAttribute="bottom" constant="8" symbolic="YES" id="iT4-KS-Uqv"/>
+                            <constraint firstItem="fPe-Nu-WXK" firstAttribute="trailing" secondItem="uoh-bq-xhh" secondAttribute="trailingMargin" id="mkP-Yq-KiF"/>
+                            <constraint firstItem="DAo-kQ-XBW" firstAttribute="bottom" secondItem="YPU-VK-epI" secondAttribute="bottom" id="pg6-k4-4PG"/>
+                            <constraint firstItem="DAo-kQ-XBW" firstAttribute="leading" secondItem="uoh-bq-xhh" secondAttribute="leading" id="wm9-9q-CMs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YPU-VK-epI"/>
                     </view>
                     <connections>
                         <outlet property="buyOrPrivacyButton" destination="ijc-it-LYJ" id="9Ae-f8-6xZ"/>
+                        <outlet property="restorePurchaseButton" destination="JvQ-8W-ZsV" id="fpP-A5-l3W"/>
                         <outlet property="subView" destination="DAo-kQ-XBW" id="ZoI-E9-tIe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZSp-e8-w2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-210" y="1702"/>
+            <point key="canvasLocation" x="-210.40000000000001" y="1701.7241379310346"/>
         </scene>
         <!--Import Score Controller-->
         <scene sceneID="EhV-8l-y6y">

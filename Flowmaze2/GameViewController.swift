@@ -26,6 +26,9 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     }
     
     @objc func prepareAdd(notification: Notification) {
+        if(HelpViewController.gamePurchased()) {
+            return
+        }
         if(PACConsentInformation.sharedInstance.consentStatus == PACConsentStatus.unknown) {
             showConcentForm()
             return
@@ -35,6 +38,10 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     }
     
     func loadAdd() {
+        if(HelpViewController.gamePurchased()) {
+            return
+        }
+        
         if(PACConsentInformation.sharedInstance.consentStatus == PACConsentStatus.unknown) {
             return
         }
@@ -43,8 +50,8 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
             return
         }
         
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910") // TEST
-       // interstitial = GADInterstitial(adUnitID: "ca-app-pub-3752721631578562/9094657594") // PROD
+       // interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910") // TEST
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3752721631578562/9094657594") // PROD
         let request = GADRequest()
         
         let status =
@@ -93,6 +100,10 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     }
     
     @objc func showAdd(notification: Notification) {
+        if(HelpViewController.gamePurchased()) {
+            return
+        }
+        
         if interstitial != nil && interstitial.isReady {
             interstitial.present(fromRootViewController: self)
         } else  {
