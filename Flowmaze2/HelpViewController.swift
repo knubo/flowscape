@@ -42,11 +42,24 @@ class HelpViewController: UIViewController, WKUIDelegate {
         webView.loadFileURL(url, allowingReadAccessTo: url)
         let request = URLRequest(url: url)
         webView.load(request)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.thankYouForPurchase(notification:)), name: Notification.Name(IAPHelper.IAPHelperPurchaseNotification), object: nil)
+
     }
     
     func buyApp() {
         HelpViewController.store.requestProducts {success, products in
             if success {
+                if(products == nil || products?.count == 0) {
+                    let refreshAlert = UIAlertController(title: "Product not ready", message: "Sorry - game can not be purchased right now.", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                        
+                    }))
+                    
+                    self.present(refreshAlert, animated: true, completion: nil)
+                    return
+                }
                 let product = products![0]
 
                 HelpViewController.store.buyProduct(product)
@@ -94,6 +107,15 @@ class HelpViewController: UIViewController, WKUIDelegate {
         }
     }
     
+    @objc func thankYouForPurchase(notification: Notification) {
+        let refreshAlert = UIAlertController(title: "Add removal activated", message: "Thank you for your support!", preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
 }
 
 
