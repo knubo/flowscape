@@ -209,9 +209,17 @@ class Labyrinth: UIImageView {
             return
         }
         
-        let cellX = (Int(point.x) - marginLeft) / boxSize
-        let cellY = (Int(point.y) - marginTop) / boxSize
+        var cellX = (Int(point.x) - marginLeft) / boxSize
+        var cellY = (Int(point.y) - marginTop) / boxSize
 
+        if(cellX >= mazeColSize) {
+            cellX = mazeColSize - 1
+        }
+        if(cellY >= mazeRowSize) {
+            cellY = mazeRowSize - 1
+        }
+        
+        
         gameActions.append(GameAction(x:cellX, y:cellY, tick:tick, cellValue:!board[cellY][cellX] ))
 
         toggleCellValueAt(cellY, cellX)
