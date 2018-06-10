@@ -12,7 +12,7 @@ class HelpViewController: UIViewController, WKUIDelegate {
     
     var webView:WKWebView!
     
-    static let productId = "FlowMaze No Adds"
+    static let productId = "42"
     static let store = IAPHelper(productIds: [productId])
     
     override func loadView() {
@@ -44,8 +44,15 @@ class HelpViewController: UIViewController, WKUIDelegate {
         webView.load(request)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.thankYouForPurchase(notification:)), name: Notification.Name(IAPHelper.IAPHelperPurchaseNotification), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.buyAppEvent(notification:)), name: Notification.Name("buyApp"), object: nil)
 
     }
+    
+    @objc func buyAppEvent(notification: Notification) {
+        buyApp()
+    }
+    
     
     func buyApp() {
         HelpViewController.store.requestProducts {success, products in
@@ -111,11 +118,15 @@ class HelpViewController: UIViewController, WKUIDelegate {
         let refreshAlert = UIAlertController(title: "Add removal activated", message: "Thank you for your support!", preferredStyle: UIAlertControllerStyle.alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            
+            self.buyOrPrivacyButton.isHidden = true
+            self.restorePurchaseButton.isHidden = true
         }))
         
         present(refreshAlert, animated: true, completion: nil)
     }
+    
+
+
 }
 
 

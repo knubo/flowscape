@@ -56,12 +56,14 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
         
         let status =
             PACConsentInformation.sharedInstance.consentStatus
-        
+     
+        let extras = GADExtras()
         if(status == PACConsentStatus.nonPersonalized) {
-            let extras = GADExtras()
-            extras.additionalParameters = ["npa": "1"]
-            request.register(extras)
+            extras.additionalParameters = ["npa": "1", "max_ad_content_rating": "PG"]
+        } else {
+            extras.additionalParameters = ["max_ad_content_rating": "PG"]
         }
+        request.register(extras)
         
         interstitial.delegate = self
         interstitial.load(request)
@@ -129,7 +131,9 @@ class GameViewController: UIViewController, GADInterstitialDelegate {
     }
     
     func buyApp() {
-        
+        performSegue(withIdentifier: "buyGame", sender:self)
+        NotificationCenter.default.post(name: Notification.Name("buyApp"), object: nil)
+
     }
     
     func showConcentForm() {

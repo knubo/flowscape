@@ -17,11 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>5.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>To be able to store a high score image to your images</string>
+	<string>5</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>NSAppTransportSecurity</key>
@@ -46,5 +44,7 @@
 		<key>New item</key>
 		<string></string>
 	</dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>To be able to store a high score image to your images</string>
 </dict>
 </plist>
