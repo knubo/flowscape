@@ -86,6 +86,8 @@ class Labyrinth: UIImageView {
         
         mazeColSize = score.boardSize!.x
         mazeRowSize = score.boardSize!.y
+        self.width = CGFloat(width)
+        self.height = CGFloat(height)
         
         imageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
         self.addSubview(imageView)
@@ -101,6 +103,8 @@ class Labyrinth: UIImageView {
     
         mazeColSize = score.boardSize!.x
         mazeRowSize = score.boardSize!.y
+        self.width = CGFloat(width)
+        self.height = CGFloat(height)
         
         imageView.frame = CGRect(x: 0, y: 0, width: width, height: height)
         self.addSubview(imageView)
