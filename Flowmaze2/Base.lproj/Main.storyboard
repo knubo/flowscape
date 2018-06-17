@@ -189,12 +189,12 @@
         <scene sceneID="w69-PM-J2P">
             <objects>
                 <viewController id="yhb-nj-ncX" customClass="ShareViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iaR-Xl-ejm" customClass="UIScrollView">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="iaR-Xl-ejm" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7r-u6-l6e">
-                                <rect key="frame" x="64" y="448" width="34" height="30"/>
+                                <rect key="frame" x="64" y="439" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="back:" destination="yhb-nj-ncX" eventType="touchUpInside" id="JKK-Og-Edo"/>
@@ -215,7 +215,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zg4-hq-LyX">
-                                <rect key="frame" x="224" y="448" width="40" height="30"/>
+                                <rect key="frame" x="224" y="439" width="40" height="30"/>
                                 <state key="normal" title="Share"/>
                                 <connections>
                                     <action selector="share:" destination="yhb-nj-ncX" eventType="touchUpInside" id="YC0-4N-HKw"/>
@@ -233,11 +233,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Flowmaze.png" translatesAutoresizingMaskIntoConstraints="NO" id="kW5-Hk-d9a">
                                 <rect key="frame" x="32" y="43" width="264" height="62"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Your name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jwF-yc-lBv">
-                                <rect key="frame" x="64" y="410" width="200" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Your name" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jwF-yc-lBv">
+                                <rect key="frame" x="64" y="410" width="200" height="21"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="nickname"/>
+                                <connections>
+                                    <action selector="textField:" destination="yhb-nj-ncX" eventType="editingDidEndOnExit" id="Xjc-6u-JTW"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -405,19 +408,19 @@
         <scene sceneID="EhV-8l-y6y">
             <objects>
                 <viewController id="j1P-rp-Q7M" userLabel="Import Score Controller" customClass="ImportViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="3Dd-SJ-9nW">
+                    <view key="view" contentMode="scaleToFill" id="3Dd-SJ-9nW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iX-bJ-n0o">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iX-bJ-n0o">
                                 <rect key="frame" x="270" y="20" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <segue destination="fEF-x2-iiV" kind="show" id="H8Y-9T-KCA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibd-XZ-sE5" userLabel="feedbackLabel">
-                                <rect key="frame" x="-39" y="20" width="301" height="291"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibd-XZ-sE5" userLabel="feedbackLabel">
+                                <rect key="frame" x="-39" y="20" width="301" height="0.0"/>
                                 <color key="backgroundColor" red="1" green="0.95962363402123119" blue="0.98327921869316648" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="301" id="DOr-L7-ZBX"/>

@@ -34,6 +34,21 @@ class ShareViewController: UIViewController {
         nameLabel.text = HighScores.sharedInstance.getMyName()
         
         logoImage.image = UIImage(named: "Flowmaze.png")!
+        
+        registerForKeyboardNotifications()
+        
+        scrollView.contentSize = CGSize(width:400, height:Int(scrollView.bounds.height * 1.5))
+    }
+    
+    @IBAction func textField(_ sender: AnyObject) {
+        let value = nameLabel.text!
+        
+        HighScores.sharedInstance.setMyName(name: value)
+        self.view.endEditing(true);
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        deregisterFromKeyboardNotifications()
     }
 
     //MARK: Actions
@@ -45,6 +60,8 @@ class ShareViewController: UIViewController {
 
     @IBAction func share(_ sender: Any) {
         updateImageAndShareName()
+        
+        self.scrollView.setContentOffset(.zero, animated: true)
         
         self.backButton.isHidden = true
         self.shareButton.isHidden = true
@@ -69,29 +86,22 @@ class ShareViewController: UIViewController {
         qrCodeImage.image = q?.image
 
     }
-    
-    func registerForKeyboardNotifications()
-    {
+    func registerForKeyboardNotifications() {
         //Adding notifies on keyboard appearing
-        NotificationCenter.default.addObserver(self, selector: Selector(("keyboardWasShown:")), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: Selector(("keyboardWillBeHidden:")), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    
-    func deregisterFromKeyboardNotifications()
-    {
+    func deregisterFromKeyboardNotifications() {
         //Removing notifies on keyboard appearing
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    
-    func keyboardWasShown(notification: NSNotification)
-    {
-    
+    @objc func keyboardWasShown(notification: NSNotification) {
         //Need to calculate keyboard exact size due to Apple suggestions
         self.scrollView.isScrollEnabled = true
-        let info : NSDictionary = notification.userInfo! as NSDictionary
+        var info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
         let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
         
@@ -100,38 +110,21 @@ class ShareViewController: UIViewController {
         
         var aRect : CGRect = self.view.frame
         aRect.size.height -= keyboardSize!.height
-        if activeField != nil
-        {
-            if (!aRect.contains(activeField!.frame.origin))
-            {
-                self.scrollView.scrollRectToVisible(activeField!.frame, animated: true)
-            }
-        }
         
+        if (!aRect.contains(nameLabel.frame.origin)) {
+            self.scrollView.scrollRectToVisible(nameLabel.frame, animated: true)
+        }
         
     }
     
-    
-    func keyboardWillBeHidden(notification: NSNotification)
-    {
+    @objc func keyboardWillBeHidden(notification: NSNotification) {
         //Once keyboard disappears, restore original positions
-        let info : NSDictionary = notification.userInfo! as NSDictionary
+        var info = notification.userInfo!
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
         let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
         self.scrollView.contentInset = contentInsets
         self.scrollView.scrollIndicatorInsets = contentInsets
-        self.view.endEditing(true)
-        self.scrollView.isScrollEnabled = false
-        
-    }
-    
-    func textFieldDidBeginEditing(textField: UITextField!)
-    {
-        activeField = textField
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField!)
-    {
-        activeField = nil
+//        self.view.endEditing(true)
+       // self.scrollView.isScrollEnabled = false
     }
 }
