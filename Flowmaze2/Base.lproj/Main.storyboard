@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -17,7 +17,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" userLabel="View Controllers" customClass="SceneViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <containerView key="view" opaque="NO" contentMode="scaleToFill" id="jZX-tb-vaL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                         <connections>
                             <segue destination="Q4Z-nN-6iT" kind="embed" identifier="menu" id="PyX-bw-gKT"/>
@@ -35,18 +35,18 @@
             <objects>
                 <viewController id="fEF-x2-iiV" customClass="HighScoreViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aj8-U7-fa2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAF-Yp-BtE">
-                                <rect key="frame" x="325" y="44" width="34" height="30"/>
+                                <rect key="frame" x="270" y="20" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <segue destination="Q4Z-nN-6iT" kind="show" identifier="toMenuFromScore" id="lT4-hS-41f"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kfw-PJ-kn0">
-                                <rect key="frame" x="0.0" y="82" width="375" height="696"/>
+                                <rect key="frame" x="0.0" y="58" width="320" height="422"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VOF-Da-DJG">
                                     <size key="itemSize" width="66" height="65"/>
@@ -90,7 +90,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67q-PF-aZM">
-                                <rect key="frame" x="16" y="44" width="88" height="30"/>
+                                <rect key="frame" x="16" y="20" width="88" height="30"/>
                                 <state key="normal" title="Import score"/>
                                 <connections>
                                     <segue destination="j1P-rp-Q7M" kind="show" id="eHU-4F-bcv"/>
@@ -123,11 +123,11 @@
             <objects>
                 <viewController id="dq0-fc-QTT" customClass="HighScoreDetailsViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hwg-Du-dRC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQO-3l-uVV">
-                                <rect key="frame" x="94" y="762" width="70" height="30"/>
+                                <rect key="frame" x="77" y="430" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Play again"/>
                                 <connections>
@@ -135,7 +135,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDR-ET-3xv">
-                                <rect key="frame" x="19" y="762" width="34" height="30"/>
+                                <rect key="frame" x="16" y="430" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
@@ -143,18 +143,18 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NkD-jG-AAh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="743"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="439"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZz-Zm-7Mn">
-                                <rect key="frame" x="0.0" y="733" width="375" height="21"/>
+                                <rect key="frame" x="0.0" y="401" width="320" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0L8-Ko-HPV">
-                                <rect key="frame" x="306" y="762" width="40" height="30"/>
+                                <rect key="frame" x="256" y="430" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Share"/>
                                 <connections>
@@ -162,7 +162,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jl-Ov-ibe">
-                                <rect key="frame" x="219" y="762" width="44" height="30"/>
+                                <rect key="frame" x="183" y="430" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Watch"/>
                                 <connections>
@@ -189,58 +189,77 @@
         <scene sceneID="w69-PM-J2P">
             <objects>
                 <viewController id="yhb-nj-ncX" customClass="ShareViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iaR-Xl-ejm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <view key="view" contentMode="scaleToFill" id="iaR-Xl-ejm" customClass="UIScrollView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQX-9O-OZJ">
-                                <rect key="frame" x="64" y="126" width="247" height="246"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.9801338632329375" green="1" blue="0.78485478919084462" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kW5-Hk-d9a">
-                                <rect key="frame" x="0.0" y="44" width="375" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Your name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jwF-yc-lBv">
-                                <rect key="frame" x="64" y="410" width="247" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7r-u6-l6e">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7r-u6-l6e">
                                 <rect key="frame" x="64" y="448" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="back:" destination="yhb-nj-ncX" eventType="touchUpInside" id="JKK-Og-Edo"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAN-o8-lIO">
-                                <rect key="frame" x="194" y="381" width="117" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5L5-kX-HpV">
+                                <rect key="frame" x="64" y="380" width="42" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zg4-hq-LyX">
-                                <rect key="frame" x="271" y="448" width="40" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uQX-9O-OZJ">
+                                <rect key="frame" x="64" y="126" width="200" height="200"/>
+                                <color key="backgroundColor" red="0.9801338632329375" green="1" blue="0.78485478919084462" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="G0m-dF-Wt3"/>
+                                    <constraint firstAttribute="width" constant="200" id="I0E-j9-pP5"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zg4-hq-LyX">
+                                <rect key="frame" x="224" y="448" width="40" height="30"/>
                                 <state key="normal" title="Share"/>
                                 <connections>
                                     <action selector="share:" destination="yhb-nj-ncX" eventType="touchUpInside" id="YC0-4N-HKw"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5L5-kX-HpV">
-                                <rect key="frame" x="64" y="380" width="122" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAN-o8-lIO">
+                                <rect key="frame" x="164" y="381" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="dTG-wa-CCF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Flowmaze.png" translatesAutoresizingMaskIntoConstraints="NO" id="kW5-Hk-d9a">
+                                <rect key="frame" x="32" y="43" width="264" height="62"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Your name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jwF-yc-lBv">
+                                <rect key="frame" x="64" y="410" width="200" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jwF-yc-lBv" firstAttribute="trailing" secondItem="dAN-o8-lIO" secondAttribute="trailing" id="2MT-L7-oFn"/>
+                            <constraint firstItem="uQX-9O-OZJ" firstAttribute="centerX" secondItem="iaR-Xl-ejm" secondAttribute="centerX" constant="4" id="4xd-uq-Srg" userLabel="Qr Code Image.centerX = centerX"/>
+                            <constraint firstItem="kW5-Hk-d9a" firstAttribute="centerX" secondItem="uQX-9O-OZJ" secondAttribute="centerX" id="5dd-W3-AYY"/>
+                            <constraint firstItem="kW5-Hk-d9a" firstAttribute="leading" secondItem="CYG-Xj-KfV" secondAttribute="leading" constant="32" id="6QB-eb-Edt"/>
+                            <constraint firstItem="jwF-yc-lBv" firstAttribute="trailing" secondItem="zg4-hq-LyX" secondAttribute="trailing" id="Cy0-vP-wxb"/>
+                            <constraint firstItem="jwF-yc-lBv" firstAttribute="trailing" secondItem="uQX-9O-OZJ" secondAttribute="trailing" id="E4Q-te-5v7"/>
+                            <constraint firstItem="5L5-kX-HpV" firstAttribute="top" secondItem="uQX-9O-OZJ" secondAttribute="bottom" constant="54" id="Ed4-PF-Qzb" userLabel="Level Label.top = Qr Code Image.bottom + 34"/>
+                            <constraint firstItem="jwF-yc-lBv" firstAttribute="top" secondItem="dAN-o8-lIO" secondAttribute="bottom" constant="8" symbolic="YES" id="FWK-uG-4hU"/>
+                            <constraint firstItem="kW5-Hk-d9a" firstAttribute="top" secondItem="CYG-Xj-KfV" secondAttribute="top" constant="23" id="JnN-be-4XH"/>
+                            <constraint firstItem="jwF-yc-lBv" firstAttribute="leading" secondItem="K7r-u6-l6e" secondAttribute="leading" id="RJl-oM-iuQ"/>
+                            <constraint firstItem="K7r-u6-l6e" firstAttribute="top" secondItem="jwF-yc-lBv" secondAttribute="bottom" constant="8" symbolic="YES" id="Td9-da-Dmf"/>
+                            <constraint firstItem="uQX-9O-OZJ" firstAttribute="top" secondItem="iaR-Xl-ejm" secondAttribute="top" constant="126" id="dBZ-ho-tBp"/>
+                            <constraint firstItem="jwF-yc-lBv" firstAttribute="leading" secondItem="uQX-9O-OZJ" secondAttribute="leading" id="j6R-CY-Ace"/>
+                            <constraint firstItem="zg4-hq-LyX" firstAttribute="baseline" secondItem="K7r-u6-l6e" secondAttribute="baseline" id="lAH-Ga-gRm"/>
+                            <constraint firstItem="dAN-o8-lIO" firstAttribute="top" secondItem="uQX-9O-OZJ" secondAttribute="bottom" constant="55" id="rut-zD-44R"/>
+                            <constraint firstItem="jwF-yc-lBv" firstAttribute="leading" secondItem="5L5-kX-HpV" secondAttribute="leading" id="ul8-dM-WUO"/>
+                            <constraint firstItem="uQX-9O-OZJ" firstAttribute="top" secondItem="kW5-Hk-d9a" secondAttribute="bottom" constant="21" id="vUI-sg-qVu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="CYG-Xj-KfV"/>
                     </view>
                     <connections>
@@ -249,27 +268,28 @@
                         <outlet property="logoImage" destination="kW5-Hk-d9a" id="9Iu-K0-VSD"/>
                         <outlet property="nameLabel" destination="jwF-yc-lBv" id="WaZ-wA-M5X"/>
                         <outlet property="qrCodeImage" destination="uQX-9O-OZJ" id="hZU-z3-WSW"/>
+                        <outlet property="scrollView" destination="iaR-Xl-ejm" id="syp-Cu-bLy"/>
                         <outlet property="shareButton" destination="zg4-hq-LyX" id="i5S-cG-d0v"/>
                         <outlet property="tickLabel" destination="dAN-o8-lIO" id="2VT-nI-cdn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O6s-J1-reP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2580" y="717.48768472906409"/>
+            <point key="canvasLocation" x="2570.625" y="712.5"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="ew1-YI-PFa">
             <objects>
                 <viewController id="Q4Z-nN-6iT" customClass="MenuViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BAk-PX-2o2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Q7c-Ft-p8O">
-                                <rect key="frame" x="0.0" y="311" width="375" height="190"/>
+                                <rect key="frame" x="0.0" y="145" width="320" height="190"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM4-SH-MV8" userLabel="PlayButton">
-                                        <rect key="frame" x="60.666666666666657" y="0.0" width="253.99999999999997" height="50"/>
+                                        <rect key="frame" x="33" y="0.0" width="254" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" backgroundImage="Play.png"/>
                                         <connections>
@@ -277,7 +297,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mA-Ei-J13" userLabel="ScoreButton">
-                                        <rect key="frame" x="0.0" y="70" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="70" width="320" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <state key="normal" backgroundImage="Scores.png"/>
                                         <connections>
@@ -285,7 +305,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxW-gP-J9V" userLabel="HelpButton">
-                                        <rect key="frame" x="90.666666666666686" y="140" width="194" height="50"/>
+                                        <rect key="frame" x="63" y="140" width="194" height="50"/>
                                         <state key="normal" backgroundImage="Help.png"/>
                                         <connections>
                                             <segue destination="CV8-I5-gOw" kind="show" id="FgI-c1-ig0"/>
@@ -294,7 +314,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aew-3X-GXs" userLabel="FlowMaze">
-                                <rect key="frame" x="0.0" y="84" width="375" height="85"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="81.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aew-3X-GXs" secondAttribute="height" multiplier="1024:63" constant="-1007.7460317460316" id="zcU-Gb-bt1"/>
                                 </constraints>
@@ -327,29 +347,29 @@
             <objects>
                 <viewController id="CV8-I5-gOw" userLabel="Help View Controller" customClass="HelpViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uoh-bq-xhh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPe-Nu-WXK">
-                                <rect key="frame" x="325" y="44" width="34" height="30"/>
+                                <rect key="frame" x="270" y="20" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <segue destination="Q4Z-nN-6iT" kind="show" id="rta-Js-q8i"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DAo-kQ-XBW">
-                                <rect key="frame" x="0.0" y="120" width="375" height="658"/>
+                                <rect key="frame" x="0.0" y="96" width="320" height="384"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijc-it-LYJ">
-                                <rect key="frame" x="16" y="44" width="156" height="30"/>
+                                <rect key="frame" x="16" y="20" width="156" height="30"/>
                                 <state key="normal" title="Privacy / Remove adds"/>
                                 <connections>
                                     <action selector="privacyOrBuyGame:" destination="CV8-I5-gOw" eventType="touchUpInside" id="LpV-mh-7rb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvQ-8W-ZsV">
-                                <rect key="frame" x="16" y="82" width="128" height="30"/>
+                                <rect key="frame" x="16" y="58" width="128" height="30"/>
                                 <state key="normal" title="Restore purchases"/>
                                 <connections>
                                     <action selector="restorePurchase:" destination="CV8-I5-gOw" eventType="touchUpInside" id="unw-Et-4aU"/>
@@ -385,19 +405,19 @@
         <scene sceneID="EhV-8l-y6y">
             <objects>
                 <viewController id="j1P-rp-Q7M" userLabel="Import Score Controller" customClass="ImportViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3Dd-SJ-9nW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="3Dd-SJ-9nW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iX-bJ-n0o">
-                                <rect key="frame" x="325" y="44" width="34" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iX-bJ-n0o">
+                                <rect key="frame" x="270" y="20" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <segue destination="fEF-x2-iiV" kind="show" id="H8Y-9T-KCA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibd-XZ-sE5" userLabel="feedbackLabel">
-                                <rect key="frame" x="16" y="44" width="301" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibd-XZ-sE5" userLabel="feedbackLabel">
+                                <rect key="frame" x="-39" y="20" width="301" height="291"/>
                                 <color key="backgroundColor" red="1" green="0.95962363402123119" blue="0.98327921869316648" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="301" id="DOr-L7-ZBX"/>
@@ -431,11 +451,11 @@
             <objects>
                 <viewController id="0jo-J5-qeD" customClass="GameViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="iWK-X8-tgP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qbx-S4-fk4" customClass="Labyrinth" customModule="Flowmaze2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24" width="375" height="754"/>
+                                <rect key="frame" x="0.0" y="-8" width="320" height="488"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" updatesFrequently="YES"/>
@@ -463,6 +483,7 @@
     </scenes>
     <resources>
         <image name="FlowMazeMenu.png" width="495" height="63"/>
+        <image name="Flowmaze.png" width="449" height="111"/>
         <image name="Help.png" width="194" height="40"/>
         <image name="Play.png" width="254" height="48"/>
         <image name="Scores.png" width="380" height="50"/>
@@ -470,7 +491,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="d7I-CM-4ED"/>
         <segue reference="wyz-5H-TFt"/>
-        <segue reference="Ns5-4T-hgz"/>
+        <segue reference="PyX-bw-gKT"/>
         <segue reference="H8Y-9T-KCA"/>
     </inferredMetricsTieBreakers>
 </document>
