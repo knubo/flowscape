@@ -414,40 +414,50 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iX-bJ-n0o">
                                 <rect key="frame" x="270" y="20" width="34" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="QcU-8t-cHL"/>
+                                </constraints>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <segue destination="fEF-x2-iiV" kind="show" id="H8Y-9T-KCA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibd-XZ-sE5" userLabel="feedbackLabel">
-                                <rect key="frame" x="-39" y="20" width="301" height="0.0"/>
+                                <rect key="frame" x="0.0" y="20" width="262" height="25"/>
                                 <color key="backgroundColor" red="1" green="0.95962363402123119" blue="0.98327921869316648" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="301" id="DOr-L7-ZBX"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8P0-4E-qVg" userLabel="cameraView">
+                                <rect key="frame" x="0.0" y="58" width="320" height="422"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ibd-XZ-sE5" firstAttribute="top" secondItem="6iX-bJ-n0o" secondAttribute="top" id="KG3-S5-mO6"/>
-                            <constraint firstItem="goX-LN-x8O" firstAttribute="bottom" secondItem="Ibd-XZ-sE5" secondAttribute="bottom" constant="713" id="m4t-e9-RG8"/>
-                            <constraint firstItem="6iX-bJ-n0o" firstAttribute="trailing" secondItem="3Dd-SJ-9nW" secondAttribute="trailingMargin" id="qMo-rk-qWq"/>
-                            <constraint firstItem="6iX-bJ-n0o" firstAttribute="top" secondItem="goX-LN-x8O" secondAttribute="top" id="qzw-jC-Bct"/>
-                            <constraint firstItem="6iX-bJ-n0o" firstAttribute="leading" secondItem="Ibd-XZ-sE5" secondAttribute="trailing" constant="8" symbolic="YES" id="s54-ZU-1y5"/>
+                            <constraint firstItem="Ibd-XZ-sE5" firstAttribute="leading" secondItem="3Dd-SJ-9nW" secondAttribute="leading" id="MOJ-5z-oai"/>
+                            <constraint firstItem="Ibd-XZ-sE5" firstAttribute="baseline" secondItem="6iX-bJ-n0o" secondAttribute="baseline" id="QLr-e2-ap7"/>
+                            <constraint firstItem="6iX-bJ-n0o" firstAttribute="leading" secondItem="Ibd-XZ-sE5" secondAttribute="trailing" constant="8" symbolic="YES" id="VCb-8U-7Gk"/>
+                            <constraint firstItem="8P0-4E-qVg" firstAttribute="top" secondItem="6iX-bJ-n0o" secondAttribute="bottom" constant="8" symbolic="YES" id="bmz-p5-qsk"/>
+                            <constraint firstItem="Ibd-XZ-sE5" firstAttribute="top" secondItem="6iX-bJ-n0o" secondAttribute="top" id="cVY-ut-qSC"/>
+                            <constraint firstItem="8P0-4E-qVg" firstAttribute="bottom" secondItem="goX-LN-x8O" secondAttribute="bottom" id="hUT-xO-gaL"/>
+                            <constraint firstItem="6iX-bJ-n0o" firstAttribute="trailing" secondItem="3Dd-SJ-9nW" secondAttribute="trailingMargin" id="net-DS-0LU"/>
+                            <constraint firstAttribute="trailing" secondItem="8P0-4E-qVg" secondAttribute="trailing" id="szq-L9-jnb"/>
+                            <constraint firstItem="8P0-4E-qVg" firstAttribute="leading" secondItem="Ibd-XZ-sE5" secondAttribute="leading" id="tw2-TS-EnS"/>
+                            <constraint firstItem="Ibd-XZ-sE5" firstAttribute="top" secondItem="goX-LN-x8O" secondAttribute="top" id="wQO-Ko-5Sk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="goX-LN-x8O"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="6iX-bJ-n0o" id="1xV-70-e0c"/>
+                        <outlet property="cameraView" destination="8P0-4E-qVg" id="Gkl-A3-UN0"/>
                         <outlet property="messageLabel" destination="Ibd-XZ-sE5" id="6LF-Xb-mhb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Bu-a8-0c4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="532" y="1522.9064039408868"/>
+            <point key="canvasLocation" x="530.625" y="1522.1830985915494"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="UOJ-lc-NPd">
@@ -494,7 +504,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="d7I-CM-4ED"/>
         <segue reference="wyz-5H-TFt"/>
-        <segue reference="PyX-bw-gKT"/>
+        <segue reference="rta-Js-q8i"/>
         <segue reference="H8Y-9T-KCA"/>
     </inferredMetricsTieBreakers>
 </document>

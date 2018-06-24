@@ -16,76 +16,87 @@ class ImportViewController: UIViewController {
     @IBOutlet var messageLabel:UILabel!
     @IBOutlet var backButton:UIButton!
 
+    @IBOutlet weak var cameraView: UIView!
     var captureSession = AVCaptureSession()
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     
     var lastScan:String?;
 
-    
     private let supportedCodeTypes = [AVMetadataObject.ObjectType.qr]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        messageLabel.text = "Target QR code"
         
-        // Get the back-facing camera for capturing videos
-        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
-        
-        guard let captureDevice = deviceDiscoverySession.devices.first else {
-            messageLabel.text = "Failed to get the camera device"
+        if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
+              setupCamera()
+        } else {
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+                if granted {
+                    self.setupCamera()
+                } else {
+                    self.messageLabel.text = "Camera access not granted"
+                }
+            })
+        }
+     
+
+    }
+
+    func setupCamera() {
+        guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back) else {
+            messageLabel.text = "Failed to access camera"
             return
         }
         
         do {
             // Get an instance of the AVCaptureDeviceInput class using the previous device object.
             let input = try AVCaptureDeviceInput(device: captureDevice)
-            
+
             // Set the input device on the capture session.
             captureSession.addInput(input)
-            
+
             // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
             let captureMetadataOutput = AVCaptureMetadataOutput()
             captureSession.addOutput(captureMetadataOutput)
-            
+
             // Set delegate and use the default dispatch queue to execute the call back
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
             //            captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
-            
+
         } catch {
-            // If any error occurs, simply print it out and don't continue any more.
+        // If any error occurs, simply print it out and don't continue any more.
             print(error)
             return
         }
-        
+
         // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        videoPreviewLayer?.frame = view.layer.bounds
-        view.layer.addSublayer(videoPreviewLayer!)
-        
+        videoPreviewLayer?.frame = cameraView.layer.bounds
+        cameraView.layer.addSublayer(videoPreviewLayer!)
+
         // Start video capture.
         captureSession.startRunning()
-        
-        // Move the message label and top bar to the front
-        view.bringSubview(toFront: messageLabel)
-        view.bringSubview(toFront: backButton)
-        
+
         // Initialize QR Code Frame to highlight the QR code
         qrCodeFrameView = UIView()
-        
+
         if let qrCodeFrameView = qrCodeFrameView {
             qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
             qrCodeFrameView.layer.borderWidth = 2
-            view.addSubview(qrCodeFrameView)
-            view.bringSubview(toFront: qrCodeFrameView)
-        }
+            cameraView.addSubview(qrCodeFrameView)
+            cameraView.bringSubview(toFront: qrCodeFrameView)
+        }	
 
     }
-    
-  
+
 }
+
+
 
 
 extension ImportViewController: AVCaptureMetadataOutputObjectsDelegate {
