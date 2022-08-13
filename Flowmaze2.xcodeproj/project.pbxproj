@@ -18,7 +18,6 @@
 		8E7198C6200B8A1300B6CDF3 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198C0200B8A1300B6CDF3 /* UIImageViewExtension.swift */; };
 		8E7198C7200B8A1300B6CDF3 /* CIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198C2200B8A1300B6CDF3 /* CIColorExtension.swift */; };
 		8E7198C8200B8A1300B6CDF3 /* CIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198C3200B8A1300B6CDF3 /* CIImageExtension.swift */; };
-		8E7198C9200B8A1300B6CDF3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E7198C4200B8A1300B6CDF3 /* Info.plist */; };
 		8E7198CA200B8A1300B6CDF3 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7198C5200B8A1300B6CDF3 /* QRCode.swift */; };
 		8E7198CC200B8B9F00B6CDF3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8E7198CB200B8B9F00B6CDF3 /* LICENSE */; };
 		8E7758D320B9C30300AA2EC1 /* Help.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E7758D220B9C30200AA2EC1 /* Help.png */; };
@@ -390,7 +389,6 @@
 				8EEF07801FF2F74B0032CDAE /* Main.storyboard in Resources */,
 				8E7C86002011528400969EC8 /* Flowmaze.png in Resources */,
 				8E47CB2320B0A94E0064B18B /* Play.png in Resources */,
-				8E7198C9200B8A1300B6CDF3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
