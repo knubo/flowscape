@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import GoogleMobileAds
-import PersonalizedAdConsent
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,20 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-   //     GADMobileAds.configure(withApplicationID: "ca-app-pub-3940256099942544~1458002511") // TEST
-        GADMobileAds.configure(withApplicationID: "ca-app-pub-3752721631578562~1874643129") // PROD
-
-        PACConsentInformation.sharedInstance.requestConsentInfoUpdate(
-            forPublisherIdentifiers: ["pub-3752721631578562"])
-        {(_ error: Error?) -> Void in
-            if let error = error {
-                print("Error:"+error.localizedDescription)
-                // Consent info update failed.
-            } else {
-                NSLog("Managed to get updated concent info")
-                
-            }
-        }
+   
         return true
     }
 
