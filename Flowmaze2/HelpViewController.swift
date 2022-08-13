@@ -1,7 +1,6 @@
 import Foundation
 import UIKit
 import WebKit
-import PersonalizedAdConsent
 import StoreKit
 
 class HelpViewController: UIViewController, WKUIDelegate {
