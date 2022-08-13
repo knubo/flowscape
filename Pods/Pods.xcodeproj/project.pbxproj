@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,7 +20,6 @@
 		82BB173486749BF907485271A0917FEF /* PACConsentForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B918003EEAAF1423083EDF202BA89AC /* PACConsentForm.m */; };
 		85D376DF980F3CFBF77DD2A203594016 /* PACPersonalizedAdConsent.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8DEBFEA7280E5D3F45CE3D3157648A /* PACPersonalizedAdConsent.m */; };
 		A3074E460B334AAC15EB914C56832480 /* PACPersonalizedAdConsent.h in Headers */ = {isa = PBXBuildFile; fileRef = F22C92907F4B63771FCD8F3653D1D090 /* PACPersonalizedAdConsent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ADF63ED3C027730A80D4E043AE295A6F /* PersonalizedAdConsent.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DE2266B3936BFA9E1356E6AE8BF9BF7E /* PersonalizedAdConsent.bundle */; };
 		B3CA84B56897A43104A3F5D9D5986E7F /* PACView.m in Sources */ = {isa = PBXBuildFile; fileRef = 083E683C0E21D1BA1326CC7C6E08DF64 /* PACView.m */; };
 		D30605FAFAC5DF3E2CBC9AFF17550223 /* PACError.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A0B39EEF21D84AABE3B2E0169437796 /* PACError.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FC3B91300388E6CB67C8A130C92B7BD7 /* PACView.h in Headers */ = {isa = PBXBuildFile; fileRef = A4EE0A5F9AC1AC84277E17819EC67C74 /* PACView.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -58,18 +57,18 @@
 		7A0B39EEF21D84AABE3B2E0169437796 /* PACError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PACError.h; path = PersonalizedAdConsent/PersonalizedAdConsent/PACError.h; sourceTree = "<group>"; };
 		885D9F4D9EB1CF892E5794AFB82CC2E8 /* Pods-Flowmaze2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flowmaze2.debug.xcconfig"; sourceTree = "<group>"; };
 		8BF3033D65C71D5AA1DA587DA9883C95 /* PACError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PACError.m; path = PersonalizedAdConsent/PersonalizedAdConsent/PACError.m; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9B918003EEAAF1423083EDF202BA89AC /* PACConsentForm.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PACConsentForm.m; path = PersonalizedAdConsent/PersonalizedAdConsent/PACConsentForm.m; sourceTree = "<group>"; };
 		9D508F20D07E09D1839AEE2DF7515355 /* Pods-Flowmaze2.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Flowmaze2.modulemap"; sourceTree = "<group>"; };
 		9FE55B93800A19B98CBB3F5E778EFE50 /* Pods-Flowmaze2-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Flowmaze2-dummy.m"; sourceTree = "<group>"; };
 		A4EE0A5F9AC1AC84277E17819EC67C74 /* PACView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PACView.h; path = PersonalizedAdConsent/PersonalizedAdConsent/PACView.h; sourceTree = "<group>"; };
-		B06EEC0FF64D9DB9571C0A407D356F42 /* Pods_Flowmaze2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Flowmaze2.framework; path = "Pods-Flowmaze2.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B06EEC0FF64D9DB9571C0A407D356F42 /* Pods_Flowmaze2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flowmaze2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB090697891AA22CCC1FF04EBFFD25FB /* PersonalizedAdConsent-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PersonalizedAdConsent-umbrella.h"; sourceTree = "<group>"; };
 		C2C1102570C50B69A3E3829EAB3C3482 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C630226BF015FD23668CF1AB86E9F1E6 /* Pods-Flowmaze2-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Flowmaze2-acknowledgements.plist"; sourceTree = "<group>"; };
-		D108860F0B71EF7A68D2E0EC153C7D47 /* PersonalizedAdConsent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PersonalizedAdConsent.framework; path = PersonalizedAdConsent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB09F994D4D730F6AF803EE8ACACB56E /* consentform.html */ = {isa = PBXFileReference; includeInIndex = 1; name = consentform.html; path = PersonalizedAdConsent/PersonalizedAdConsent/PersonalizedAdConsent.bundle/consentform.html; sourceTree = "<group>"; };
-		DE2266B3936BFA9E1356E6AE8BF9BF7E /* PersonalizedAdConsent.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = PersonalizedAdConsent.bundle; path = "PersonalizedAdConsent-PersonalizedAdConsent.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D108860F0B71EF7A68D2E0EC153C7D47 /* PersonalizedAdConsent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PersonalizedAdConsent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB09F994D4D730F6AF803EE8ACACB56E /* consentform.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = consentform.html; path = PersonalizedAdConsent/PersonalizedAdConsent/PersonalizedAdConsent.bundle/consentform.html; sourceTree = "<group>"; };
+		DE2266B3936BFA9E1356E6AE8BF9BF7E /* PersonalizedAdConsent.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersonalizedAdConsent.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E098A7A53EB55E0566F598073A6C8074 /* Pods-Flowmaze2-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flowmaze2-frameworks.sh"; sourceTree = "<group>"; };
 		E97004D7740C2E6B999906824C954FB1 /* Pods-Flowmaze2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flowmaze2.release.xcconfig"; sourceTree = "<group>"; };
 		ECCD3CDC02C82A5C6343EB8670F8BC73 /* PersonalizedAdConsent-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PersonalizedAdConsent-dummy.m"; sourceTree = "<group>"; };
@@ -121,7 +120,6 @@
 				5081CC9CE451356CC6FF14A98DC0CC4A /* Resources */,
 				827053B0BFBF87A93A74EA3148F7B6A1 /* Support Files */,
 			);
-			name = PersonalizedAdConsent;
 			path = PersonalizedAdConsent;
 			sourceTree = "<group>";
 		};
@@ -233,7 +231,6 @@
 			children = (
 				9D2862923018773CF3B48DE1F7266E64 /* Frameworks */,
 			);
-			name = "Google-Mobile-Ads-SDK";
 			path = "Google-Mobile-Ads-SDK";
 			sourceTree = "<group>";
 		};
@@ -332,6 +329,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
@@ -351,7 +349,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADF63ED3C027730A80D4E043AE295A6F /* PersonalizedAdConsent.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
