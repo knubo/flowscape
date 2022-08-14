@@ -35,6 +35,8 @@ class HighScoreViewController: UIViewController , UICollectionViewDataSource, UI
         let score = self.items[indexPath.item]
         cell.levelLabel.text = String(score.level)
         cell.scoreLabel.text = String(score.endTick)
+        cell.levelLabel.textColor = UIColor.black
+        cell.scoreLabel.textColor = UIColor.black
         
         cell.backgroundColor = score.myScore ?
             UIColor(red:1.00, green:1.00, blue:0.60, alpha:1.0):
