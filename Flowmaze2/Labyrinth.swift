@@ -502,12 +502,7 @@ class Labyrinth: UIImageView {
     }
     
     func showMenu() {
-        if(HighScores.sharedInstance.getPlayCount() % 6 == 0) {
-            NotificationCenter.default.post(name: Notification.Name("showAdd"), object: nil)
-        } else {
-            NotificationCenter.default.post(name: Notification.Name("prepareAdd"), object: nil)
-        }
-        
+
         var topImage: UIImage?
         
         switch(mode) {
@@ -624,9 +619,10 @@ extension Sequence {
 }
 
 extension CGPoint: Hashable {
-    public var hashValue: Int {
-        return self.x.hashValue << MemoryLayout<CGFloat>.size ^ self.y.hashValue
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.x.hashValue << MemoryLayout<CGFloat>.size ^ self.y.hashValue)
     }
+    
 }
 
 // Hashable requires Equatable, so define the equality function for CGPoints.
@@ -646,9 +642,10 @@ struct Point:Hashable {
         return Point(x: -x, y: -y)
     }
     
-    public var hashValue: Int {
-        return self.x.hashValue << MemoryLayout<Int>.size ^ self.y.hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.x.hashValue << MemoryLayout<Int>.size ^ self.y.hashValue)
     }
+
     
     static func == (lhs: Point, rhs: Point) -> Bool {
           return lhs.x == rhs.x && lhs.y == rhs.y

@@ -89,7 +89,7 @@ class ImportViewController: UIViewController {
             qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
             qrCodeFrameView.layer.borderWidth = 2
             cameraView.addSubview(qrCodeFrameView)
-            cameraView.bringSubview(toFront: qrCodeFrameView)
+            cameraView.bringSubviewToFront(qrCodeFrameView)
         }	
 
     }
