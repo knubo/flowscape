@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8CB7E62EEF70B13186DC12A7 /* Pods_Flowmaze2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 687F1E7D61A1CA0C091AE981 /* Pods_Flowmaze2.framework */; };
 		8E138BB320C5C88C0090397B /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E138BB220C5C88C0090397B /* StoreKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		8E138BB520C9A6D90090397B /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E138BB420C9A6D90090397B /* IAPHelper.swift */; };
 		8E47CB2220B0A94E0064B18B /* FlowMazeMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E47CB1F20B0A94D0064B18B /* FlowMazeMenu.png */; };
@@ -145,7 +144,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CB7E62EEF70B13186DC12A7 /* Pods_Flowmaze2.framework in Frameworks */,
 				8E138BB320C5C88C0090397B /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -649,10 +647,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Flowmaze2/Flowmaze2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = S5FN3MKRTG;
 				INFOPLIST_FILE = Flowmaze2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = no.knubo.Flowmaze2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -668,10 +668,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Flowmaze2/Flowmaze2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = S5FN3MKRTG;
 				INFOPLIST_FILE = Flowmaze2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = no.knubo.Flowmaze2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
