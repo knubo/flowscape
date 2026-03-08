@@ -1,2 +1,9 @@
 *~
 **#
+.DS_Store
+Flowmaze2.xcodeproj/xcshareddata/
+Flowmaze2.xcodeproj/xcuserdata/
+Flowmaze2.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+Flowmaze2.xcworkspace/xcuserdata/
+Pods/Pods.xcodeproj/xcuserdata/
+Pods/Target Support Files/Pods-Flowmaze2/Pods-Flowmaze2-Info.plist
