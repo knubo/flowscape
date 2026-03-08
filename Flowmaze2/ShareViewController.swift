@@ -67,11 +67,11 @@ class ShareViewController: UIViewController {
         self.shareButton.isHidden = true
         
         let bounds = UIScreen.main.bounds
-        UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
-        self.view.drawHierarchy(in: bounds, afterScreenUpdates: true)
-        let img = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        let activityViewController = UIActivityViewController(activityItems: [img!], applicationActivities: nil)
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        let img = renderer.image { _ in
+            self.view.drawHierarchy(in: bounds, afterScreenUpdates: true)
+        }
+        let activityViewController = UIActivityViewController(activityItems: [img], applicationActivities: nil)
         self.present(activityViewController, animated: true, completion: nil)
         
         backButton.isHidden = false

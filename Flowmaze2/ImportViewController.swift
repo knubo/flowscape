@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 import UIKit
-import MobileCoreServices
+import UniformTypeIdentifiers
 
 class ImportViewController: UIViewController {
 

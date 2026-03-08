@@ -21,11 +21,6 @@ class MenuViewController: UIViewController {
     }
     
    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
      //MARK: Actions
     @IBAction func playLatestGame(_ sender: Any) {
         Labyrinth.level = HighScores.sharedInstance.getLastCompletedLevel() + 1

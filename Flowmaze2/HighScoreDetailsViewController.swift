@@ -37,7 +37,7 @@ class HighScoreDetailsViewController: UIViewController {
         let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.style = UIActivityIndicatorView.Style.gray
+        activityIndicator.style = UIActivityIndicatorView.Style.medium
         view.addSubview(activityIndicator)
         
         activityIndicator.startAnimating()

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MobileCoreServices
+import UniformTypeIdentifiers
 
 class ActionViewController: UIViewController {
 
@@ -24,10 +24,10 @@ class ActionViewController: UIViewController {
         var imageFound = false
         for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
             for provider in item.attachments! as! [NSItemProvider] {
-                if provider.hasItemConformingToTypeIdentifier(kUTTypeImage as String) {
+                if provider.hasItemConformingToTypeIdentifier(UTType.image.identifier) {
                     // This is an image. We'll load it, then place it in our image view.
                     weak var weakImageView = self.imageView
-                    provider.loadItem(forTypeIdentifier: kUTTypeImage as String, options: nil, completionHandler: { (imageURL, error) in
+                    provider.loadItem(forTypeIdentifier: UTType.image.identifier, options: nil, completionHandler: { (imageURL, error) in
                         OperationQueue.main.addOperation {
                             if let strongImageView = weakImageView {
                                 if let imageURL = imageURL as? URL {
@@ -174,11 +174,6 @@ class ActionViewController: UIViewController {
 
     
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     @IBAction func done() {
         // Return any edited content to the host app.
         // This template doesn't do anything, so we just echo the passed in items.

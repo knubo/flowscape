@@ -1,4 +1,4 @@
-platform :ios, '10.3'
+platform :ios, '14.0'
 
 
 target 'Flowmaze2' do

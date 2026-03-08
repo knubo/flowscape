@@ -125,7 +125,7 @@ class Labyrinth: UIImageView {
                 self.gameLoop()
             }
         }
-        NSLog("Simulate fast complete")
+        print("Simulate fast complete")
 
         
     }
@@ -143,32 +143,15 @@ class Labyrinth: UIImageView {
         
         let bounds = imageView.bounds
         
-        if #available(iOS 11.0, *) {
-            height = bounds.size.height - safeAreaInsets.bottom - safeAreaInsets.top
-        } else {
-            height = bounds.size.height
-        }
-        if #available(iOS 11.0, *) {
-            width = bounds.size.width - safeAreaInsets.left - safeAreaInsets.right
-        } else {
-            width = bounds.size.width
-        }
+        height = bounds.size.height - safeAreaInsets.bottom - safeAreaInsets.top
+        width = bounds.size.width - safeAreaInsets.left - safeAreaInsets.right
         
         mazeColSize = Int(floor(width / CGFloat(boxSize)))
         mazeRowSize = Int(floor(height / CGFloat(boxSize)))
         
-        if #available(iOS 11.0, *) {
-            marginLeft =  Int(safeAreaInsets.left)
-        } else {
-            marginLeft = 0
-        }
+        marginLeft = Int(safeAreaInsets.left)
         marginLeft = marginLeft + ((Int(width) - mazeColSize) / boxSize) / 2
-    
-        if #available(iOS 11.0, *) {
-            marginTop = Int(safeAreaInsets.top)
-        } else {
-            marginTop = 0
-        }
+        marginTop = Int(safeAreaInsets.top)
         
         HighScores.sharedInstance.setDimensions(width:Int(self.bounds.width) , height:Int(self.bounds.height))
         
@@ -192,16 +175,16 @@ class Labyrinth: UIImageView {
         board[cellY][cellX] = !board[cellY][cellX]
         
         
-        UIGraphicsBeginImageContext(imageView.bounds.size)
-        let context = UIGraphicsGetCurrentContext()
-        imageView.image?.draw(in:imageView.bounds)
-        
-        context?.setFillColor(board[cellY][cellX] ? UIColor.white.cgColor : colorWallUser)
-        context?.fill(CGRect(x: (cellX * boxSize) + marginLeft, y: (cellY * boxSize) + marginTop, width: boxSize, height: boxSize ))
-        context?.strokePath()
-        
-        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+        let renderer = UIGraphicsImageRenderer(size: imageView.bounds.size, format: format)
+        imageView.image = renderer.image { ctx in
+            let context = ctx.cgContext
+            imageView.image?.draw(in: imageView.bounds)
+            context.setFillColor(board[cellY][cellX] ? UIColor.white.cgColor : colorWallUser)
+            context.fill(CGRect(x: (cellX * boxSize) + marginLeft, y: (cellY * boxSize) + marginTop, width: boxSize, height: boxSize))
+            context.strokePath()
+        }
     }
     
     @objc func tapAction(_ sender: UITapGestureRecognizer) {
@@ -247,7 +230,7 @@ class Labyrinth: UIImageView {
             startGame()
         }
         
-        NSLog("relativeY %d", relativeY)
+        print("relativeY \(relativeY)")
         
     }
     
@@ -344,39 +327,35 @@ class Labyrinth: UIImageView {
         
         createMaze()
         
-        UIGraphicsBeginImageContext(imageView.bounds.size)
-        let context = UIGraphicsGetCurrentContext()
-        
-        context?.setFillColor(UIColor.white.cgColor)
-        context?.fill(imageView.bounds)
-        
-        for x in 0..<mazeColSize {
-            for y in 0..<mazeRowSize {
-                
-                if(board[y][x]) {
-                    continue;
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+        let renderer = UIGraphicsImageRenderer(size: imageView.bounds.size, format: format)
+        imageView.image = renderer.image { ctx in
+            let context = ctx.cgContext
+
+            context.setFillColor(UIColor.white.cgColor)
+            context.fill(imageView.bounds)
+
+            for x in 0..<mazeColSize {
+                for y in 0..<mazeRowSize {
+                    if board[y][x] { continue }
+                    context.setFillColor(colorWall)
+                    context.fill(boxAt(x, y))
                 }
-                context?.setFillColor(colorWall)
-                context?.fill(boxAt(x, y))
-                
             }
+
+            context.setFillColor(UIColor.clear.cgColor)
+            context.setStrokeColor(UIColor.black.cgColor)
+            context.addRect(CGRect(x: marginLeft, y: marginTop, width: boxSize*mazeColSize, height: (boxSize*mazeRowSize) - 1))
+            context.strokePath()
+
+            /* End point */
+            context.setFillColor(UIColor.yellow.cgColor)
+            context.fill(CGRect(x: marginLeft + boxSize*(mazeColSize) / 2 + (boxSize / 2) - 2,
+                                y: marginTop + boxSize * mazeRowSize - 4,
+                                width: 4,
+                                height: 4))
         }
-        
-        context?.setFillColor(UIColor.clear.cgColor)
-        context?.setStrokeColor(UIColor.black.cgColor)
-        context?.addRect(CGRect(x: marginLeft, y: marginTop, width: boxSize*mazeColSize, height: (boxSize*mazeRowSize) - 1 ))
-        
-        context?.strokePath()
-        
-        /* End point */
-        context?.setFillColor(UIColor.yellow.cgColor)
-        context?.fill(CGRect(x: marginLeft + boxSize*(mazeColSize) / 2 + (boxSize / 2) - 2,
-                             y: marginTop + boxSize * mazeRowSize - 4,
-                             width: 4,
-                             height: 4))
-        
-        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
         
         
         let startX = marginLeft + ((mazeColSize / 2) * boxSize) + boxSize / 2
@@ -479,23 +458,24 @@ class Labyrinth: UIImageView {
         if mode != GameMode.PLAYING && mode != GameMode.SIMULATE {
             return
         }
-        UIGraphicsBeginImageContext(imageView.bounds.size)
-        let context = UIGraphicsGetCurrentContext()!
-        imageView.image?.draw(in:imageView.bounds)
-        
-        for b in badThings {
-            b.tick(context:context)
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+        let renderer = UIGraphicsImageRenderer(size: imageView.bounds.size, format: format)
+        imageView.image = renderer.image { ctx in
+            let context = ctx.cgContext
+            imageView.image?.draw(in: imageView.bounds)
+
+            for b in badThings {
+                b.tick(context: context)
+            }
+
+            fillMaze(context: context)
+
+            if drawPoints.count < 50 {
+                fillMaze(context: context)
+                fillMaze(context: context)
+            }
         }
-        
-        fillMaze(context:context)
-        
-        if(drawPoints.count < 50) {
-            fillMaze(context:context)
-            fillMaze(context:context)
-        }
-        
-        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
         
         /* If this isn't done, retina display rendering is very off*/
         imageView.sizeToFit()
@@ -576,27 +556,26 @@ extension UIImage {
     
     func resized(toWidth width: CGFloat) -> UIImage? {
         let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
-        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
-        defer { UIGraphicsEndImageContext() }
-        draw(in: CGRect(origin: .zero, size: canvasSize))
-        return UIGraphicsGetImageFromCurrentImageContext()
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = scale
+        let renderer = UIGraphicsImageRenderer(size: canvasSize, format: format)
+        return renderer.image { _ in
+            draw(in: CGRect(origin: .zero, size: canvasSize))
+        }
     }
 }
 
 extension CGColor {
     func getColorArray() -> [CUnsignedChar] {
-        
-        UIGraphicsBeginImageContext(CGSize(width:1, height:1))
-        let context = UIGraphicsGetCurrentContext()!
-        context.setFillColor(self)
-        context.fill(CGRect(x: 0, y: 0, width: 1, height: 1 ))
-
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return image!.getPixelColor(y:0,x:0)
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 1, height: 1), format: format)
+        let image = renderer.image { ctx in
+            ctx.cgContext.setFillColor(self)
+            ctx.cgContext.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+        }
+        return image.getPixelColor(y: 0, x: 0)
     }
-
 }
 
 extension MutableCollection {
