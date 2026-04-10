@@ -44,7 +44,7 @@ class EnemySnake:EnemyBasis {
         
         tail.append(moveFrom(point:tail.last!))
 
-        let tailCol = UIColor(red:CGFloat(32),green:CGFloat(178),blue:CGFloat(170), alpha:CGFloat(0)).cgColor
+        let tailCol = UIColor(red:32.0/255.0, green:178.0/255.0, blue:170.0/255.0, alpha:0.0).cgColor
         
         for p in tail {
             context.setFillColor(p == tail.last ? UIColor.cyan.cgColor : tailCol)

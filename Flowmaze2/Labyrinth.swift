@@ -477,9 +477,6 @@ class Labyrinth: UIImageView {
             }
         }
         
-        /* If this isn't done, retina display rendering is very off*/
-        imageView.sizeToFit()
-        
       //  NSLog("%d %d", tick, drawPoints.count)
     }
     

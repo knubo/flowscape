@@ -41,18 +41,14 @@ class HighScoreDetailsViewController: UIViewController {
         view.addSubview(activityIndicator)
         
         activityIndicator.startAnimating()
- 
-        shareButton.isHidden = !score.myScore
-        
-        DispatchQueue.global(qos: .background).async {
 
+        shareButton.isHidden = !score.myScore
+
+        DispatchQueue.main.async {
             lab.simulateFast(score: score, width: dim.x, height: dim.y)
-            
-            DispatchQueue.main.async {
-                activityIndicator.stopAnimating()
-                self.gameBoard.image = lab.imageView.image
-                self.gameBoard.setNeedsDisplay()
-            }
+            activityIndicator.stopAnimating()
+            self.gameBoard.image = lab.imageView.image
+            self.gameBoard.setNeedsDisplay()
         }
       
     }

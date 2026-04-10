@@ -29,7 +29,7 @@
         <!--High Score View Controller-->
         <scene sceneID="jbI-rD-5Tb">
             <objects>
-                <viewController id="fEF-x2-iiV" customClass="HighScoreViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fEF-x2-iiV" customClass="HighScoreViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController" modalPresentationStyle="fullScreen">
                     <view key="view" contentMode="scaleToFill" id="aj8-U7-fa2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,7 +117,7 @@
         <!--High Score Details View Controller-->
         <scene sceneID="eQV-2F-SlZ">
             <objects>
-                <viewController id="dq0-fc-QTT" customClass="HighScoreDetailsViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dq0-fc-QTT" customClass="HighScoreDetailsViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController" modalPresentationStyle="fullScreen">
                     <view key="view" contentMode="scaleToFill" id="hwg-Du-dRC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,7 +184,7 @@
         <!--Share View Controller-->
         <scene sceneID="w69-PM-J2P">
             <objects>
-                <viewController id="yhb-nj-ncX" customClass="ShareViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yhb-nj-ncX" customClass="ShareViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController" modalPresentationStyle="fullScreen">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="iaR-Xl-ejm" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -278,7 +278,7 @@
         <!--Menu View Controller-->
         <scene sceneID="ew1-YI-PFa">
             <objects>
-                <viewController id="Q4Z-nN-6iT" customClass="MenuViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Q4Z-nN-6iT" customClass="MenuViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController" modalPresentationStyle="fullScreen">
                     <view key="view" contentMode="scaleToFill" id="BAk-PX-2o2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -343,7 +343,7 @@
         <!--Help View Controller-->
         <scene sceneID="S9u-En-XcF">
             <objects>
-                <viewController id="CV8-I5-gOw" userLabel="Help View Controller" customClass="HelpViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CV8-I5-gOw" userLabel="Help View Controller" customClass="HelpViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController" modalPresentationStyle="fullScreen">
                     <view key="view" contentMode="scaleToFill" id="uoh-bq-xhh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -376,7 +376,7 @@
         <!--Import Score Controller-->
         <scene sceneID="EhV-8l-y6y">
             <objects>
-                <viewController id="j1P-rp-Q7M" userLabel="Import Score Controller" customClass="ImportViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="j1P-rp-Q7M" userLabel="Import Score Controller" customClass="ImportViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController" modalPresentationStyle="fullScreen">
                     <view key="view" contentMode="scaleToFill" id="3Dd-SJ-9nW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -431,7 +431,7 @@
         <!--Game View Controller-->
         <scene sceneID="UOJ-lc-NPd">
             <objects>
-                <viewController id="0jo-J5-qeD" customClass="GameViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0jo-J5-qeD" customClass="GameViewController" customModule="Flowmaze2" customModuleProvider="target" sceneMemberID="viewController" modalPresentationStyle="fullScreen">
                     <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="iWK-X8-tgP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
